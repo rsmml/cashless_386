@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    resources :cards
+  devise_for :users
+
+  resources :user, only: :show do
+    resources :cards, only: :index
   end
 
   root to: 'pages#home'
