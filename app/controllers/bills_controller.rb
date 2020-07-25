@@ -1,7 +1,9 @@
 class BillsController < ApplicationController
+  before_action :authenticate_user!, only: [ :new, :create ]
 
   def new
-
+    @bill = Bill.new
+    authorize @bill
   end
 
   def create

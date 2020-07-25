@@ -8,7 +8,10 @@ class User < ApplicationRecord
   has_many :bills
   has_many :reviews
 
+  has_one_attached :photo
+
   GENDERS = %w[male female other]
+
 
   # validates_length_of :password, in: 6..20, on: :create
   # validates :name, presence: true

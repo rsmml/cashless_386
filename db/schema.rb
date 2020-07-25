@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_101955) do
+ActiveRecord::Schema.define(version: 2020_07_25_131202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_07_25_101955) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "set_content"
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["vendor_id"], name: "index_reviews_on_vendor_id"
   end
@@ -77,6 +78,10 @@ ActiveRecord::Schema.define(version: 2020_07_25_101955) do
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
+    t.text "weekday_opening_times"
+    t.text "saturday_opening_times"
+    t.text "sunday_opening_times"
   end
 
   add_foreign_key "bills", "users"
