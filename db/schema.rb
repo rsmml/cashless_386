@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_07_25_131202) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "set_content"
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["vendor_id"], name: "index_reviews_on_vendor_id"
   end

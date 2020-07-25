@@ -7,12 +7,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new(review_params)
+    @review = Review.new
     authorize @review
   end
 
   def create
-    @review = Review.new
+    @review = Review.new(review_params)
     authorize @review
     @review.user = current_user
     @review.vendor = Vendor.find(params[:vendor_id])
@@ -30,6 +30,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:content, :rating)
   end
 end
