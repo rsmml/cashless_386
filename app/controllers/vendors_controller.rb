@@ -3,7 +3,14 @@ class VendorsController < ApplicationController
   before_action :set_vendor, only: :show
 
   def index
-    @vendors = policy_scope(Vendor).order(name: :asc)
+    @vendors = policy_scope(Vendor.geocoded).order(name: :asc)
+
+    @markers = @vendors.map do |vendor|
+      {
+        lat: vendor.latitude,
+        lng: vendor.longitude
+      }
+    end
   end
 
   def show
