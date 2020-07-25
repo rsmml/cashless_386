@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+
+    Date : <%= Time.now.strftime("%d %b %Y") %>
+    <%= simple_form_for(@bill) do |f| %>
+    <%= f.hidden_field :date %>
+    <%= f.association :vendor %>
+    <%= f.association :user %>
+    <%= f.input :price_cents %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+
+    </div>
+  </div>
+</div>
