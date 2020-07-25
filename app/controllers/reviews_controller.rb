@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    @review = Review.new(review_params)
     authorize @review
   end
 
