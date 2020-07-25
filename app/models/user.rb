@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   GENDERS = %w[male female other]
 
+
   # validates_length_of :password, in: 6..20, on: :create
   # validates :name, presence: true
   # validates :last_name, presence: true
