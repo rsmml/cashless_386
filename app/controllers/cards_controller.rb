@@ -6,40 +6,40 @@ class CardsController < ApplicationController
     @cards = policy_scope(Card)
   end
 
-  def new
-    @card = Card.new
-    authorize @card
-  end
+  # def new
+  #   @card = Card.new
+  #   authorize @card
+  # end
 
-  def create
-    @card = Card.new(card_params)
-    @card.user = current_user
-    authorize @card
-    if @card.save
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
+  # def create
+  #   @card = Card.new(card_params)
+  #   @card.user = current_user
+  #   authorize @card
+  #   if @card.save
+  #     redirect_to root_path
+  #   else
+  #     render :new
+  #   end
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    if @card.update(card_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @card.update(card_params)
+  #     redirect_to root_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def destroy
-    @card.destroy
-    redirect_to root_path
-  end
+  # def destroy
+  #   @card.destroy
+  #   redirect_to root_path
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
   private
 
