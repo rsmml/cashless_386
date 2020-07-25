@@ -5,7 +5,7 @@ class VendorPolicy < ApplicationPolicy
     end
   end
 
-  def show
+  def show?
     true
   end
 
@@ -17,15 +17,15 @@ class VendorPolicy < ApplicationPolicy
     true
   end
 
-  def edit
-    update?
-  end
+  # def edit
+  #   update?
+  # end
 
-  def update?
-    record.user == user
-  end
+  # def update?
+  #   record.user == user
+  # end
 
-  def destroy?
-    update?
-  end
+  # def destroy?
+  #   update?
+  # end
 end

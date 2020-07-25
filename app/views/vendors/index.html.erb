@@ -1,1 +1,6 @@
-
+<div class="container">
+  <p>Businesses in your area:</p>
+  <% @vendors.each do |vendor| %>
+    <h3><%= vendor.name %></h3>
+  <% end %>
+</div>
