@@ -5,7 +5,7 @@ class BillsController < ApplicationController
   end
 
   def create
-
+    raise
   end
 
   def show
