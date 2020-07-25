@@ -17,7 +17,7 @@ class VendorsController < ApplicationController
 
   def create
     @vendor = Vendor.new(vendor_params)
-    @vendor.user = current_user
+    # @vendor.user = current_user
     authorize @vendor
     if @vendor.save
       redirect_to vendor_path(@vendor)
