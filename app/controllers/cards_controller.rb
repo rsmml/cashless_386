@@ -19,4 +19,10 @@ class CardsController < ApplicationController
 
   def show
   end
+
+  private
+
+  def card_params
+    params.require(:card).permit(:type, :number, :expire_date, :ccv, :bank_name, :card_holder)
+  end
 end
