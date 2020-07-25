@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_07_25_090215) do
 
   # These are extensions that must be enabled in order to support this database
@@ -73,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_07_25_090215) do
     t.string "name"
     t.string "address"
     t.string "type"
-    t.integer "phone"
+    t.string "phone"
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
