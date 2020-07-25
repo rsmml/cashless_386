@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_090141) do
+
+ActiveRecord::Schema.define(version: 2020_07_25_090215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.date "date"
+    t.string "status"
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "vendor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.index ["user_id"], name: "index_bills_on_user_id"
+    t.index ["vendor_id"], name: "index_bills_on_vendor_id"
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string "type"
+    t.string "number"
+    t.date "expire_date"
+    t.string "ccv"
+    t.string "bank_name"
+    t.string "card_holder"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
@@ -55,6 +80,8 @@ ActiveRecord::Schema.define(version: 2020_07_25_090141) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bills", "users"
+  add_foreign_key "bills", "vendors"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "vendors"
 end
