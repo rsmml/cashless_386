@@ -1,17 +1,21 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update]
-  before_action :set_vendor, only: [:show, :edit]
+  before_action :set_vendor, only: [:new, :create, :show, :edit]
   skip_before_action :authenticate_user!, only: [:new, :create] # for vendor
 
   def new
     @bill = Bill.new
+    @bill.date = Time.now
+    authorize @bill
   end
 
   def create
-    @bill = Bill.new(booking_params)
-    @bill.vendor = params[:vendor_id]
+    @bill = Bill.new(bill_params)
+    @bill.vendor = @vendor
+    @bill.user = current_user
     @bill.price = params[:price]
     @bill.status = "pending"
+    authorize @bill
 
     if @bill.save
       redirect_to bill_path(@bill)
