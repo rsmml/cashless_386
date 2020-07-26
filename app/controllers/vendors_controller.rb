@@ -8,7 +8,8 @@ class VendorsController < ApplicationController
     @markers = @vendors.map do |vendor|
       {
         lat: vendor.latitude,
-        lng: vendor.longitude
+        lng: vendor.longitude,
+        infoWindow: render_to_string(partial: "vendor_popup", locals: { vendor: vendor })
       }
     end
   end
