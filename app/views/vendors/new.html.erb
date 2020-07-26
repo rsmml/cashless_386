@@ -6,9 +6,8 @@
     <%= f.input :business %>
     <%= f.input :city %>
     <%= f.input :description %>
-    <%= f.input :weekday_opening_times %>
-    <%= f.input :saturday_opening_times %>
-    <%= f.input :sunday_opening_times %>
+    <%= f.input :opens, as: :time %>
+    <%= f.input :closes %>
     <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
