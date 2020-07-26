@@ -1,0 +1,15 @@
+<div class="container">
+  <%= simple_form_for @vendor do |f|%>
+    <%= f.input :name, as: :string %>
+    <%= f.input :address %>
+    <%= f.input :phone %>
+    <%= f.input :business %>
+    <%= f.input :city %>
+    <%= f.input :description %>
+    <%= f.input :opens, as: :time %>
+    <%= f.input :closes %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
