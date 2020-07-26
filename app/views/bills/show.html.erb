@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
+    <div class="col-12">
 
-  <p>Amount: <%= humanized_money_with_symbol(@bill.price) %></p>
+    <p>You are goint to send money to </p>
+    <h5><%= @bill.vendor.name %></h5>
+    <p>Amount: <%= humanized_money_with_symbol(@bill.price) %></p>
 
+    </div>
   </div>
 </div>
