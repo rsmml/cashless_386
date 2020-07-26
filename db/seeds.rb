@@ -42,7 +42,7 @@ vendor_b = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Pharmacy Pills" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -56,7 +56,7 @@ vendor_c = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Asian Restaurant Japanese" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -70,7 +70,7 @@ vendor_d = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Fast Food, Burger, Fries" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -84,7 +84,7 @@ vendor_e = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Bread Fresh" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -98,7 +98,7 @@ vendor_f = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Vegetarian Casual Late Night" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -112,7 +112,7 @@ vendor_g = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Frech Restaurant" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -126,7 +126,7 @@ vendor_h = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Money Lotto Games" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -140,7 +140,7 @@ vendor_i = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Asian Thai" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -154,7 +154,7 @@ vendor_j = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Asian Thai" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -168,7 +168,7 @@ vendor_k = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Spanish Spain Casual" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -182,7 +182,7 @@ vendor_l = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Spätkauf Spetti Kiosk" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -196,7 +196,7 @@ vendor_m = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Cosy Coffee Tea Muffins" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -210,7 +210,7 @@ vendor_n = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Irish Beer Pub Cocktails Cozy" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -224,7 +224,7 @@ vendor_o = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Cosy Coffee Tea Muffins" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -238,7 +238,7 @@ vendor_p = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Russian Salads" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -252,7 +252,7 @@ vendor_q = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "BBQ Sauce Grill" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -266,7 +266,7 @@ vendor_r = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Cosy Coffee Tea Muffins" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -280,7 +280,7 @@ vendor_s = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Italian Restaurant Food Casual" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -294,7 +294,7 @@ vendor_t = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Fresh Food Vegetarian Salads" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -308,7 +308,7 @@ vendor_u = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Cosy Casual Spanish" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -322,7 +322,7 @@ vendor_v = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Asian Pho" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -336,7 +336,7 @@ vendor_w = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Retro Asian" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -350,7 +350,7 @@ vendor_x = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Cosy Coffee Tea Muffins" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -359,12 +359,12 @@ vendor_x.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Vendor #{vendor_x.id} was created"
 
 vendor_y = Vendor.create(
-  name: "Nobelhart & Schmutzig ",
+  name: "Nobelhart & Schmutzig",
   address: "Friedrichstraße 218, 10969 Berlin",
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Restaurant Cosy Beer" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
@@ -378,7 +378,7 @@ vendor_z = Vendor.create(
   business: "" ,
   phone: "" ,
   city: "Berlin" ,
-  description: "Spätkauf Spetti" ,
+  description: "Fast Food" ,
   opens: "09:00:00 UTC +00:00",
   closes: "23:30:00 UTC +00:00"
   )
