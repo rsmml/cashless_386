@@ -11,6 +11,9 @@ Review.destroy_all
 puts 'Reviews are cleaned'
 Bill.destroy_all
 puts 'Bills are cleaned'
+Card.destroy_all
+User.destroy_all
+puts 'Users Cleaned'
 Vendor.destroy_all
 puts 'Vendors are cleaned'
 sleep(0.2)
@@ -390,10 +393,11 @@ puts "Vendor #{vendor_z.id} was created"
 
 puts "Vendors Created"
 puts "Creating a few Users"
+
 10.times do
   user = User.create(
-    email:Faker::Internet.email,
-    encrypted_password: "123456",
+    email: Faker::Internet.email,
+    password: "123456",
     name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     nick_name: Faker::Name.middle_name,
