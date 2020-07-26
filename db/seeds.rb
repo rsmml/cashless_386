@@ -389,6 +389,59 @@ puts "Vendor #{vendor_z.id} was created"
 
 
 puts "Vendors Created"
+puts "Creating a few Users"
+10.times do
+  user = User.create(
+    email:Faker::Internet.email,
+    encrypted_password: "123456",
+    name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    nick_name: Faker::Name.middle_name,
+    phone_number: Faker::PhoneNumber.cell_phone_with_country_code,
+    date_of_birth: Faker::Date.between(from: '1980-01-01', to: '2001-12-31'),
+    gender: ['female', 'male', 'other'].sample,
+    address: Faker::Address.full_address,
+    )
+  file = URI.open('https://res.cloudinary.com/dm9csvoft/image/upload/ar_1:1,b_rgb:262c35,bo_5px_solid_rgb:ffffff,c_fill,g_auto,r_max,w_1000/v1595795352/default-user_jw8cvi.png')
+  user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  puts "User #{user.id} was created"
+end
+
+puts "Users Created"
 puts "Adding some reviews"
 
-puts "Reviews Will be added soon..."
+comments = [
+  "Amazing Place",
+  "I would back again",
+  "Best Service!",
+  "The beer was amazing",
+  "Good Prices",
+  "The waiter was sleeping",
+  "No comments",
+  "Best brunch ever",
+  "The mimosas were excelent",
+  "I love it",
+  "Best place to use the app",
+  "I had a hair on my soup",
+  "The booking was cancell without notice",
+  "We wait 30 mins under the rain",
+  "We had to use mask while eating...",
+  "Never again",
+  "Good Coffee",
+  "Good",
+  "Fair enough",
+  "Best prices in town",
+]
+
+100.times do
+  review = Review.create(
+    content: comments.sample,
+    rating: rand(2..5),
+    user_id: User.all.sample.id,
+    vendor_id: Vendor.all.sample.id,
+    )
+  puts "Review #{review.id} was created"
+end
+
+puts "Reviews done"
+puts "Seeds Done"
