@@ -7,11 +7,15 @@
   <% end %>
   <h2><%= link_to vendor.name, vendor_path(vendor) %></h2>
   <!-- ratings -->
-  <!-- open or closed -->
-<!-- if the current time is bigger or equal to the opening and smaller than the closing -->
-  <!-- open - closes at :closes -->
-  <!-- else -->
-  <!-- closed - open between :opens AM and :closes PM-->
 
+  <!-- open or closed -->
+  <% opening = (vendor.opens.hour.to_s + vendor.opens.min.to_s).to_i %>
+  <% closing = (vendor.closes.hour.to_s + vendor.closes.min.to_s).to_i %>
+  <% current_time = (Time.now.hour.to_s + Time.now.min.to_s).to_i %>
+  <% if current_time >= opening && current_time < closing %>
+   <p>OPEN - Closes <%= vendor.closes.hour.to_s %>:<%= vendor.closes.min.to_s %></p>
+  <% else %>
+    <p>CLOSED Open between <%= "#{vendor.opens.hour.to_s}:#{vendor.opens.min.to_s} - #{vendor.closes.hour.to_s}:#{vendor.closes.min.to_s}" %></p>
+  <% end %>
   <!-- directions -->
 </div>
