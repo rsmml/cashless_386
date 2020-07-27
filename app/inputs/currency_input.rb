@@ -13,7 +13,7 @@ class CurrencyInput < SimpleForm::Inputs::Base
   end
 
   def currency_addon(currency)
-    content_tag(:span, currency, class: "input-group-addon mr-3")
+    content_tag(:span, currency, class: "input-group-text")
   end
 
   def default_currency
