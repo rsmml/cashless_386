@@ -1,11 +1,13 @@
+import {loadStripe} from '@stripe/stripe-js';
+
+const stripe = await loadStripe(STRIPE_PUBLISHABLE_KEY);
+
 // Create a Stripe client.
 var stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
 
 // Create an instance of Elements.
 var elements = stripe.elements();
 
-// Custom styling can be passed to options when creating an Element.
-// (Note that this demo uses a wider set of styles than the guide below.)
 var style = {
   base: {
     color: '#32325d',

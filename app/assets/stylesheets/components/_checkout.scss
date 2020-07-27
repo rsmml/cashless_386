@@ -1,4 +1,4 @@
-.peyment-form {
+.StripeElement {
   box-sizing: border-box;
 
   height: 40px;
@@ -14,14 +14,14 @@
   transition: box-shadow 150ms ease;
 }
 
-.peyment-form--focus {
+.StripeElement--focus {
   box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
-.peyment-form--invalid {
+.StripeElement--invalid {
   border-color: #fa755a;
 }
 
-.peyment-form--webkit-autofill {
+.StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
