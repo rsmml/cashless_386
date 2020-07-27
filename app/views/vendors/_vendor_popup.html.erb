@@ -6,7 +6,20 @@
     <%= image_tag 'restaurant-logo', height: 100, width: 100, crop: :fill %>
   <% end %>
   <h2><%= link_to vendor.name, vendor_path(vendor) %></h2>
+
   <!-- ratings -->
+
+  <div class="d-flex">
+    <% if Review.where(vendor_id: vendor.id).count.positive? %>
+      <% ratings = Review.where(vendor_id: vendor.id).map {|review| review.rating } %>
+      <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
+      <p><%= stars %></p>
+      <% (stars.to_i).times do  %>
+        <i class="fas fa-star" style="color: #ffa931"></i>
+      <% end %>
+    <% end %>
+  </div>
+
 
   <!-- open or closed -->
   <% opening = (vendor.opens.hour.to_s + vendor.opens.min.to_s).to_i %>
