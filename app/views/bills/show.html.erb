@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12">
+    <div class="col-12 text-center">
 
     <p>You are goint to send money to </p>
     <h5><%= @bill.vendor.name %></h5>
-    <p>Amount: <%= humanized_money_with_symbol(@bill.price) %></p>
+    <h5 class="alert alert-primary" role="alert"><span class="currency_symbol">$</span><span class="btn btn-primary"><%= humanized_money @money_object %></span></h5>
 
     </div>
 
-    <div class="col-12">
+    <div class="col-12 text-center">
       <script src="https://js.stripe.com/v3/"></script>
 
         <form action="/charge" method="post" id="payment-form">
