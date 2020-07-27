@@ -24,6 +24,7 @@ gem 'pundit'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'money-rails'
 gem 'stripe'
+gem 'faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
