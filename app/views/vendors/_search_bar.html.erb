@@ -1,0 +1,12 @@
+<div class="search-bar-index mt-3 d-flex justify-content-center" >
+    <%= form_tag vendors_path, method: :get do %>
+      <span class="input" >
+        <%= text_field_tag :query, params[:query], class: "form-control d-inline w-auto border-radius-search", placeholder: "What are you looking for?" %>
+      </span>
+      <span class="input" ><%= submit_tag 'Search', class: "btn btn-primary border-radius-search-btn" %>
+      </span>
+    <% end %>
+</div>
+
+<!-- style="position: relative;left: 15px;" -->
+<!-- style="position: relative;left: -5px; bottom: 1px;" -->
