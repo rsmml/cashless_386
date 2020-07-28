@@ -1,0 +1,45 @@
+<div class="container-sm p-5">
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+
+      <p>You are goint to send money to </p>
+      <h5><%= @bill.vendor.name %></h5>
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+            <span class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
+           </div>
+        <input type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
+      </div>
+
+        <div class="card rounded mb-3 justify-content-sm-around">
+          <div class="card-body">
+            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">5%</button>
+            <button type="button" class="btn btn-dark p-2 bd-highlight rounded">10%</button>
+            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">15%</button>
+            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">€</button>
+            <span class="ml-auto p-2 bd-highlight text-secondary">Tips</span>
+          </div>
+        </div>
+
+        <div class="card rounded mb-3 justify-content-sm-around">
+          <div class="card-body">
+            <i class="fab fa-cc-visa bd-highlight" style="font-size:32px"></i>
+            <span class="ml-auto p-2 bd-highlight text-secondary">Change</span>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="col-12 text-center fixed-bottom mb-5">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-amount="<%= @bill.price_cents %>"
+        data-name="Your payment for"
+        data-description="<%= @bill.vendor.name %>"
+        data-currency="<%= @bill.price.currency %>">
+      </script>
+    </div>
+
+  </div>
+</div>

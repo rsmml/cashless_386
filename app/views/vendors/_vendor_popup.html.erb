@@ -17,6 +17,9 @@
       <% (stars.to_i).times do  %>
         <i class="fas fa-star" style="color: #ffa931"></i>
       <% end %>
+      <% if stars % 1 != 0 %>
+        <i class="fa fa-star-half" style="color: #ffa931" aria-hidden="true"></i>
+      <% end %>
     <% end %>
   </div>
 
