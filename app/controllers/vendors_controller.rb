@@ -3,7 +3,15 @@ class VendorsController < ApplicationController
   before_action :set_vendor, only: :show
 
   def index
-    @vendors = policy_scope(Vendor.geocoded).order(name: :asc)
+    if params[:query].present?
+      sql_query = " \
+        vendors.name @@ :query \
+        OR vendors.description @@ :query \
+      "
+      @vendors = policy_scope(Vendor.geocoded.where(sql_query, query: "%#{params[:query]}%"))
+    else
+      @vendors = policy_scope(Vendor.geocoded)
+    end
 
     @markers = @vendors.map do |vendor|
       {
