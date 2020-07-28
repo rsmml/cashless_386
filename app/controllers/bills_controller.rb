@@ -26,6 +26,16 @@ class BillsController < ApplicationController
 
   def show
     authorize @bill
+
+      @code = @bill.qrcode
+      @qrcode = RQRCode::QRCode.new(@code)
+      @svg = @qrcode.as_svg(
+        offset: 0,
+        color: '000',
+        shape_rendering: 'crispEdges',
+        module_size: 4
+        )
+
   end
 
   def edit

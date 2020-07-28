@@ -28,31 +28,12 @@
           </div>
         </div>
 
-        <div class="wrapper">
-        <script src="https://js.stripe.com/v3/"></script>
-
-        <form action="/charge" method="post" id="payment-form">
-          <div class="form-row justify-content-center">
-            <label for="card-element">
-              Credit or debit card
-            </label>
-            <div id="card-element" class="StripeElement StripeElement--empty">
-              <!-- A Stripe Element will be inserted here. -->
-            </div>
-
-            <!-- Used to display form errors. -->
-            <div id="card-errors" role="alert"></div>
-          </div>
-          <button>Submit Payment</button>
-        </form>
-        </div>
-
     </div>
 
+    <%= @svg.html_safe %>
 
 
-
-    <div class="col-12 text-center fixed-bottom mb-5">
+    <div class="col-12 text-center fixed-bottom mb-3">
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
