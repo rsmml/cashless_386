@@ -24,10 +24,13 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import {loadStripe} from '@stripe/stripe-js';
+const stripe = await loadStripe(STRIPE_PUBLISHABLE_KEY)
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initStripe } from '../plugins/init_stripe';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:

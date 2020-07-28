@@ -25,6 +25,8 @@ gem 'pundit'
 gem 'money-rails'
 gem 'stripe'
 gem 'faker'
+gem 'stripe_event'
+gem 'rqrcode', '~> 1.1', '>= 1.1.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

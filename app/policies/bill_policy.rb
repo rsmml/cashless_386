@@ -5,10 +5,6 @@ class BillPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    show?
-  end
-
   def show?
     true
   end
