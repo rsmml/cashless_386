@@ -4,7 +4,24 @@
     visibility: hidden;
   }
 
+  label {
+    background-color: white;
+    border: none;
+    color: #b2b2b2;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 3px #dedede;
+  }
+
+  label:hover {
+    background-color: #ececeb;
+  }
+
   input:checked + label {
-    background: red;
+    background: #ececeb;
   }
 }
