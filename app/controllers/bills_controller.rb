@@ -9,14 +9,13 @@ class BillsController < ApplicationController
     authorize @bill
   end
 
- def create
+  def create
     @bill = Bill.new(bill_params)
     @bill.vendor = @vendor
     @bill.user = User.find(params[:bill][:user_id])
     @bill.price = params[:bill][:price]
     @bill.status = "pending"
     authorize @bill
-
 
     if @bill.save
       redirect_to bill_path(@bill)
@@ -26,7 +25,7 @@ class BillsController < ApplicationController
   end
 
   def show
-  authorize @bill
+    authorize @bill
   end
 
   def edit
@@ -37,7 +36,7 @@ class BillsController < ApplicationController
 
   end
 
-    private
+  private
 
   def set_bill
     @bill = Bill.find(params[:id])

@@ -5,12 +5,17 @@ class BillPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    true
+  end
+
   def show?
     true
   end
 
-  def create?
-    true
+  def update?
+    record.user == user
   end
+
 
 end

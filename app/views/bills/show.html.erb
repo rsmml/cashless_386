@@ -27,27 +27,28 @@
             <span class="ml-auto p-2 bd-highlight text-secondary">Change</span>
           </div>
         </div>
+
+        <div class="wrapper">
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <form action="/charge" method="post" id="payment-form">
+          <div class="form-row justify-content-center">
+            <label for="card-element">
+              Credit or debit card
+            </label>
+            <div id="card-element" class="StripeElement StripeElement--empty">
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
+          </div>
+          <button>Submit Payment</button>
+        </form>
+        </div>
+
     </div>
 
-
-
-<script src="https://js.stripe.com/v3/"></script>
-
-<form action="/charge" method="post" id="payment-form">
-  <div class="form-row">
-    <label for="card-element">
-      Credit or debit card
-    </label>
-    <div id="card-element">
-      <!-- A Stripe Element will be inserted here. -->
-    </div>
-
-    <!-- Used to display form errors. -->
-    <div id="card-errors" role="alert"></div>
-  </div>
-
-  <button>Submit Payment</button>
-</form>
 
 
 
