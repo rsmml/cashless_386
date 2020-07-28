@@ -1,9 +1,16 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
+// Font Family Choosen
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&family=Poppins:wght@300;400&display=swap');
+// CSS rules to specify families
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Poppins', sans-serif;
+
+
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Montserrat', sans-serif;
+$headers-font: 'Poppins', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
