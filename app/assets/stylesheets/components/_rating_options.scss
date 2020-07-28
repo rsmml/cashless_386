@@ -1,0 +1,10 @@
+.radio-buttons {
+
+  input {
+    visibility: hidden;
+  }
+
+  input:checked + label {
+    background: red;
+  }
+}
