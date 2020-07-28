@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-5 col-sm-5" style="margin: auto;">
+
       <%= simple_form_for [@vendor, @review] do |f| %>
         <%= f.input :set_content, collection: Review::SET_CONTENT %>
         <%= f.input :content %>
-        <%= f.input :rating %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
         <%= f.submit "Sent", class: "btn btn-primary" %>
       <% end %>
       <button type="button" class="btn btn-link"><%= link_to 'Back', :back %></button>
