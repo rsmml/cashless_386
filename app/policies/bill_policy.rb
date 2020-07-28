@@ -10,7 +10,7 @@ class BillPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    true or BillPolicy.new(user, Bill.find(bill_id)).show?
   end
 
   def update?
