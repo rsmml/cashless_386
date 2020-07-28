@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage-container">
+  <div>
+    <div id="logo">
+      <%= cl_image_tag "logo_aoeovf", alt: "alttext" %>
+    </div>
+    <div id="slogan">
+      <h2>Let's move forward</h2>
+      <h2>Pay Cashless</h2>
+    </div>
+  </div>
+  <div>
+    <div class="get-started">
+      <%= link_to "Get Started", "#" %>
+    </div>
+    <div class="homepage-log-ing">
+      <p>Already an account?
+      <%= link_to "Log-in", "#" %>
+      </p>
+    </div>
+  </div>
+</div>
