@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :cards, only: :index
   end
 
+  resources :dashboards, only: :show
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :vendors, only: %i[index new create edit update destroy show] do

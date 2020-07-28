@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :cards
   has_many :bills
   has_many :reviews
-
+  has_one :dashboard
   has_one_attached :photo
 
   GENDERS = %w[male female other]
