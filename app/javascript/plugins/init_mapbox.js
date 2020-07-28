@@ -26,8 +26,10 @@ const initMapbox = () => {
     });
 
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+//     search function from mapbox - currently disabled
+
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //                                   mapboxgl: mapboxgl }));
     map.addControl(
           new mapboxgl.GeolocateControl({
           positionOptions: {
