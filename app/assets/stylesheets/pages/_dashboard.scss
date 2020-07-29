@@ -1,0 +1,23 @@
+.dashboard-container{
+  background: image-url('background-1') no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding-left: 16px;
+  color: white;
+  .round-grey-menu-bar{
+    text-align: end;
+    padding: 25px 25px 0 0;
+    i {
+      color: white;
+      border-radius: 50%;
+      background-color: $lightgray;
+      padding: 10px 11px;
+    }
+  }
+  #name{
+    h2{
+      padding: 20px 0 20px 0;
+    }
+  }
+}
