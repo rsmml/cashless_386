@@ -9,7 +9,10 @@
     <%= f.input :last_name, label: false, placeholder: "Williams" %>
     <%= f.input :nick_name, label: false, placeholder: "Jo" %>
     <%= f.input :phone_number,label: false, placeholder: "+49 176 12345678" %>
-    <%= f.input :date_of_birth, label: false, placeholder: "1990 / 07 / 01" %>
+    <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 85,
+                              end_year: Date.today.year - 15, discard_day: false,
+                              order: [:year, :month, :day],
+                              label: false %>
     <%= f.input :gender, collection: User::GENDERS, label: false, placeholder: "Masculine" %>
     <%= f.input :address, label: false, placeholder: "Fake Street 123" %>
     <%= f.input :photo, as: :file, required: true %>

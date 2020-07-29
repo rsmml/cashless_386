@@ -25,15 +25,25 @@
   <div class="cards-grid">
     <div><p style="font-size: 16px;">Account & cards</p></div>
     <div class="card-row">
-      <div class="card-card"></div>
-      <div class="card-card"></div>
-      <div class="card-card"></div>
+      <% @user.cards.each do |card| %>
+        <div class="card-card">
+          <%= cl_image_tag("Screen_Shot_2020-06-13_at_15.03.52_iy0yev.png", :width=>57, :crop=>"thumb") %>
+          <p><%= card.bank_name %></p>
+        </div>
+      <% end %>
+      <%= link_to "#", :action => 'go' do %>
+          <div class="new-card-card">
+            <p>+</p>
+          </div>
+      <% end %>
     </div>
   </div>
-  <div id="add"></div>
+  <div id="ad"></div>
   <div class="slider-btns"></div>
   <div class="bottom-card-dashboard"></div>
 </div>
+
+
 
 
 
