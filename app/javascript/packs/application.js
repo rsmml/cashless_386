@@ -29,7 +29,11 @@ import "@stripe/stripe-js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+<<<<<<< HEAD
 import { initPlusMenuDashboard } from '../components/plus-menu';
+=======
+import { initCheckout } from '../plugins/init_checkout';
+>>>>>>> master
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -37,3 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initPlusMenuDashboard();
 });
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();

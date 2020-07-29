@@ -27,6 +27,8 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'rqrcode', '~> 1.1', '>= 1.1.2'
 gem 'faker'
+gem 'stripe_event'
+gem 'rqrcode', '~> 1.1', '>= 1.1.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

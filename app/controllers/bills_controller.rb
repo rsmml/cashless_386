@@ -5,7 +5,6 @@ class BillsController < ApplicationController
 
   def new
     @bill = Bill.new
-    @bill.date = Time.now
     authorize @bill
   end
 
@@ -14,11 +13,12 @@ class BillsController < ApplicationController
     @bill.vendor = @vendor
     @bill.user = User.find(params[:bill][:user_id])
     @bill.price = params[:bill][:price]
+    @bill.date = Time.now
     @bill.status = "pending"
     authorize @bill
 
     if @bill.save
-      redirect_to bill_path(@bill)
+      redirect_to bill_qrcode_path(@bill)
     else
       render :new
     end
