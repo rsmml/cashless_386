@@ -37,8 +37,9 @@ const initMapbox = () => {
           const end = [ marker.lng, marker.lat ];
           const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
           map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
-
           getRoute(end, start)
+
+
         });
       });
     });
@@ -132,12 +133,19 @@ function getRoute(end, start) {
           }
         });
     }
-    // add turn instructions here at the end
+    const instructions = document.getElementById('instructions');
+          const steps = data.legs[0].steps;
+
+          var tripInstructions = [];
+          for (var i = 0; i < steps.length; i++) {
+            tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+            instructions.innerHTML = '<br><span class="duration">🚶🏻‍♂️ ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+          }
   };
   req.send();
 }
 
-// // probably don't need this part
+// // probably don't need this part?
 // map.on('load', function() {
 //   // make an initial directions request that
 //   // starts and ends at the same location
