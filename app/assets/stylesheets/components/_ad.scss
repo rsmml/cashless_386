@@ -1,0 +1,32 @@
+#ad{
+  background-color: rgba(255,255,255,1);
+  display: flex;
+  margin: 21px 16px 48px 16px;
+  padding: 6px;
+  border-radius: 10px;
+  p{
+    margin:0px;
+    font-size: 14px;
+    color: $black;
+  }
+  .ad-logo{
+    margin-right: 17px;
+    p{
+      background-color: $lightgray;
+      color: $gray;
+      padding: 1px 2px;
+      border-radius: 4px;
+    }
+  }
+  .vendor-avatar{
+    margin-right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ad-menu{
+    i{
+      color: $lightgray;
+    }
+  }
+}

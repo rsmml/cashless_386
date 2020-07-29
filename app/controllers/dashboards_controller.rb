@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
   before_action :set_user, only: %i[show]
 
   def show
-    # @cards = Card.find_by(user: current_user.id)
+    @vendor = Vendor.all
   end
 
   private
