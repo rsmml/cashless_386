@@ -4,38 +4,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "name" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "last_name" }%>
-    <%= f.input :nick_name,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "nick_name" }%>
-    <%= f.input :phone_number,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "phone_number" }%>
-    <%= f.input :date_of_birth,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "date_of_birth" }%>
-    <%= f.input :gender,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "gender" }%>
-    <%= f.input :address,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "address" }%>
+    <%= f.input :email, label: false, placeholder: "joewilliams@gmail.com" %>
+    <%= f.input :name, label: false, placeholder: "Joe" %>
+    <%= f.input :last_name, label: false, placeholder: "Williams" %>
+    <%= f.input :nick_name, label: false, placeholder: "Jo" %>
+    <%= f.input :phone_number,label: false, placeholder: "+49 176 12345678" %>
+    <%= f.input :date_of_birth, label: false, placeholder: "1990 / 07 / 01" %>
+    <%= f.input :gender, collection: User::GENDERS, label: false, placeholder: "Masculine" %>
+    <%= f.input :address, label: false, placeholder: "Fake Street 123" %>
+    <%= f.input :photo, as: :file, required: true %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

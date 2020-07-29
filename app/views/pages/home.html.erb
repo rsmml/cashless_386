@@ -10,7 +10,11 @@
   </div>
   <div class="bottom-box">
     <div class="get-started">
-      <%= link_to "Get Started", "#" %>
+      <% if current_user %>
+        <%= link_to "Get Started", dashboard_path(current_user) %>
+      <% else %>
+        <%= link_to "Get Started", '#' %>
+      <% end %>
     </div>
     <div class="homepage-log-ing">
       <p>Already an account?
