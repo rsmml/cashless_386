@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @review.user = current_user
     authorize @review
   end
 
