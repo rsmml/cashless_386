@@ -19,6 +19,7 @@ class VendorsController < ApplicationController
       {
         lat: vendor.latitude,
         lng: vendor.longitude,
+        id: vendor.id,
         infoWindow: render_to_string(partial: "vendor_popup", locals: { vendor: vendor })
       }
     end
