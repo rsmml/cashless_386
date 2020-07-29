@@ -1,13 +1,10 @@
 <div class="container">
-  <p>Businesses in your area:</p>
-  <% @vendors.each do |vendor| %>
-    <h3><%= vendor.name %></h3>
-    <p> <%= vendor.latitude %> </p>
-  <% end %>
 <div id="search"><%= render "search_bar" %></div>
+
   <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <div id="instructions"></div>
 </div>
