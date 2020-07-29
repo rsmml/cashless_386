@@ -3,10 +3,10 @@
     <div class="col-sm-5 col-sm-5" style="margin: auto;">
 
       <%= simple_form_for [@vendor, @review] do |f| %>
-        <%= f.input :set_content, as: :radio_buttons, wrapper_html: { class: "radio-buttons" }, collection: Review::SET_CONTENT %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-        <%= f.submit "Sent", class: "btn btn-primary" %>
+        <%= f.input :rating, collection: (1..5).to_a, label: false %>
+        <%= f.input :set_content, label: false, as: :radio_buttons, wrapper_html: { class: "radio-buttons" }, collection: Review::SET_CONTENT %>
+        <%= f.input :content, label: false, :placeholder => 'Or write something here...' %>
+        <%= f.submit "Send", class: "btn btn-primary" %>
       <% end %>
       <button type="button" class="btn btn-link"><%= link_to 'Back', :back %></button>
     </div>
