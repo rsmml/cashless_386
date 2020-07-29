@@ -35,6 +35,8 @@ const initMapbox = () => {
           navigator.geolocation.getCurrentPosition(position => {
           const start = [position.coords.longitude, position.coords.latitude];
           const end = [ marker.lng, marker.lat ];
+          const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
+          map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
 
           getRoute(end, start)
         });
@@ -57,17 +59,6 @@ const initMapbox = () => {
         );
   }
 };
-
-
-
-// event listener pe buton
-// get the coordinates of the user
-// get the coordinates from the marker
-// pass the coordinates to the bounds to zoom the map to get the right zoom
-// pass them to the route function and call the function
-//
-//
-
 
 
 function getRoute(end, start) {
@@ -117,6 +108,29 @@ function getRoute(end, start) {
           'line-opacity': 0.75
         }
       });
+        map.addLayer({
+          id: 'point',
+          type: 'circle',
+          source: {
+            type: 'geojson',
+            data: {
+              type: 'FeatureCollection',
+              features: [{
+                type: 'Feature',
+                properties: {},
+                geometry: {
+                  type: 'Point',
+                  coordinates: start
+                }
+              }
+              ]
+            }
+          },
+          paint: {
+            'circle-radius': 10,
+            'circle-color': '#3887be'
+          }
+        });
     }
     // add turn instructions here at the end
   };
@@ -130,29 +144,29 @@ function getRoute(end, start) {
 //   getRoute(start);
 
 //   // Add starting point to the map
-//   map.addLayer({
-//     id: 'point',
-//     type: 'circle',
-//     source: {
-//       type: 'geojson',
-//       data: {
-//         type: 'FeatureCollection',
-//         features: [{
-//           type: 'Feature',
-//           properties: {},
-//           geometry: {
-//             type: 'Point',
-//             coordinates: start
-//           }
-//         }
-//         ]
-//       }
-//     },
-//     paint: {
-//       'circle-radius': 10,
-//       'circle-color': '#3887be'
-//     }
-//   });
+  // map.addLayer({
+  //   id: 'point',
+  //   type: 'circle',
+  //   source: {
+  //     type: 'geojson',
+  //     data: {
+  //       type: 'FeatureCollection',
+  //       features: [{
+  //         type: 'Feature',
+  //         properties: {},
+  //         geometry: {
+  //           type: 'Point',
+  //           coordinates: start
+  //         }
+  //       }
+  //       ]
+  //     }
+  //   },
+  //   paint: {
+  //     'circle-radius': 10,
+  //     'circle-color': '#3887be'
+  //   }
+  // });
 //   // this is where the code from the next step will go
 
 //       map.on('click', function(e) {
