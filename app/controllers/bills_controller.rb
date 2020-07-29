@@ -18,7 +18,7 @@ class BillsController < ApplicationController
     authorize @bill
 
     if @bill.save
-      redirect_to bill_path(@bill)
+      redirect_to bill_qrcode_path(@bill)
     else
       render :new
     end
