@@ -40,5 +40,3 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
 });
-
-
