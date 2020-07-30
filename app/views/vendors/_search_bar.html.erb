@@ -1,4 +1,4 @@
-<div class="search-bar-index mt-3 d-flex justify-content-center" >
+<div class="search-bar-index mt-3 d-flex justify-content-center" id="search" >
     <%= form_tag vendors_path, method: :get do %>
       <span class="input" >
         <%= text_field_tag :query, params[:query], class: "form-control d-inline w-auto border-radius-search", placeholder: "What are you looking for?" %>
