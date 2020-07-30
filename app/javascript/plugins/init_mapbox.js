@@ -3,6 +3,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 let map
 
+
 const fitMapToMarkers = (map, markers) => {
   const boundsMarkers = new mapboxgl.LngLatBounds();
   markers.forEach(marker => boundsMarkers.extend([ marker.lng, marker.lat ]));
@@ -12,13 +13,31 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
-  if (mapElement) { // only build a map if there's a div#map to inject into
+  if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
      map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+     let geolocate = new mapboxgl.GeolocateControl({
+          positionOptions: {
+          enableHighAccuracy: true
+          },
+          trackUserLocation: true
+          });
+    map.addControl(geolocate);
     const markers = JSON.parse(mapElement.dataset.markers);
+
+    // if search returns nothing, fallback is geolocate
+
+    if (!markers || markers.length === 0) {
+      console.log('trg')
+    map.on('load', () => { geolocate.trigger() })
+
+    } else {
+
+    // if markers, put them on the map
+
     markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -44,23 +63,20 @@ const initMapbox = () => {
             getRoute(end, start)
         });
       });
+      fitMapToMarkers(map, markers);
     });
 
 
-    fitMapToMarkers(map, markers);
+
 //     search function from mapbox - currently disabled
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //                                   mapboxgl: mapboxgl }));
-    map.addControl(
-          new mapboxgl.GeolocateControl({
-          positionOptions: {
-          enableHighAccuracy: true
-          },
-          trackUserLocation: true
-          })
-        );
+
   }
+  }
+
+
 };
 
 
