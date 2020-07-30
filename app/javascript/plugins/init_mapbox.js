@@ -19,6 +19,24 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
+    let geolocate = new mapboxgl.GeolocateControl({
+          positionOptions: {
+          enableHighAccuracy: true
+          },
+          trackUserLocation: true
+          });
+    map.addControl(geolocate);
+
+    // if search returns nothing, fallback is geolocate
+
+    if (!markers || markers.length === 0) {
+      console.log('trg')
+    map.on('load', () => { geolocate.trigger() })
+
+    } else {
+
+    // if markers, put them on the map
+
     markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -44,24 +62,22 @@ const initMapbox = () => {
             getRoute(end, start)
         });
       });
+      fitMapToMarkers(map, markers);
     });
 
 
-    fitMapToMarkers(map, markers);
+
 //     search function from mapbox - currently disabled
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //                                   mapboxgl: mapboxgl }));
-    map.addControl(
-          new mapboxgl.GeolocateControl({
-          positionOptions: {
-          enableHighAccuracy: true
-          },
-          trackUserLocation: true
-          })
-        );
+
   }
+  }
+
+
 };
+
 
 
 function getRoute(end, start) {
