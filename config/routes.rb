@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => 'sessions'}
 
   resources :user, only: :show do
     resources :cards, only: %i[index new]
   end
 
+
   post '/user/:user_id/cards', to: 'cards#create', as: 'cards'
+
+  resources :dashboards, only: :show
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

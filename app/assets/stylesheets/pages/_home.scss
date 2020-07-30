@@ -1,1 +1,47 @@
-// Specific CSS for your home-page
+.homepage-container{
+  background-color: #FCF7FF;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .top-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10%;
+    #logo {
+      align-items: center;
+      img {
+        width: 70%;
+        padding: 40px 0;
+      }
+    }
+    #slogan{
+      h2{
+        font-size: 18pt;
+      }
+    }
+  }
+  .bottom-box{
+    padding-bottom: 15%;
+    .get-started{
+      padding: 40px 0px 12px 0px;
+      a{
+        color: #FCF7FF;
+        background-color: #33658A;
+        padding: 12px 32px;
+        border-radius: 4px;
+      }
+    }
+    .homepage-log-ing{
+      padding: 5% 0 0 0;
+      p{
+        font-size: 11pt;
+        margin-bottom: 10%;
+      }
+      a{
+        color: #33658A;
+      }
+    }
+  }
+}
