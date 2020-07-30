@@ -33,7 +33,7 @@ import { initPlusMenuDashboard } from '../components/plus-menu';
 // import { initCheckout } from '../plugins/init_checkout';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
-// import { initHistorialMenuDown } from '../components/historial-menu';
+// import { initCheckout } from '../plugins/init_checkout';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -42,5 +42,4 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
-  // initHistorialMenuDown()
 });
