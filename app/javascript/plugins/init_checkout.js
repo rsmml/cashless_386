@@ -1,11 +1,7 @@
 import {loadStripe} from '@stripe/stripe-js';
-const stripe = await loadStripe(STRIPE_PUBLISHABLE_KEY)
-
-
-const initCheckout = () => {
 
 // Create a Stripe client.
-var stripe = Stripe(STRIPE_SECRET_KEY);
+var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 // Create an instance of Elements.
 var elements = stripe.elements();
@@ -74,6 +70,3 @@ function stripeTokenHandler(token) {
   // Submit the form
   form.submit();
 }
-};
-
-export { initCheckout };
