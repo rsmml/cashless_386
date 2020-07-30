@@ -1,10 +1,13 @@
-<div class="search-bar-index mt-3 d-flex justify-content-center" >
+<div class="search-bar-index d-flex justify-content-center" >
     <%= form_tag vendors_path, method: :get do %>
       <span class="input" >
-        <%= text_field_tag :query, params[:query], class: "form-control d-inline w-auto border-radius-search", placeholder: "What are you looking for?" %>
+        <%= text_field_tag :query, params[:query], class: "form-control d-inline w-auto", placeholder: "Search map" %>
       </span>
-      <span class="input" ><%= submit_tag 'Search', class: "btn btn-primary border-radius-search-btn" %>
-      </span>
+
+      <!-- I took out the button because the phone has a keyboard and let's you search without pressing the button -->
+      <!-- also on the desktop yu can press enter -->
+      <!-- <span class="input" ><%= submit_tag 'Find', class: "btn btn-primary" %></span> -->
+
     <% end %>
 </div>
 
