@@ -33,13 +33,11 @@ const initMapbox = () => {
       popup._content.querySelector('.directions-button')
         .addEventListener('click', e => {
           navigator.geolocation.getCurrentPosition(position => {
-          const start = [position.coords.longitude, position.coords.latitude];
-          const end = [ marker.lng, marker.lat ];
-          const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
-          map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
-          getRoute(end, start)
-
-
+            const start = [position.coords.longitude, position.coords.latitude];
+            const end = [ marker.lng, marker.lat ];
+            const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
+            map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
+            getRoute(end, start)
         });
       });
     });
@@ -69,7 +67,6 @@ function getRoute(end, start) {
   var req = new XMLHttpRequest();
   req.open('GET', url, true);
   req.onload = function() {
-
     var json = JSON.parse(req.response);
     var data = json.routes[0];
     var route = data.geometry.coordinates;
@@ -85,19 +82,13 @@ function getRoute(end, start) {
     if (map.getSource('route')) {
       map.getSource('route').setData(geojson);
     } else { // otherwise, make a new request
+      console.log('add layers')
       map.addLayer({
         id: 'route',
         type: 'line',
         source: {
           type: 'geojson',
-          data: {
-            type: 'Feature',
-            properties: {},
-            geometry: {
-              type: 'LineString',
-              coordinates: geojson
-            }
-          }
+          data: geojson,
         },
         layout: {
           'line-join': 'round',
@@ -109,38 +100,39 @@ function getRoute(end, start) {
           'line-opacity': 0.75
         }
       });
-        map.addLayer({
-          id: 'point',
-          type: 'circle',
-          source: {
-            type: 'geojson',
-            data: {
-              type: 'FeatureCollection',
-              features: [{
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                  type: 'Point',
-                  coordinates: start
-                }
-              }
-              ]
-            }
-          },
-          paint: {
-            'circle-radius': 10,
-            'circle-color': '#3887be'
-          }
-        });
-    }
-    const instructions = document.getElementById('instructions');
-          const steps = data.legs[0].steps;
 
-          var tripInstructions = [];
-          for (var i = 0; i < steps.length; i++) {
-            tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-            instructions.innerHTML = '<br><span class="duration">🚶🏻‍♂️ ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+      map.addLayer({
+        id: 'point',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [{
+              type: 'Feature',
+              properties: {},
+              geometry: {
+                type: 'Point',
+                coordinates: start
+              }
+            }
+            ]
           }
+        },
+        paint: {
+          'circle-radius': 10,
+          'circle-color': '#3887be'
+        }
+      });
+    }
+
+    const instructions = document.getElementById('instructions');
+    const steps = data.legs[0].steps;
+    var tripInstructions = [];
+    for (var i = 0; i < steps.length; i++) {
+      tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+      instructions.innerHTML = '<br><span class="duration">🚶🏻‍♂️ ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+    }
   };
   req.send();
 }
