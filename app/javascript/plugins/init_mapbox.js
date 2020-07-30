@@ -22,8 +22,12 @@ const initMapbox = () => {
     markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const vendorInfo = document.createElement('div');
+      vendorInfo.className = 'marker';
+      vendorInfo.innerText = '📍'+marker.name;
+      vendorInfo.style.color = "#2c3e75";
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(vendorInfo)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
