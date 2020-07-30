@@ -86,7 +86,6 @@ function getRoute(end, start) {
     if (map.getSource('route')) {
       map.getSource('route').setData(geojson);
     } else { // otherwise, make a new request
-      console.log('add layers')
       map.addLayer({
         id: 'route',
         type: 'line',

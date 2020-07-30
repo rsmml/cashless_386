@@ -6,21 +6,21 @@ class CardsController < ApplicationController
     @cards = policy_scope(Card)
   end
 
-  # def new
-  #   @card = Card.new
-  #   authorize @card
-  # end
+  def new
+    @card = Card.new
+    authorize @card
+  end
 
-  # def create
-  #   @card = Card.new(card_params)
-  #   @card.user = current_user
-  #   authorize @card
-  #   if @card.save
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @card = Card.new(card_params)
+    @card.user = current_user
+    authorize @card
+    if @card.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
   # def edit
   # end
@@ -49,6 +49,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:type, :number, :expire_date, :ccv, :bank_name, :card_holder)
+    params.require(:card).permit(:card_type, :number, :expire_date, :ccv, :bank_name, :card_holder)
   end
 end

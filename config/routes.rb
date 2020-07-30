@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:sessions => 'sessions'}
 
   resources :user, only: :show do
-    resources :cards, only: :index
+    resources :cards, only: %i[index new]
   end
+
+
+  post '/user/:user_id/cards', to: 'cards#create', as: 'cards'
 
   resources :dashboards, only: :show
 
