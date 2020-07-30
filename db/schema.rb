@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_094005) do
+ActiveRecord::Schema.define(version: 2020_07_30_184655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_094005) do
   end
 
   create_table "cards", force: :cascade do |t|
-    t.string "dc_cc"
+    t.string "card_type"
     t.string "number"
     t.date "expire_date"
     t.string "ccv"
