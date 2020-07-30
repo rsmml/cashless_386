@@ -29,15 +29,21 @@ import "@stripe/stripe-js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initPlusMenuDashboard } from '../components/plus-menu';
+// import { initCheckout } from '../plugins/init_checkout';
+import { initStarRating } from '../plugins/init_star_rating';
+import { initHistorialMenuUp } from '../components/historial-menu';
+import { initOptionsMenu } from '../components/options-menu';
+import { initOptionsMenuClose } from '../components/options-menu';
 // import { initCheckout } from '../plugins/init_checkout';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  initPlusMenuDashboard();
+  initStarRating();
+  initHistorialMenuUp();
+  initOptionsMenu();
+  initOptionsMenuClose();
 });
-
-
-import { initStarRating } from '../plugins/init_star_rating';
-
-initStarRating();

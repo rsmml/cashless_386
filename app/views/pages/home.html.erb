@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage-container">
+  <div class="top-box" style="flex-grow: 1;">
+    <div id="logo">
+      <%= cl_image_tag "logo_aoeovf", alt: "alttext" %>
+    </div>
+    <div id="slogan">
+      <h2>Let's move forward</h2>
+      <h2>Pay Cashless</h2>
+    </div>
+  </div>
+  <div class="bottom-box">
+    <div class="get-started">
+      <% if current_user %>
+        <%= link_to "Get Started", dashboard_path(current_user) %>
+      <% else %>
+        <%= link_to "Get Started", '#' %>
+      <% end %>
+    </div>
+    <div class="homepage-log-ing">
+      <p>Already an account?
+      <%= link_to "Log-in", new_user_session_path %>
+      </p>
+    </div>
+  </div>
+</div>
