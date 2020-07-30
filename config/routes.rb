@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+  end
 
   resources :user, only: :show do
     resources :cards, only: :index
+    resources :qrcodes, only: :index
   end
 
   root to: 'pages#home'
