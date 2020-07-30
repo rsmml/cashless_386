@@ -29,7 +29,7 @@ import "@stripe/stripe-js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initCheckout } from '../plugins/init_checkout';
+// import { initCheckout } from '../plugins/init_checkout';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
