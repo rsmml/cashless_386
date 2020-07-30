@@ -6,6 +6,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    true or UserPolicy.new(user, User.find(user_id)).show?
   end
 end
