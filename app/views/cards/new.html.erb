@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-sm-5" style="margin: auto;">
+
+        <%= simple_form_for [@user, @card] do |f| %>
+        <%= f.input :card_type, collection: ['MasterCard', 'Visa'] %>
+        <%= f.input :number, as: :text %>
+        <%= f.input :expire_date, as: :date %>
+        <%= f.input :ccv, as: :text %>
+        <%= f.input :card_holder, as: :text %>
+        <%= f.input :bank_name, as: :text %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+      <button type="button" class="btn btn-link"><%= link_to 'Back', :back %></button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="creditCardForm">
+    <div class="heading">
+        <h1>Add your credit card</h1>
+    </div>
+    <div class="payment">
+        <form>
+            <div class="form-group owner">
+                <label for="card_holder">Owner</label>
+                <input type="text" class="form-control" id="owner">
+            </div>
+            <label for="type">Type:</label>
+            <select id="card_type" name="cards">
+              <option value="visa">Visa</option>
+              <option value="mastercard">MasterCard</option>
+            </select>
+            <div class="form-group CVV">
+                <label for="ccv">CCV</label>
+                <input type="text" class="form-control" id="cvv">
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="number">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber">
+            </div>
+            <div class="form-group" id="bank-name">
+                <label for="bank_name">Bank</label>
+                <input type="text" class="form-control" id="bankName">
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label for="expire_date">Expiration Date</label>
+                <select>
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select>
+                    <option value="16"> 2016</option>
+                    <option value="17"> 2017</option>
+                    <option value="18"> 2018</option>
+                    <option value="19"> 2019</option>
+                    <option value="20"> 2020</option>
+                    <option value="21"> 2021</option>
+                </select>
+            </div>
+            <div class="form-group" id="pay-now">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+ -->
