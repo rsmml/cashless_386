@@ -23,6 +23,7 @@
   .card-row{
     padding: 0 16px;
     display: flex;
+    overflow-x: auto;
     .card-card{
       background-color: white;
       width: 100px;
@@ -52,6 +53,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-right: 16px;
       p{
         margin: 0;
         color: white;
@@ -62,5 +64,8 @@
         border-radius: 50%;
       }
     }
+  }
+  .card-row::-webkit-scrollbar{
+    width: 0;
   }
 }

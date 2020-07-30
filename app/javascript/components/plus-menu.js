@@ -1,5 +1,5 @@
 const initPlusMenuDashboard = () => {
-  document.getElementById('plus-menu').addEventListener('click',
+  document.querySelector('#plus-menu').addEventListener('click',
   function(){
     document.querySelector('.plus-menu-big').style.display = "flex";
   });
