@@ -30,7 +30,7 @@
 
 
 
-<script type="module" src="../../app/javascript/plugins/init_checkout.js"></script>
+    </div>
 
 <form action="/charge" method="post" id="payment-form">
   <div class="form-row">
@@ -47,31 +47,6 @@
 
   <button>Submit Payment</button>
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-    <div class="col-12 text-center fixed-bottom mb-3">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-amount="<%= @bill.price_cents %>"
-        data-name="Your payment for"
-        data-description="<%= @bill.vendor.name %>"
-        data-currency="<%= @bill.price.currency %>">
-      </script>
-    </div>
 
   </div>
 </div>
