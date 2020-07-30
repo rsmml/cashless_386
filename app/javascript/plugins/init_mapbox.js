@@ -22,8 +22,12 @@ const initMapbox = () => {
     markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const vendorInfo = document.createElement('div');
+      vendorInfo.className = 'marker';
+      vendorInfo.innerText = '📍'+marker.name;
+      vendorInfo.style.color = "#2c3e75";
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(vendorInfo)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
@@ -82,7 +86,6 @@ function getRoute(end, start) {
     if (map.getSource('route')) {
       map.getSource('route').setData(geojson);
     } else { // otherwise, make a new request
-      console.log('add layers')
       map.addLayer({
         id: 'route',
         type: 'line',
@@ -136,87 +139,6 @@ function getRoute(end, start) {
   };
   req.send();
 }
-
-// // probably don't need this part?
-// map.on('load', function() {
-//   // make an initial directions request that
-//   // starts and ends at the same location
-//   getRoute(start);
-
-//   // Add starting point to the map
-  // map.addLayer({
-  //   id: 'point',
-  //   type: 'circle',
-  //   source: {
-  //     type: 'geojson',
-  //     data: {
-  //       type: 'FeatureCollection',
-  //       features: [{
-  //         type: 'Feature',
-  //         properties: {},
-  //         geometry: {
-  //           type: 'Point',
-  //           coordinates: start
-  //         }
-  //       }
-  //       ]
-  //     }
-  //   },
-  //   paint: {
-  //     'circle-radius': 10,
-  //     'circle-color': '#3887be'
-  //   }
-  // });
-//   // this is where the code from the next step will go
-
-//       map.on('click', function(e) {
-//       var coordsObj = e.lngLat;
-//       canvas.style.cursor = '';
-//       var coords = Object.keys(coordsObj).map(function(key) {
-//         return coordsObj[key];
-//       });
-//       var end = {
-//         type: 'FeatureCollection',
-//         features: [{
-//           type: 'Feature',
-//           properties: {},
-//           geometry: {
-//             type: 'Point',
-//             coordinates: coords
-//           }
-//         }
-//         ]
-//       };
-//       if (map.getLayer('end')) {
-//         map.getSource('end').setData(end);
-//       } else {
-//         map.addLayer({
-//           id: 'end',
-//           type: 'circle',
-//           source: {
-//             type: 'geojson',
-//             data: {
-//               type: 'FeatureCollection',
-//               features: [{
-//                 type: 'Feature',
-//                 properties: {},
-//                 geometry: {
-//                   type: 'Point',
-//                   coordinates: coords
-//                 }
-//               }]
-//             }
-//           },
-//           paint: {
-//             'circle-radius': 10,
-//             'circle-color': '#f30'
-//           }
-//         });
-//       }
-//       getRoute(coords);
-//     });
-// });
-
 
 
 export { initMapbox };
