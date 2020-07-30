@@ -8,9 +8,13 @@ class CardPolicy < ApplicationPolicy
   #   record.user == user
   # end
 
-  # def create?
-  #   record.user == user
-  # end
+  def new?
+    true
+  end
+
+  def create?
+    record.user == user
+  end
 
   # def update?
   #   user
