@@ -9,6 +9,8 @@ class VendorsController < ApplicationController
         OR vendors.description @@ :query \
       "
       @vendors = policy_scope(Vendor.geocoded.where(sql_query, query: "%#{params[:query]}%"))
+        alert_no_results
+
     else
       @vendors = policy_scope(Vendor.geocoded)
     end
@@ -51,5 +53,12 @@ class VendorsController < ApplicationController
 
   def vendor_params
     params.require(:vendor).permit(:name, :address, :business, :phone, :city, :description, :weekday_opening_times, :saturday_opening_times, :sunday_opening_times)
+  end
+
+  def alert_no_results
+    if @vendors == []
+      flash.alert = "Sorry, venue not found"
+      # call the geolocate to zoom the map to your location
+    end
   end
 end
