@@ -1,0 +1,23 @@
+<div class="options-menu-container">
+  <div class="account-name">
+    <%= @user.name %>
+    <%= @user.last_name %>
+  </div>
+  <hr style="color:black; border: 0.01px solid rgba(0,0,0,0.2);">
+  <div style="flex-grow: 1;">
+    <ul style="list-style: none; padding-left: 30px;">
+      <li><i class="fas fa-user"></i><p>Account</p></li>
+      <li><i class="fas fa-history"></i><p>Your activity</p></li>
+      <li><i class="fas fa-qrcode"></i><p>Your QR code</p></li>
+      <li><i class="fas fa-user-plus"></i><p>Add contacts</p></li>
+      <li><i class="far fa-question-circle"></i><p>Help & Feedback</p></li>
+    </ul>
+  </div>
+  <hr style="color:black; border: 0.01px solid rgba(0,0,0,0.2);">
+  <div class="options-menu-down">
+    <i class="fas fa-cog"></i>
+    <p><%= link_to "Log-Out", destroy_user_session_path, method: :delete%></p>
+  </div>
+</div>
+
+
