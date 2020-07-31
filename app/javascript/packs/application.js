@@ -30,7 +30,7 @@ require("channels")
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { setupStripe } from '../plugins/init_checkout';
+// import { setupStripe } from '../plugins/init_checkout';
 
 import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initOptionsMenu();
   initOptionsMenuClose();
   initMapbox();
-  setupStripe();
+  // setupStripe();
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
