@@ -1,5 +1,6 @@
 import "bootstrap";
 // import "@stripe/stripe-js";
+// talk with chihoko !
 
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
@@ -26,11 +27,10 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-// talk with chihoko !
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { setupStripe } from '../plugins/init_checkout';
+// import { setupStripe } from '../plugins/init_checkout';
 
 import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
@@ -46,8 +46,8 @@ document.addEventListener('turbolinks:load', () => {
   initOptionsMenu();
   initOptionsMenuClose();
   initMapbox();
-  setupStripe();
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
+  // setupStripe();
 });
