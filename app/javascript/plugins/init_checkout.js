@@ -28,7 +28,9 @@ const setupStripe = () => {
   var card = elements.create('card', {style: style});
 
   // Add an instance of the card Element into the `card-element` <div>.
-  card.mount('#card-element');
+  const cardElement = document.getElementById('card-element')
+  if (cardElement) {card.mount('#card-element');}
+
 
   // Handle real-time validation errors from the card Element.
   card.on('change', function(event) {
@@ -71,6 +73,7 @@ function stripeTokenHandler(token) {
   // Submit the form
   form.submit();
 }
+
 
 export { setupStripe };
 

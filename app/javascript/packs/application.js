@@ -35,6 +35,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu } from '../components/options-menu';
 import { initOptionsMenuClose } from '../components/options-menu';
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
