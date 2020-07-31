@@ -40,12 +40,13 @@ const initMapbox = () => {
     markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-      const vendorInfo = document.createElement('div');
-      vendorInfo.className = 'marker';
-      vendorInfo.innerText = '📍'+marker.name;
-      vendorInfo.style.color = "#2c3e75";
+      // PASS vendorInfo to .Marker() if you want to create a custom marker
+      // const vendorInfo = document.createElement('div');
+      // vendorInfo.className = 'marker';
+      // vendorInfo.innerText = '📍'+marker.name;
+      // vendorInfo.style.color = "#2c3e75";
 
-      new mapboxgl.Marker(vendorInfo)
+      new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
@@ -145,13 +146,13 @@ function getRoute(end, start) {
       });
     }
 
-    const instructions = document.getElementById('instructions');
-    const steps = data.legs[0].steps;
-    var tripInstructions = [];
-    for (var i = 0; i < steps.length; i++) {
-      tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-      instructions.innerHTML = '<br><span class="duration">🚶🏻‍♂️ ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
-    }
+    // const instructions = document.getElementById('instructions');
+    // const steps = data.legs[0].steps;
+    // var tripInstructions = [];
+    // for (var i = 0; i < steps.length; i++) {
+    //   tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+    //   instructions.innerHTML = '<br><span class="duration">🚶🏻‍♂️ ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+    // }
   };
   req.send();
 }
