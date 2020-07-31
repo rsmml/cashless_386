@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resource :qrcode, only: [:show], module: 'user'
   end
 
-
   post '/user/:user_id/cards', to: 'cards#create', as: 'cards'
 
   resources :dashboards, only: :show
