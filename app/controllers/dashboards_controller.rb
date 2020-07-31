@@ -3,6 +3,8 @@ class DashboardsController < ApplicationController
 
   def show
     @vendor = Vendor.all
+    @users = User.all
+    @historial = Historial.all
   end
 
   private

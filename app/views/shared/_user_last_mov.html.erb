@@ -1,0 +1,39 @@
+<% @historial.reverse_each do |historial| %>
+  <div style="color:black" class="d-flex">
+    <% if historial.sender_type == 'vendor' %>
+      <% if historial.recipient_id = current_user.id %>
+        <div>
+          <% sender_id = Vendor.find(historial.sender_id) %>
+          <%= cl_image_tag sender_id.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
+        </div>
+        <div>
+          <p style="color:black"><%= sender_id.name %></p>
+          <% if historial.action == "sent" %>
+            <p><i class="fas fa-arrow-right"></i>You sent</p>
+          <% else %>
+            <p><i class="fas fa-arrow-left"></i>You received</p>
+          <% end %>
+        </div>
+        <div>
+          <p><%= historial.amount.to_f+rand(0.01..0.99).round(2) %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <div>
+        <% sender_id = User.find(historial.sender_id) %>
+        <%= cl_image_tag sender_id.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
+      </div>
+      <div>
+        <p style="color:black"><%= sender_id.name %></p>
+        <% if historial.action == "sent" %>
+          <p><i class="fas fa-arrow-right"></i>You sent</p>
+        <% else %>
+          <p><i class="fas fa-arrow-left"></i>You received</p>
+        <% end %>
+      </div>
+      <div>
+        <p><%= historial.amount.to_f+rand(0.01..0.99).round(2) %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
