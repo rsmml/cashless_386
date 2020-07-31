@@ -1,0 +1,20 @@
+.qr-box {
+  position: relative;
+}
+
+.qrcode {
+  max-width: 100%;
+  height: auto;
+
+}
+
+.qr-icon {
+  height: 32px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 44%;
+  left: 45%;
+}
