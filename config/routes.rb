@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   post '/user/:user_id/cards', to: 'cards#create', as: 'cards'
 
-  resources :dashboards, only: :show
+  resources :dashboards, only: %i[show map]
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :vendors, only: %i[index new create edit update destroy show] do
+  resources :vendors, only: %i[new create edit update destroy show] do
     resources :reviews, only: %i[index new create]
     resources :bills, only: %i[new create]
   end
