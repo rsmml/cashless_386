@@ -1,6 +1,6 @@
 .StripeElement {
   box-sizing: border-box;
-
+  width:50vw;
   height: 40px;
 
   padding: 10px 12px;
@@ -12,7 +12,6 @@
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
-  width: 300px;
 }
 
 .StripeElement--focus {

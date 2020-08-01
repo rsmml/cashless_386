@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     resources :payments, only: :new
     resource :qrcode, only: [:show], module: 'bills'
   end
+  resources :charge, only: %i[ create ]
 end
