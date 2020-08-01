@@ -5,6 +5,7 @@ class DashboardsController < ApplicationController
     @vendor = Vendor.all
     @users = User.all
     @historial = Historial.all
+    map
   end
 
   def map
@@ -15,7 +16,6 @@ class DashboardsController < ApplicationController
       "
       @vendors = Vendor.geocoded.where(sql_query, query: "%#{params[:query]}%")
         alert_no_results
-        render "shared/map"
     else
       @vendors = Vendor.geocoded
     end
@@ -26,7 +26,7 @@ class DashboardsController < ApplicationController
         lng: vendor.longitude,
         id: vendor.id,
         name: vendor.name,
-        infoWindow: render_to_string(partial: "vendors/vendor_popup", locals: { vendor: vendor })
+        infoWindow: render_to_string(partial: "map_popup", locals: { vendor: vendor })
       }
     end
   end
