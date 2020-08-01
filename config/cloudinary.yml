@@ -1,0 +1,5 @@
+production:
+  cloud_name: dm9csvoft
+  api_key: ENV["CLOUDINARY_API_KEY"]
+  api_secret: ENV["CLOUDINARY_API_SECRET]
+  secure: true
