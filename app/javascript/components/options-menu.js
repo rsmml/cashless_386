@@ -1,6 +1,7 @@
 const initOptionsMenu = () => {
   const optionsMenu = document.querySelector('#navbar-Dropside');
   if (optionsMenu) {
+    console.log(optionsMenu);
     optionsMenu.addEventListener('click', () => {
       document.querySelector('.dashboard-container').style.position = "absolute";
       document.querySelector('#navbar-Dropside').style.transition = "0.5s";
