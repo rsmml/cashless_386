@@ -8,7 +8,9 @@
     <ul style="list-style: none; padding-left: 30px;">
       <li><i class="fas fa-user"></i><p>Account</p></li>
       <li><i class="fas fa-history"></i><p>Your activity</p></li>
-      <li><i class="fas fa-qrcode"></i><p>Your QR code</p></li>
+      <%= link_to user_qrcode_path(@user) do %>
+        <li><i class="fas fa-qrcode"></i><p>Your QR code</p></li>
+      <% end %>
       <li><i class="fas fa-user-plus"></i><p>Add contacts</p></li>
       <li><i class="far fa-question-circle"></i><p>Help & Feedback</p></li>
     </ul>

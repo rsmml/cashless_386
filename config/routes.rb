@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :user, only: :show do
     resources :cards, only: %i[index new]
+    resource :qrcode, only: [:show], module: 'user'
   end
-
 
   post '/user/:user_id/cards', to: 'cards#create', as: 'cards'
 
