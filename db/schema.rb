@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_214452) do
+ActiveRecord::Schema.define(version: 2020_07_31_132202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,18 @@ ActiveRecord::Schema.define(version: 2020_07_30_214452) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "historials", force: :cascade do |t|
+    t.integer "amount"
+    t.string "action"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "sender_type"
+    t.index ["user_id"], name: "index_historials_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
@@ -118,6 +130,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_214452) do
   add_foreign_key "bills", "users"
   add_foreign_key "bills", "vendors"
   add_foreign_key "cards", "users"
+  add_foreign_key "historials", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "vendors"
 end
