@@ -44,6 +44,7 @@ const setupStripe = () => {
 
   // Handle form submission.
   var form = document.getElementById('payment-form');
+  if (form) {
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -58,6 +59,7 @@ const setupStripe = () => {
       }
     });
   });
+  };
 }
 
 // Submit the form with the token ID.
