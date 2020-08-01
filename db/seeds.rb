@@ -423,11 +423,11 @@ comments = [
   "The waiter was sleeping",
   "No comments",
   "Best brunch ever",
-  "The mimosas were excelent",
+  "The mimosas were excellent",
   "I love it",
   "Best place to use the app",
   "I had a hair on my soup",
-  "The booking was cancell without notice",
+  "The booking was cancelled without notice",
   "We wait 30 mins under the rain",
   "We had to use mask while eating...",
   "Never again",
@@ -448,4 +448,15 @@ comments = [
 end
 
 puts "Reviews done"
+
+puts "Creating a bill"
+  bill_first = Bill.create(
+    date: "2020-08-01",
+    status: "pending",
+    user_id: User.first.id,
+    vendor_id: Vendor.first.id,
+    price_cents: 2789,
+    )
+puts "Bill #{bill_first.id} was created"
+
 puts "Seeds Done"
