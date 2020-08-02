@@ -20,9 +20,9 @@ class DashboardsController < ApplicationController
       {
         lat: vendor.latitude,
         lng: vendor.longitude,
-        id: vendor.id,
-        name: vendor.name,
-        infoWindow: render_to_string(partial: "vendors/vendor_popup", locals: { vendor: vendor })
+        # id: vendor.id,
+        # name: vendor.name,
+        infoWindow: render_to_string(partial: "map_popup", locals: { vendor: vendor })
       }
     end
   end
