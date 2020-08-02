@@ -20,6 +20,9 @@
       <div id="btn-up"><i id="btn-up-map" class="btn-up-map fas fa-chevron-up"></i></div>
       <div id="btn-close"><i id="btn-close-map" class="btn-close-map fas fa-times"></i></div>
       <%= render "shared/map" %>
+      <% if params[:query]   %>
+        <%= render "shared/map" %>
+      <% end %>
     </div>
   </div>
 </div>

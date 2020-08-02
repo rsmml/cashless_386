@@ -5,10 +5,6 @@ class DashboardsController < ApplicationController
     @vendor = Vendor.all
     @users = User.all
     @historial = Historial.all
-    map
-  end
-
-  def map
     if params[:query].present?
       sql_query = " \
         vendors.name @@ :query \
@@ -26,10 +22,14 @@ class DashboardsController < ApplicationController
         lng: vendor.longitude,
         id: vendor.id,
         name: vendor.name,
-        infoWindow: render_to_string(partial: "map_popup", locals: { vendor: vendor })
+        infoWindow: render_to_string(partial: "vendors/vendor_popup", locals: { vendor: vendor })
       }
     end
   end
+
+  # def map
+
+  # end
 
   private
 
