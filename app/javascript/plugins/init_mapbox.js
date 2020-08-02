@@ -35,7 +35,7 @@ const initMapbox = () => {
     } else {
 
     // if markers, put them on the map
-    map.on('load', () => { geolocate.trigger() })
+    // map.on('load', () => { geolocate.trigger() })
     markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -150,7 +150,7 @@ function getRoute(end, start) {
     // var tripInstructions = [];
     // for (var i = 0; i < steps.length; i++) {
     //   tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-    //   instructions.innerHTML = '<br><span class="duration">🚶🏻‍♂️ ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+    //   instructions.innerHTML = '<br><span class="duration">' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
     // }
   };
   req.send();
