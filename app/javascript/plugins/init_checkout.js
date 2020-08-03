@@ -1,7 +1,7 @@
 const setupStripe = () => {
 
   // Create a Stripe client.
-  var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+  var stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
 
   // Create an instance of Elements.
   var elements = stripe.elements();
