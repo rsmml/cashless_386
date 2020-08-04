@@ -6,5 +6,5 @@ class Card < ApplicationRecord
   validates :expire_date, presence: true
   validates :ccv, presence: true
   validates :card_holder, presence: true
-  validates :bank_name, length: { in: 6..20 }
+  validates :bank_name, length: { in: 2..20 }
 end
