@@ -38,7 +38,7 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 // import { initCheckout } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
-
+import { initCamera } from '../components/qr-reader';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -50,4 +50,28 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
+  initCamera();
+  // to do: moving to seperate file
+
+
+
+
+  // .listVideoInputDevices()
+  // .then(videoInputDevices => {
+  //   console.log(videoInputDevices)
+  //   videoInputDevices.forEach(device =>
+  //     console.log(`${device.label}, ${device.deviceId}`)
+  //   );
+  // })
+  // .catch(err => console.error(err));
+
+  // const img = document.getElementById('img');
+
+  // try {
+  //     const result = await codeReader.decodeFromImage(img);
+  // } catch (err) {
+  //     console.error(err);
+  // }
+
+  // console.log(result);
 });
