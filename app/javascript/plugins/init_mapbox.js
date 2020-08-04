@@ -156,5 +156,76 @@ function getRoute(end, start) {
   req.send();
 }
 
+const initMapboxDashboard = () => {
+  const mapElement = document.getElementById('map-dashboard');
+
+  if (mapElement) {
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+     map = new mapboxgl.Map({
+      container: 'map-dashboard',
+      style: 'mapbox://styles/mapbox/streets-v10'
+    });
+    const markers = JSON.parse(mapElement.dataset.markers);
+    let geolocate = new mapboxgl.GeolocateControl({
+          positionOptions: {
+          enableHighAccuracy: true
+          },
+          trackUserLocation: true
+          });
+    map.addControl(geolocate);
+
+    // if search returns nothing, fallback is geolocate
+
+    if (!markers || markers.length === 0) {
+    map.on('load', () => { geolocate.trigger() })
+
+    } else {
+
+    // if markers, put them on the map
+    // map.on('load', () => { geolocate.trigger() })
+    markers.forEach((marker) => {
+
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      // PASS vendorInfo to .Marker() if you want to create a custom marker
+      // const vendorInfo = document.createElement('div');
+      // vendorInfo.className = 'marker';
+      // vendorInfo.innerText = '📍'+marker.name;
+      // vendorInfo.style.color = "#2c3e75";
+
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(map);
+
+        const canvas = map.getCanvasContainer();
+
+      popup._content.querySelector('.directions-button')
+        .addEventListener('click', e => {
+          navigator.geolocation.getCurrentPosition(position => {
+            const start = [position.coords.longitude, position.coords.latitude];
+            const end = [ marker.lng, marker.lat ];
+            const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
+            map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
+            getRoute(end, start)
+        });
+      });
+      fitMapToMarkers(map, markers);
+    });
+
+
+
+//     search function from mapbox - currently disabled
+
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //                                   mapboxgl: mapboxgl }));
+
+  }
+  }
+
+
+};
+
+
 
 export { initMapbox };
+export {initMapboxDashboard};

@@ -38,7 +38,7 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 // import { initCheckout } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
-
+import { initMapboxDashboard } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -50,4 +50,5 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
+  initMapboxDashboard();
 });
