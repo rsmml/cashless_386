@@ -1,18 +1,18 @@
 <div class="dashboard-container" style="display: flex;flex-direction: column;">
   <div>
     <div id="dashboard-container" style="flex-grow: 1;">
-      <div class="round-grey-menu-bar nav-item dropdown">
+      <div class="round-grey-menu-bar nav-item dropdown" style="display: flex;justify-content: space-between;">
+        <div id="avatar" style="padding: 0 16px;">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key+".png",
+              :aspect_ratio=>"1:1", :border=>"3px_solid_rgb:ffffff",
+              :gravity=>"auto", :radius=>"max", :width=>85,
+              :crop=>"fill", alt: "avatar" %>
+          <% else %>
+            <%= cl_image_tag("ak7v1xw08tfwpyhhyplznrbuyf4o.png", :aspect_ratio=>"1:1", :border=>"5px_solid_rgb:ffffff", :gravity=>"auto", :radius=>"max", :width=>85, :crop=>"fill") %>
+          <% end %>
+        </div>
         <%= cl_image_tag "menu-btn_kz7gls.png", class: "avatar dropdown-toggle", id: "navbar-Dropside", data: { toggle: "dropdown" } %>
-      </div>
-      <div id="avatar" style="padding: 0 16px;">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key+".png",
-            :aspect_ratio=>"1:1", :border=>"3px_solid_rgb:ffffff",
-            :gravity=>"auto", :radius=>"max", :width=>85,
-            :crop=>"fill", alt: "avatar" %>
-        <% else %>
-          <%= cl_image_tag("ak7v1xw08tfwpyhhyplznrbuyf4o.png", :aspect_ratio=>"1:1", :border=>"5px_solid_rgb:ffffff", :gravity=>"auto", :radius=>"max", :width=>85, :crop=>"fill") %>
-        <% end %>
       </div>
       <div id="name">
         <h2 style="font-size: 24px;font-weight: bold;">
