@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   before_action :set_user, only: %i[show]
+  skip_before_action :authenticate_user!, only: :camera
 
   def show
     @vendor = Vendor.all
@@ -27,9 +28,8 @@ class DashboardsController < ApplicationController
     end
   end
 
-  # def map
-
-  # end
+  def camera
+  end
 
   private
 
