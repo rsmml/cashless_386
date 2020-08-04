@@ -1,0 +1,15 @@
+.bill-show-container {
+  background: image-url('background-bill') no-repeat center;
+  background-color: white;
+  height: 100vh;
+  background-size: 100%;
+}
+.input-blue{
+  background-color: $light-blue;
+  border-radius: 12px;
+}
+
+.form-control::placeholder{
+  color: white;
+  font-size: 28px;
+}
