@@ -36,7 +36,7 @@ import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
-// import { initCheckout } from '../plugins/init_checkout';
+import { setupStripe } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
 
 
@@ -50,4 +50,5 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
+  setupStripe();
 });
