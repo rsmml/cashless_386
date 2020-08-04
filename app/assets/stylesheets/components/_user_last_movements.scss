@@ -1,0 +1,20 @@
+.historial-name-action{
+  p{
+    margin-bottom: 0px;
+  }
+}
+.historial-avatar-action{
+  flex-grow: 1;
+}
+
+.historial-amount p{
+  margin: 0;
+  background-color: $lightgray;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+.historial-avatar {
+  img{
+    margin-right: 14px;
+  }
+}
