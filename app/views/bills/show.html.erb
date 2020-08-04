@@ -1,53 +1,84 @@
-<div class="container-sm p-5">
+<div class="bill-show-container container-sm p-3">
   <div class="row justify-content-center">
     <div class="col-12 text-center">
-
-      <p>You are goint to send money to </p>
-      <h5><%= @bill.vendor.name %></h5>
-      <div class="input-group input-group-lg mb-3">
+      <div class="image-vendor-bill">
+        <%= cl_image_tag @bill.vendor.photo.key+".png", :width => 120, :height => 120,
+          :crop => :fill, :radius => 200, alt: "alttext" %>
+      </div>
+      <p style="margin-bottom: 8px;">You are goint to send money to </p>
+      <h5 style="padding: 4px 0 24px 0; "><%= @bill.vendor.name %></h5>
+      <div class="input-blue input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-            <span class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
+            <span style="border-radius: 12px 0 0 12px;background-color: transparent;height: 72px; color: white;" class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
            </div>
-        <input type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
+        <input style="border-radius: 0 12px 12px 0;background-color: transparent;height: 72px;" type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
       </div>
 
         <div class="card rounded mb-3 justify-content-sm-around">
-          <div class="card-body">
-            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">5%</button>
-            <button type="button" class="btn btn-dark p-2 bd-highlight rounded">10%</button>
-            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">15%</button>
-            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">€</button>
+          <div class="card-body p-1">
+            <button type="button" class="btn btn-secondary p-2 mx-2 bd-highlight rounded">5%</button>
+            <button type="button" class="btn btn-dark p-2 mx-2 bd-highlight rounded">10%</button>
+            <button type="button" class="btn btn-secondary p-2 mx-2 bd-highlight rounded">15%</button>
+            <button type="button" class="btn btn-secondary p-2 mx-2 bd-highlight rounded">€</button>
             <span class="ml-auto p-2 bd-highlight text-secondary">Tips</span>
           </div>
         </div>
 
-        <div class="card rounded mb-3 justify-content-sm-around">
-          <div class="card-body">
-            <i class="fab fa-cc-visa bd-highlight" style="font-size:32px"></i>
-            <span class="ml-auto p-2 bd-highlight text-secondary">Change</span>
-          </div>
+        <div class="card rounded mb-1 justify-content-sm-around">
+
+          <% current_user.cards.each do |card| %>
+            <div class="card-body p-2 d-flex">
+
+              <div class="d-flex justify-content-start align-items-center flex-grow-1">
+                <div class="mx-1">
+                  <% if card.card_type == 'Visa' %>
+                    <%= cl_image_tag("Screen_Shot_2020-08-04_at_12.21.33_wtstts.png", :height=>35, :width=>57, :crop=>"pad") %>
+                  <% else %>
+                    <%= cl_image_tag("Screen_Shot_2020-06-13_at_15.03.52_iy0yev.png", :width=>57, :crop=>"thumb") %>
+                  <% end %>
+                </div>
+                <div class="mx-1">
+                  <p style="margin-bottom: 0px;">
+                    <%= card.bank_name %>
+                  </p>
+                </div>
+                <div class="mx-1" style="display: flex; justify-content: center; align-items: center;">
+                  <p style="font-size: 14px; margin-bottom: 0px;">
+                    <i style="font-size: 8px" class="fas fa-circle"></i>
+                    <i style="font-size: 8px" class="fas fa-circle"></i>
+                    <i style="font-size: 8px" class="fas fa-circle"></i>
+                    <i style="font-size: 8px" class="fas fa-circle"></i>
+                    <%= card.number.split.last.to_s %>
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <button type="button" class="btn btn-secondary">Select Card</button>
+              </div>
+
+            </div>
+          <% end %>
         </div>
 
-
-
     </div>
 
-<form action="/charge" method="post" id="payment-form">
-  <div class="form-row">
-    <label for="card-element">
-      Credit or debit card
-    </label>
+    <form action="/charge" method="post" id="payment-form">
+      <div class="form-row" style="display: none">
+        <label for="card-element">
+          Credit or debit card
+        </label>
 
-    <div id="card-element" class="StripeElement">
-      <!-- A Stripe Element will be inserted here. -->
-    </div>
+        <div id="card-element" class="StripeElement">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
 
-    <!-- Used to display form errors. -->
-    <div id="card-errors" role="alert"></div>
-  </div>
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+      </div>
 
-  <button>Submit Payment</button>
-</form>
+      <button class="submit-payment">Submit Payment</button>
+    </form>
 
   </div>
 </div>
