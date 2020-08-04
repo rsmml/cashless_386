@@ -1,8 +1,8 @@
-
+import { BrowserQRCodeReader } from '@zxing/library';
 
 const initCamera = () => {
-  const window = window.location.pathname == '/dashboards/camera'
-  if (window) {
+  if (window.location.pathname === '/camera'){
+  window.addEventListener('load', () => {
     const codeReader = new BrowserQRCodeReader();
     console.log(codeReader);
 
@@ -13,8 +13,9 @@ const initCamera = () => {
     window.href = "https://google.com"
       })
     .catch(err => console.error(err));
-  };
+  });
 };
+}
 
 export { initCamera };
 

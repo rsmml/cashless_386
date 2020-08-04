@@ -38,7 +38,6 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 // import { initCheckout } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
-import { BrowserQRCodeReader } from '@zxing/library';
 import { initCamera } from '../components/qr-reader';
 
 document.addEventListener('turbolinks:load', () => {

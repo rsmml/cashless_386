@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   before_action :set_user, only: %i[show]
-  skip_before_action :authenticate_user!, only: :camera
+  skip_after_action :verify_authorized
 
   def show
     @vendor = Vendor.all
