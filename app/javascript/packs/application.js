@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
-  initCamera();
+  // initCamera();
   // to do: moving to seperate file
 
 
