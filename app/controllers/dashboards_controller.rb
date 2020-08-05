@@ -6,26 +6,6 @@ class DashboardsController < ApplicationController
     @vendor = Vendor.all
     @users = User.all
     @historial = Historial.all
-    if params[:query].present?
-      sql_query = " \
-        vendors.name @@ :query \
-        OR vendors.description @@ :query \
-      "
-      @vendors = Vendor.geocoded.where(sql_query, query: "%#{params[:query]}%")
-        alert_no_results
-    else
-      @vendors = Vendor.geocoded
-    end
-
-    @markers = @vendors.map do |vendor|
-      {
-        lat: vendor.latitude,
-        lng: vendor.longitude,
-        # id: vendor.id,
-        # name: vendor.name,
-        infoWindow: render_to_string(partial: "map_popup", locals: { vendor: vendor })
-      }
-    end
   end
 
   def camera
