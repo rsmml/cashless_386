@@ -1,5 +1,4 @@
 import "bootstrap";
-// import "@stripe/stripe-js";
 
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
@@ -26,24 +25,18 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-// talk with chihoko !
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-// import { setupStripe } from '../plugins/init_checkout';
 
 import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
-// import { initCheckout } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
-// import { initQrRedirect } from '../components/qr-redirect';
-// import { initCamera } from '../components/qr-reader';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
   initOptionsMenu();
   initOptionsMenuClose();
   initMapbox();
@@ -51,28 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
-  // initCamera();
-  // to do: moving to seperate file
 
-
-
-
-  // .listVideoInputDevices()
-  // .then(videoInputDevices => {
-  //   console.log(videoInputDevices)
-  //   videoInputDevices.forEach(device =>
-  //     console.log(`${device.label}, ${device.deviceId}`)
-  //   );
-  // })
-  // .catch(err => console.error(err));
-
-  // const img = document.getElementById('img');
-
-  // try {
-  //     const result = await codeReader.decodeFromImage(img);
-  // } catch (err) {
-  //     console.error(err);
-  // }
-
-  // console.log(result);
 });
