@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 text-center">
 
-      <p>You are goint to send money to </p>
+      <p>You sent money to </p>
       <h5><%= @bill.vendor.name %></h5>
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
@@ -11,22 +11,6 @@
         <input type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
       </div>
 
-        <div class="card rounded mb-3 justify-content-sm-around">
-          <div class="card-body">
-            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">5%</button>
-            <button type="button" class="btn btn-dark p-2 bd-highlight rounded">10%</button>
-            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">15%</button>
-            <button type="button" class="btn btn-secondary p-2 bd-highlight rounded">€</button>
-            <span class="ml-auto p-2 bd-highlight text-secondary">Tips</span>
-          </div>
-        </div>
-
-        <div class="card rounded mb-3 justify-content-sm-around">
-          <div class="card-body">
-            <i class="fab fa-cc-visa bd-highlight" style="font-size:32px"></i>
-            <span class="ml-auto p-2 bd-highlight text-secondary">Change</span>
-          </div>
-        </div>
     </div>
 
   </div>
