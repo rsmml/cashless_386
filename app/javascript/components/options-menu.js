@@ -16,7 +16,7 @@ const initOptionsMenu = () => {
 
 
 const initOptionsMenuClose = () => {
-  const optionsMenuClose = document.querySelector('#map');
+  const optionsMenuClose = document.querySelector(".dashboard-container, #map");
   if (optionsMenuClose) {
     optionsMenuClose.addEventListener('click', () => {
       document.querySelector('.dashboard-container').style.right = "0%";
