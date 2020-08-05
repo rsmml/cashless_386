@@ -73,6 +73,5 @@ const setupStripe = () => {
   }
 };
 
-
 export { setupStripe };
 

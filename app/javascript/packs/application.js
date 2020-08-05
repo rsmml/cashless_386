@@ -25,9 +25,6 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
-// External imports
-// talk with chihoko !
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { setupStripe } from '../plugins/init_checkout';
