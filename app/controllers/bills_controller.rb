@@ -17,7 +17,7 @@ class BillsController < ApplicationController
     @bill.status = "pending"
     authorize @bill
 
-  if @bill.save
+    if @bill.save
       redirect_to bill_qrcode_path(@bill)
     else
       render :new

@@ -6,8 +6,8 @@
       <h5><%= @bill.vendor.name %></h5>
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-            <span class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
-           </div>
+          <span class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
+        </div>
         <input type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
       </div>
 
@@ -28,6 +28,31 @@
           </div>
         </div>
     </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <form action="/charges" method="post" id="payment-form">
+      <div class="form-row">
+        <label for="card-element">
+          Credit or debit card
+        </label>
+
+        <div id="card-element" class="StripeElement" data-stripe-api="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+      <button id="submit" class="StripePayment" data-stripe-api="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-id=<%= @bill.id %>>
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Pay</span>
+      </button>
+
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+        <p class="result-message hidden">
+          <%= link_to 'Payment succeeded', new_vendor_review_path(@bill.vendor.id) %>
+        </p>
+      </div>
+    </form>
 
   </div>
 </div>

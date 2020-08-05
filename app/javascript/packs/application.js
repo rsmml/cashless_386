@@ -28,12 +28,11 @@ require("channels")
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { setupStripe } from '../plugins/init_checkout';
-
+import { initClient } from '../plugins/init_client';
 import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
-// import { initCheckout } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
 
 
@@ -44,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   initOptionsMenuClose();
   initMapbox();
   setupStripe();
+  initClient();
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();

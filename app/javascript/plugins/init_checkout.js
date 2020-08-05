@@ -1,7 +1,7 @@
 const setupStripe = () => {
   // Create a Stripe client.
-  var cardElement = document.getElementById('card-element')
-  var stripeApi = cardElement.dataset.stripeApi
+  var cardElement = document.getElementById('card-element');
+  var stripeApi = cardElement.dataset.stripeApi;
   var stripe = Stripe(stripeApi);
 
   // Create an instance of Elements.
@@ -74,4 +74,3 @@ const setupStripe = () => {
 };
 
 export { setupStripe };
-
