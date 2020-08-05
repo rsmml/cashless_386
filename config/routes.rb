@@ -18,8 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :bills, only: %i[ show edit update] do
-    resources :payments, only: :new
+    resources :payments, only: [ :new, :create]
     resource :qrcode, only: [:show], module: 'bills'
   end
-  resources :charge, only: %i[ create ]
 end

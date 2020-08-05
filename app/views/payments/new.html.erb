@@ -31,7 +31,7 @@
 
     <script src="https://js.stripe.com/v3/"></script>
 
-    <form action="/charges" method="post" id="payment-form">
+    <form action= <%= bill_payments_path(@bill) %> method="post" id="payment-form">
       <div class="form-row">
         <label for="card-element">
           Credit or debit card
@@ -41,17 +41,14 @@
           <!-- A Stripe Element will be inserted here. -->
         </div>
 
-      <button id="submit" class="StripePayment" data-stripe-api="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-id=<%= @bill.id %>>
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+
+      <button>
         <div class="spinner hidden" id="spinner"></div>
         <span id="button-text">Pay</span>
       </button>
-
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
-        <p class="result-message hidden">
-          <%= link_to 'Payment succeeded', new_vendor_review_path(@bill.vendor.id) %>
-        </p>
-      </div>
     </form>
 
   </div>
