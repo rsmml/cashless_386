@@ -18,6 +18,8 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+
+
     const markers = JSON.parse(mapElement.dataset.markers);
     let geolocate = new mapboxgl.GeolocateControl({
           positionOptions: {
@@ -36,21 +38,36 @@ const initMapbox = () => {
 
     // if markers, put them on the map
     // map.on('load', () => { geolocate.trigger() })
-    markers.forEach((marker) => {
+        markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+
+
       // PASS vendorInfo to .Marker() if you want to create a custom marker
-      // const vendorInfo = document.createElement('div');
-      // vendorInfo.className = 'marker';
-      // vendorInfo.innerText = '📍'+marker.name;
-      // vendorInfo.style.color = "#2c3e75";
+      //
 
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
 
-        const canvas = map.getCanvasContainer();
+        // markers display name of restaurant on zoom
+
+        map.on('zoom', function() {
+          console.log(map.getZoom());
+          if (map.getZoom() > 15) {
+          const vendorInfo = document.createElement('div');
+          vendorInfo.className = 'marker';
+          vendorInfo.innerText = marker.name;
+          vendorInfo.style.color = "#2c3e75";
+          new mapboxgl.Marker(vendorInfo)
+            .setLngLat([ marker.lng, marker.lat ])
+            .setPopup(popup)
+            .addTo(map);
+        }
+      });
+
 
       popup._content.querySelector('.directions-button')
         .addEventListener('click', e => {
@@ -62,6 +79,7 @@ const initMapbox = () => {
             getRoute(end, start)
         });
       });
+
       fitMapToMarkers(map, markers);
     });
 
