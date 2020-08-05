@@ -6,7 +6,7 @@ const initPlusMenuDashboard = () => {
       document.querySelector('.plus-menu-big').style.display = "flex";
     });
 
-    document.querySelector('.plus-menu-big').addEventListener('click',
+    document.querySelector('#dashboard-container').addEventListener('click',
     function() {
       document.querySelector('.plus-menu-big').style.display = "none";
     });

@@ -1,0 +1,38 @@
+.review-container{
+  background: image-url('background-review') no-repeat center;
+  background-color: white;
+  height: 100vh;
+  background-size: 100%;
+}
+.background-blur{
+  height: 100vh;
+  width: 110%;
+  background-color: rgba(0,0,0,0.7);
+  margin-left: -16px;
+}
+.review-white-card{
+  background-color: white;
+  border-radius: 12px;
+}
+.white-card-review-container{
+  width: 100%;
+  margin: 0 16px;
+}
+.stars-spacing{
+  a{
+    font-size: 36px;
+    margin: 0 24px;
+  }
+  .br-theme-css-stars .br-widget a {
+    font-size: 36px;
+  }
+}
+.send-btn-center{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.vendor-review-name{
+  display: flex;
+  justify-content:center;
+}

@@ -2,7 +2,7 @@ const initStripe = () => {
 
 
 // Create a Stripe client.
-var stripe = Stripe('pk_test_51H6wbAGWIp89aTGOx4cB2UAgVi5CPezbezwM8zGvHJUALYZLYQPOvJkh92IBYwJjXlmj2wzGerwl9nkMfjc1p2Kv00pMAcDEY4');
+var stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
 
 // Create an instance of Elements.
 var elements = stripe.elements();

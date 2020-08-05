@@ -1,17 +1,20 @@
-<div class="container-sm p-5">
+<div class="bill-show-container container-sm p-3">
   <div class="row justify-content-center">
     <div class="col-12 text-center">
+      <div class="image-vendor-bill">
+        <%= cl_image_tag @bill.vendor.photo.key+".png", :width => 120, :height => 120,
+          :crop => :fill, :radius => 200, alt: "alttext" %>
+      </div>
+      <p style="margin-bottom: 8px;">You are goint to send money to </p>
+      <h5 style="padding: 4px 0 24px 0; "><%= @bill.vendor.name %></h5>
+      <div class="input-blue input-group input-group-lg mb-3">
 
-      <p>You sent money to </p>
-      <h5><%= @bill.vendor.name %></h5>
-      <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-            <span class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
+            <span style="border-radius: 12px 0 0 12px;background-color: transparent;height: 72px; color: white;" class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>
            </div>
-        <input type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
+        <input style="border-radius: 0 12px 12px 0;background-color: transparent;height: 72px;" type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
       </div>
 
     </div>
-
   </div>
 </div>

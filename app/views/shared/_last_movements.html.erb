@@ -1,25 +1,13 @@
-<ul class="nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fas fa-circle"></i></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fas fa-circle"></i></a>
-  </li>
-</ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     <div id="last-movements" class="last-movements-container">
       <div id="btn-up"><i id="btn-down-card" class="btn-up-card fas fa-chevron-up"></i></div>
       <div id="btn-close"><i id="btn-close-card" class="btn-down-card fas fa-times"></i></div>
-      <p style="color:black">Last Movements</p>
+      <strong>
+        <p style="color:black; font-size: 18px; margin: 0px;" class="px-2">Last Movements</p>
+        <hr>
+      </strong>
       <%= render 'shared/user_last_mov' %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <div id="map-show" class="last-movements-container db-map-container">
-      <div id="btn-up"><i id="btn-up-map" class="btn-up-map fas fa-chevron-up"></i></div>
-      <div id="btn-close"><i id="btn-close-map" class="btn-close-map fas fa-times"></i></div>
-      <%= render "shared/map" %>
     </div>
   </div>
 </div>

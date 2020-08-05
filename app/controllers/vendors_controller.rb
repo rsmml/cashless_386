@@ -3,6 +3,7 @@ class VendorsController < ApplicationController
   before_action :set_vendor, only: :show
 
   def index
+    @user = current_user
     if params[:query].present?
       sql_query = " \
         vendors.name @@ :query \
