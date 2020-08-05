@@ -38,7 +38,7 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 // import { initCheckout } from '../plugins/init_checkout';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initQrRedirect } from '../components/qr-redirect';
+// import { initQrRedirect } from '../components/qr-redirect';
 // import { initCamera } from '../components/qr-reader';
 
 document.addEventListener('turbolinks:load', () => {
@@ -51,7 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
-  initQrRedirect();
+  // initQrRedirect();
   // initCamera();
   // to do: moving to seperate file
 
