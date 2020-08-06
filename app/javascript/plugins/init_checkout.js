@@ -1,12 +1,17 @@
+// import { Stripe } from "stripe/lib/stripe.js"
+
 const setupStripe = () => {
   // Create a Stripe client.
   var cardElement = document.getElementById('card-element');
+
+  if (!cardElement) {
+    return;
+  }
+
   var stripeApi = cardElement.dataset.stripeApi;
   var stripe = Stripe(stripeApi);
-
   // Create an instance of Elements.
   var elements = stripe.elements();
-
   // Custom styling can be passed to options when creating an Element.
   // (Note that this demo uses a wider set of styles than the guide below.)
   var style = {

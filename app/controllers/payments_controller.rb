@@ -10,7 +10,6 @@ class PaymentsController < ApplicationController
 
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
     token = params[:stripeToken]
-
     # if @customer.id
     #   charge = Stripe::Charge.create({
     #     amount: @bill.price,
