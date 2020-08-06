@@ -1,5 +1,3 @@
-// import { Stripe } from "stripe/lib/stripe.js"
-
 const setupStripe = () => {
   // Create a Stripe client.
   var cardElement = document.getElementById('card-element');
