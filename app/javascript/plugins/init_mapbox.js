@@ -55,7 +55,6 @@ const initMapbox = () => {
         // markers display name of restaurant on zoom
 
         map.on('zoom', function() {
-          console.log(map.getZoom());
           if (map.getZoom() > 15) {
           const vendorInfo = document.createElement('div');
           vendorInfo.className = 'marker';

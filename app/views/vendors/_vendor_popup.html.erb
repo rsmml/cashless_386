@@ -12,7 +12,7 @@
     <% if Review.where(vendor_id: vendor.id).count.positive? && Review.where(vendor_id: vendor.id).each {|review| !review.rating.nil? } %>
       <% ratings = Review.where(vendor_id: vendor.id).map {|review| review.rating } %>
       <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
-      <p style="margin-bottom: 0"><%= stars %></p>
+      <p ><%= stars %></p>
       <% (stars.to_i).times do  %>
         <i class="fas fa-star" style="color: #ffa931" style="margin-bottom: 0"></i>
       <% end %>
@@ -29,7 +29,7 @@
       <% else %>
         <p>CLOSED Open between <%= "#{vendor.opens.hour.to_s}:#{vendor.opens.min.to_s} - #{vendor.closes.hour.to_s}:#{vendor.closes.min.to_s}" %></p>
       <% end %>
-    <div class="btn directions-button fas fa-directions" id=<%= "directions-id-#{vendor.id}" %> ></div>
+    <div class="btn directions-button btn-primary" id=<%= "directions-id-#{vendor.id}" %> >Directions</div>
 
   </div>
   </div>
