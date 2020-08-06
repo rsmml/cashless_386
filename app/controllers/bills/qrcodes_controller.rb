@@ -8,7 +8,7 @@ class Bills::QrcodesController < ApplicationController
         offset: 0,
         color: '000',
         shape_rendering: 'crispEdges',
-        module_size: 6,
+        module_size: 6
       }
 
     @text = "http://www.cashless-386.xyz#{new_bill_payment_path(@bill)}"
