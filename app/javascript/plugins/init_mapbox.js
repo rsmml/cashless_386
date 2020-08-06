@@ -37,7 +37,7 @@ const initMapbox = () => {
     } else {
 
     // if markers, put them on the map
-    // map.on('load', () => { geolocate.trigger() })
+    map.on('load', () => { geolocate.trigger() })
         markers.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
