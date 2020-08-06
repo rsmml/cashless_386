@@ -12,7 +12,7 @@
     <% if Review.where(vendor_id: vendor.id).count.positive? && Review.where(vendor_id: vendor.id).each {|review| !review.rating.nil? } %>
       <% ratings = Review.where(vendor_id: vendor.id).map {|review| review.rating } %>
       <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
-      <p><%= stars %></p>
+      <p style="margin-bottom: 0"><%= stars %></p>
       <% (stars.to_i).times do  %>
         <i class="fas fa-star" style="color: #ffa931" style="margin-bottom: 0"></i>
       <% end %>
