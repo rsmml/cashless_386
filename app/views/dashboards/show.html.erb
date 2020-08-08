@@ -20,7 +20,7 @@
         </h2>
       </div>
       <div class="cards-grid">
-        <div><p style="font-size: 16pt;margin-bottom: 4px; padding: 0 16px;">Account & cards</p></div>
+        <div><p style="font-size: 16pt;margin-bottom: 4px; padding: 0 16px;">Accounts & Cards</p></div>
         <div class="card-row">
           <% @user.cards.each do |card| %>
             <div class="card-card">
@@ -34,6 +34,7 @@
           <% end %>
           <%= link_to "#", :action => 'go' do %>
               <div class="new-card-card">
+                <i class="fas fa-credit-card"></i>
                 <p>+</p>
               </div>
           <% end %>
@@ -49,7 +50,7 @@
         </div>
         <div class="ad">
           <p style="font-weight: bold;"><%= vendor.name %></p>
-          <p>Pay with the app and get €10 off!</p>
+          <p>Pay with Cashless and get €10 off!</p>
         </div>
         <div class="ad-logo">
           <p>Ad</p>
