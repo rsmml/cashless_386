@@ -14,18 +14,21 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+   <!-- decomment if you want trip instructions on the map -->
+  <!-- <div id="instructions"></div> -->
+<!-- </div> -->
 
   <div class="vendors-container-on-map">
     <%# @vendors.first do |vendor| %>
-      <div class="vendors-on-map-card">
-        <div class="vendors-on-map-logo">
-          <%= cl_image_tag @vendors.first.photo.key, :width=>80, :crop=>"scale", alt: "alttext" %>
-        </div>
+      <!-- <div class="vendors-on-map-card">
+        <div class="vendors-on-map-logo"> -->
+
+        <!-- </div>
         <div class="vendors-on-map-info"></div>
       </div>
     <%# end %>
-  </div>
+  </div> -->
 </div>
-  <!-- decomment if you want trip instructions on the map -->
-  <!-- <div id="instructions"></div> -->
-<!-- </div> -->
+
+
+
