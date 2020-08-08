@@ -1,16 +1,29 @@
 <!-- <div class="container"> -->
 <div class="dashboard-container" id="#dashboard-container">
-  <div class="round-grey-menu-bar nav-item dropdown" style="display: flex;justify-content: space-between;position: absolute;z-index: 3;top: 16px;right: 16px;">
-    <%= cl_image_tag "menu-btn_kz7gls.png", class: "avatar dropdown-toggle", id: "navbar-Dropside", data: { toggle: "dropdown" } %>
-  </div>
-  <div class="display-menu-main-container" style="position: absolute;top: 0;right: -60%;height: 100vh;width: 60%;">
-    <%= render "shared/display_menu" %>
+  <div class="search-bar-container">
+    <div id="search"><%= render "search_bar" %></div>
+    <div class="round-grey-menu-bar nav-item dropdown" style="display: flex;justify-content: space-between;position: absolute;z-index: 3;top: 20px;right: 0px;">
+      <%= cl_image_tag "menu-btn_kz7gls.png", class: "avatar dropdown-toggle", id: "navbar-Dropside", data: { toggle: "dropdown" } %>
+    </div>
+    <div class="display-menu-main-container" style="position: absolute;top: 0;right: -60%;height: 100vh;width: 60%;">
+      <%= render "shared/display_menu" %>
+    </div>
   </div>
   <div id="map"
      style="width: 100%; height:731px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-     <div id="search"><%= render "search_bar" %></div>
+  </div>
+
+  <div class="vendors-container-on-map">
+    <%# @vendors.first do |vendor| %>
+      <div class="vendors-on-map-card">
+        <div class="vendors-on-map-logo">
+          <%= cl_image_tag @vendors.first.photo.key, :width=>80, :crop=>"scale", alt: "alttext" %>
+        </div>
+        <div class="vendors-on-map-info"></div>
+      </div>
+    <%# end %>
   </div>
 </div>
   <!-- decomment if you want trip instructions on the map -->

@@ -11,7 +11,8 @@ class Bills::QrcodesController < ApplicationController
         module_size: 6
       }
 
-    @text = new_bill_payment_path(@bill)
+    @text = "https://cashless-386.herokuapp.com#{new_bill_payment_path(@bill)}"
+    # @text = new_bill_payment_path(@bill)
     @qrcode = RQRCode::QRCode.new(@text)
     @svg = @qrcode.as_svg(options)
   end

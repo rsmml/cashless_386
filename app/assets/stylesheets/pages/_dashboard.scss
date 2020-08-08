@@ -9,6 +9,7 @@ body{
   width: 100%;
   height: 100vh;
   color: white;
+  touch-action: pan-x pan-y;
   .round-grey-menu-bar{
     text-align: end;
     padding: 25px 25px 0 0;
@@ -66,14 +67,30 @@ body{
       justify-content: center;
       align-items: center;
       margin-right: 16px;
-      p{
+      position: absolute;
+      .fa-credit-card{
         margin: 0;
-        color: white;
-        background-color: $light-blue;
-        font-size: 40px;
+        color: black;
+        // background-color: $light-blue;
+        font-size: 50px;
         font-weight: bold;
         padding: 2px 20px;
+        // border-radius: 50px;
+        position: absolute;
+      }
+      p{
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        font-weight: bold;
+        color: white;
+        background-color: #33668a;
         border-radius: 50%;
+        left: 26px;
+        top: -21px;
+        margin: 0;
+        line-height: 0;
+        padding: 17px 9px;
       }
     }
   }
