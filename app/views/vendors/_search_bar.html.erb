@@ -1,8 +1,9 @@
 
 <div class="search-bar-index d-flex justify-content-center"  >
     <%= form_tag vendors_path, method: :get do %>
-      <span class="input" >
-        <%= text_field_tag :query, params[:query], class: "form-control d-inline w-auto", placeholder: "Search map" %>
+      <span class="input d-flex" >
+        <p><i class="fas fa-search" style="font-size: 21px;margin-top: 9px;margin-right: 8px;"></i></p>
+        <%= text_field_tag :query, params[:query], class: "form-control d-inline w-auto", placeholder: "Search for Cashless Points" %>
       </span>
 
       <!-- I took out the button because the phone has a keyboard and let's you search without pressing the button -->
