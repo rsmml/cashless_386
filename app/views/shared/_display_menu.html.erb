@@ -1,4 +1,4 @@
-<div class="options-menu-container" aria-labelledby="img-btn-grey">
+<nav class="options-menu-container slideout-menu" aria-labelledby="img-btn-grey" id="menu">
   <div class="account-name">
     <%= @user.name %>
     <%= @user.last_name %>
@@ -24,6 +24,6 @@
     <i class="fas fa-cog"></i>
     <p><%= link_to "Log-Out", destroy_user_session_path, method: :delete%></p>
   </div>
-</div>
+</nav>
 
 
