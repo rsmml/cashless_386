@@ -1,6 +1,12 @@
-.display-menu-main-container{
+// .display-menu-main-container{
+//   background-color: $light-blue;
+  // display: none;
+// }
+
+#menu {
+  touch-action: pan-x pan-y;
   background-color: $light-blue;
-  display: none;
+
   .options-menu-container{
     display: flex;
     flex-direction: column;

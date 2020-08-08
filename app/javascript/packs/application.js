@@ -32,14 +32,14 @@ import { setupStripe } from '../plugins/init_checkout';
 import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
-import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
+// import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initOptionsMenu();
-  initOptionsMenuClose();
+  // initOptionsMenu();
+  // initOptionsMenuClose();
   initMapbox();
   setupStripe();
   initPlusMenuDashboard();
