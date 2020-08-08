@@ -9,6 +9,7 @@ body{
   width: 100%;
   height: 100vh;
   color: white;
+  touch-action: pan-x pan-y;
   .round-grey-menu-bar{
     text-align: end;
     padding: 25px 25px 0 0;
