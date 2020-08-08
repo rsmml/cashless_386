@@ -2,7 +2,7 @@ const initHistorialMenuUp = () => {
   const history = document.querySelector('.fa-chevron-up');
   if (history) {
     history.addEventListener('click',function(){
-      document.querySelector('.last-movements-container').style.height = "90vh";
+      document.querySelector('.last-movements-container').style.height = "75vh";
       document.querySelector('.btn-up-card').style.display = "none";
       document.querySelector('.btn-down-card').style.display = "flex";
       document.querySelector('.btn-down-card').style.rotate = "540deg";
@@ -12,20 +12,6 @@ const initHistorialMenuUp = () => {
       document.querySelector('.last-movements-container').style.height = "30vh";
       document.querySelector('.btn-up-card').style.display = "flex";
       document.querySelector('.btn-down-card').style.display = "none";
-    });
-  };
-  const mapUp = document.querySelector('#btn-up-map')
-  if (mapUp) {
-    mapUp.addEventListener('click', function(){
-      document.querySelector('.db-map-container').style.height = "90vh";
-      document.querySelector('.btn-up-map').style.display = "none";
-      document.querySelector('.btn-close-map').style.display = "flex";
-      document.querySelector('.btn-close-map').style.rotate = "540deg";
-    });
-    document.querySelector('.btn-close-map').addEventListener('click',function(){
-      document.querySelector('.db-map-container').style.height = "30vh";
-      document.querySelector('.btn-up-map').style.display = "flex";
-      document.querySelector('.btn-close-map').style.display = "none";
     });
   };
 };

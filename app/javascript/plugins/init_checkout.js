@@ -1,11 +1,15 @@
 const setupStripe = () => {
-
   // Create a Stripe client.
-  var stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+  var cardElement = document.getElementById('card-element');
 
+  if (!cardElement) {
+    return;
+  }
+
+  var stripeApi = cardElement.dataset.stripeApi;
+  var stripe = Stripe(stripeApi);
   // Create an instance of Elements.
   var elements = stripe.elements();
-
   // Custom styling can be passed to options when creating an Element.
   // (Note that this demo uses a wider set of styles than the guide below.)
   var style = {
@@ -28,9 +32,7 @@ const setupStripe = () => {
   var card = elements.create('card', {style: style});
 
   // Add an instance of the card Element into the `card-element` <div>.
-  const cardElement = document.getElementById('card-element')
-  if (cardElement) {card.mount('#card-element');}
-
+  card.mount('#card-element');
 
   // Handle real-time validation errors from the card Element.
   card.on('change', function(event) {
@@ -44,7 +46,6 @@ const setupStripe = () => {
 
   // Handle form submission.
   var form = document.getElementById('payment-form');
-  if (form) {
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -59,23 +60,20 @@ const setupStripe = () => {
       }
     });
   });
-  };
-}
 
-// Submit the form with the token ID.
-function stripeTokenHandler(token) {
-  // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('payment-form');
-  var hiddenInput = document.createElement('input');
-  hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
-  hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
+  // Submit the form with the token ID.
+  function stripeTokenHandler(token) {
+    // Insert the token ID into the form so it gets submitted to the server
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
 
-  // Submit the form
-  form.submit();
-}
-
+    // Submit the form
+    form.submit();
+  }
+};
 
 export { setupStripe };
-
