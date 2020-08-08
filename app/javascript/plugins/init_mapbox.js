@@ -76,13 +76,11 @@ const initMapbox = () => {
       //   });
       // });
 
-
-
       fitMapToMarkers(map, markers);
     });
 
     const markerClicks = document.querySelectorAll(".mapboxgl-marker");
-    // link the html markers to the elements in the markers data-set array passed ny the vendors controller
+    // link the html markers to the elements in the markers data-set array passed by the vendors controller
     for (let i=0; i<markerClicks.length; i++) {
       let markerClick = markerClicks[i];
       let marker = markers[i];
@@ -103,11 +101,10 @@ const initMapbox = () => {
     };
 
 
-//     search function from mapbox - currently disabled
+    //  DECOMMENT TO HAVE search function from mapbox
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //                                   mapboxgl: mapboxgl }));
-
   }
   }
 };
