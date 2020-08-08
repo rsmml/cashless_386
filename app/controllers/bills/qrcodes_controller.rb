@@ -11,7 +11,7 @@ class Bills::QrcodesController < ApplicationController
         module_size: 6
       }
 
-    @text = bill_path(@bill)
+    @text = new_bill_payment_path(@bill)
     @qrcode = RQRCode::QRCode.new(@text)
     @svg = @qrcode.as_svg(options)
   end
