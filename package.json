@@ -18,6 +18,7 @@
     "popper.js": "^1.16.1",
     "qr-scanner": "^1.2.0",
     "stripe": "^8.82.0",
+    "sweetalert": "^2.1.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
