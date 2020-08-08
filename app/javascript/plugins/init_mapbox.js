@@ -37,25 +37,28 @@ const initMapbox = () => {
     } else {
 
     // if markers, put them on the map
-    map.on('load', () => { geolocate.trigger() })
+    // map.on('load', () => { geolocate.trigger() })
+        const info = document.querySelector(".vendors-container-on-map");
         markers.forEach((marker) => {
 
+
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-
-
-      // PASS vendorInfo to .Marker() if you want to create a custom marker
-      //
 
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
 
+
+
+      // const markerClick = document.querySelector(".mapboxgl-marker");
+      // console.log(marker);
+      //
+
         // markers display name of restaurant on zoom
 
         map.on('zoom', function() {
-          if (map.getZoom() > 15) {
+          if (map.getZoom() > 16) {
           const vendorInfo = document.createElement('div');
           vendorInfo.className = 'marker';
           vendorInfo.innerText = marker.name;
@@ -68,21 +71,31 @@ const initMapbox = () => {
       });
 
 
-      popup._content.querySelector('.directions-button')
-        .addEventListener('click', e => {
-          navigator.geolocation.getCurrentPosition(position => {
-            const start = [position.coords.longitude, position.coords.latitude];
-            const end = [ marker.lng, marker.lat ];
-            const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
-            map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
-            getRoute(end, start)
-        });
-      });
+      // popup._content.querySelector('.directions-button')
+      //   .addEventListener('click', e => {
+      //     navigator.geolocation.getCurrentPosition(position => {
+      //       const start = [position.coords.longitude, position.coords.latitude];
+      //       const end = [ marker.lng, marker.lat ];
+      //       const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
+      //       map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
+      //       getRoute(end, start)
+      //   });
+      // });
+
+
 
       fitMapToMarkers(map, markers);
     });
 
-
+    const markerClicks = document.querySelectorAll(".mapboxgl-marker");
+    // link the html markers to the elements in the markers data-set array passed ny the vendors controller
+    for (let i=0; i<markerClicks.length; i++) {
+      let markerClick = markerClicks[i];
+      let marker = markers[i];
+      markerClick.addEventListener('click', e => {
+        info.innerHTML = marker.infoWindow;
+      });
+    };
 
 //     search function from mapbox - currently disabled
 
@@ -91,8 +104,6 @@ const initMapbox = () => {
 
   }
   }
-
-
 };
 
 
