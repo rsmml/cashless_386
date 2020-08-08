@@ -46,14 +46,8 @@ const initMapbox = () => {
 
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(map);
-
-
-
-      // const markerClick = document.querySelector(".mapboxgl-marker");
-      // console.log(marker);
-      //
 
         // markers display name of restaurant on zoom
 
@@ -65,12 +59,12 @@ const initMapbox = () => {
           vendorInfo.style.color = "#2c3e75";
           new mapboxgl.Marker(vendorInfo)
             .setLngLat([ marker.lng, marker.lat ])
-            .setPopup(popup)
+            // .setPopup(popup)
             .addTo(map);
         }
       });
 
-
+        // CREATE A POPUP
       // popup._content.querySelector('.directions-button')
       //   .addEventListener('click', e => {
       //     navigator.geolocation.getCurrentPosition(position => {
@@ -94,8 +88,20 @@ const initMapbox = () => {
       let marker = markers[i];
       markerClick.addEventListener('click', e => {
         info.innerHTML = marker.infoWindow;
+        info.querySelector('.directions-button')
+          .addEventListener('click', e => {
+            geolocate.trigger()
+            navigator.geolocation.getCurrentPosition(position => {
+              const start = [position.coords.longitude, position.coords.latitude];
+              const end = [ marker.lng, marker.lat ];
+              const boundsDirections = new mapboxgl.LngLatBounds([start,end]);
+              map.fitBounds(boundsDirections, { padding: 30, maxZoom: 15, duration: 0 });
+              getRoute(end, start)
+        });
+      });
       });
     };
+
 
 //     search function from mapbox - currently disabled
 
