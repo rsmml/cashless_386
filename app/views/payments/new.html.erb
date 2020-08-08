@@ -73,12 +73,26 @@
         <!-- Used to display form errors. -->
         <div id="card-errors" role="alert"></div>
       </div>
-
-      <button class="submit-payment">
-        <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Submit payment</span>
-      </button>
     </form>
+
+    <div class="submit-payment" style="width: 90%;height: 72px;">
+      <div class="spinner hidden" id="spinner"></div>
+      <div id="button-background">
+        <span class="slide-text">Swipe to pay</span>
+        <div id="slider">
+          <i id="locker" class="material-icons" style="font-size: 24px;">
+            <%= humanized_money @bill.price %>
+          </i>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
+
+
+
+
+
+
+
