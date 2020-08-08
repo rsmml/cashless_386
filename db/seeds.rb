@@ -460,3 +460,33 @@ puts "Creating a bill"
 puts "Bill #{bill_first.id} was created"
 
 puts "Seeds Done"
+
+
+
+
+
+Bill.create(
+    date: "2020-08-01",
+    status: "pending",
+    user_id: 18,
+    vendor_id: 26,
+    price_cents: 2789,
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
