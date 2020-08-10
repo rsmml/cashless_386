@@ -34,23 +34,25 @@ class PaymentsController < ApplicationController
     authorize @bill
 
     begin
-    charge = Stripe::Charge.create({
+    @charge = Stripe::Charge.create({
         amount: @bill.price_cents,
         currency: 'eur',
-        description: @bill.user.email,
-        order: @bill.id,
+        description: @bill.vendor,
+        metadata: { bill_id: @bill.id },
         source: token,
       })
 
-    @bill.charge = charge
-    redirect_to new_vendor_review_path(@bill.vendor.id, bill: { id: @bill.id, charge: charge, status: charge.status})
-    # redirect_to bill_path(@bill, bill: { id: @bill.id, charge: charge, status: charge.status})
-    # redirect_to new_vendor_review_path(@bill.vendor.id)
-
     rescue Stripe::StripeError => e
       @error = e
+      puts e
       # erb :error
     end
+
+    @bill.charge = @charge.id
+    @bill.status = @charge.status
+    @bill.save
+
+    redirect_to new_vendor_review_path(@bill.vendor.id, bill: { id: @bill.id, status: @charge.status})
   end
 
   private
