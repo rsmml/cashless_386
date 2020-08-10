@@ -5,9 +5,11 @@
         <%= cl_image_tag @bill.vendor.photo.key+".png", :width => 120, :height => 120,
           :crop => :fill, :radius => 200, alt: "alttext" %>
       </div>
-      <p style="margin-bottom: 8px;">You are goint to send money to </p>
+      <p style="margin-bottom: 8px;">You payment to  </p>
       <h5 style="padding: 4px 0 24px 0; "><%= @bill.vendor.name %></h5>
+      <h5 style="padding: 4px 0 24px 0; "><%= @bill.status %></h5>
       <div class="input-blue input-group input-group-lg mb-3">
+      <p><%= @bill.charge %></p>
 
         <div class="input-group-prepend">
             <span style="border-radius: 12px 0 0 12px;background-color: transparent;height: 72px; color: white;" class="currency_symbol input-group-text" id="inputGroup-sizing-lg"><%= currency_symbol %></span>

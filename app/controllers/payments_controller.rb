@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
-  # protect_from_forgery
-  skip_before_action :verify_authenticity_token, only: :create
+  protect_from_forgery
+  # skip_before_action :verify_authenticity_token, only: :create
   before_action :set_bill, only: [:new, :create]
 
   def new
@@ -11,6 +11,8 @@ class PaymentsController < ApplicationController
 
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
     token = params[:stripeToken]
+
+    # TODO: create Customer account of Stripe
     # if @customer.id
     #   charge = Stripe::Charge.create({
     #     amount: @bill.price,
@@ -36,9 +38,14 @@ class PaymentsController < ApplicationController
         amount: @bill.price_cents,
         currency: 'eur',
         description: @bill.user.email,
+        order: @bill.id,
         source: token,
       })
-      redirect_to new_vendor_review_path(@bill.vendor.id)
+
+    @bill.charge = charge
+    redirect_to new_vendor_review_path(@bill.vendor.id, bill: { id: @bill.id, charge: charge, status: charge.status})
+    # redirect_to bill_path(@bill, bill: { id: @bill.id, charge: charge, status: charge.status})
+    # redirect_to new_vendor_review_path(@bill.vendor.id)
 
     rescue Stripe::StripeError => e
       @error = e
@@ -52,5 +59,4 @@ class PaymentsController < ApplicationController
     # @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
      @bill = Bill.find(params[:bill_id])
   end
-
 end
