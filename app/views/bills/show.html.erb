@@ -5,7 +5,7 @@
         <%= cl_image_tag @bill.vendor.photo.key+".png", :width => 120, :height => 120,
           :crop => :fill, :radius => 200, alt: "alttext" %>
       </div>
-      <p style="margin-bottom: 8px;">You payment to  </p>
+      <p style="margin-bottom: 8px;">Your payment to  </p>
       <h5 style="padding: 4px 0 24px 0; "><%= @bill.vendor.name %></h5>
       <h5 style="padding: 4px 0 24px 0; "><%= @bill.status %></h5>
       <div class="input-blue input-group input-group-lg mb-3">
