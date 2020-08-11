@@ -40,3 +40,30 @@
     margin: 0 auto;
   }
 }
+.container-map-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.photo-vendor-on-map-card{
+  img {
+    height: 120px;
+    width: 120px;
+  }
+}
+.vendor-on-map-card-information{
+  a{
+    font-size: 20px;
+  }
+}
+
+.name-stars-vendor{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.directions-button{
+  margin-top: 12px;
+  width: 100%;
+}

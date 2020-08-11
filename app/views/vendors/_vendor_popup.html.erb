@@ -1,42 +1,45 @@
 <div class="vendors-on-map-card">
 
-  <div class="container">
-
-    <div class="photo-vendor-on-map-card">
-      <% if vendor.photo.attached?  %>
-        <%= cl_image_tag vendor.photo.key, height: 80, width: 80, crop: :fill %>
-      <% else %>
-        <%= image_tag 'restaurant-logo', height: 80, width: 80, crop: :fill %>
-       <% end %>
-    </div>
-
-    <div class="vendor-on-map-card-information">
-      <p style="text-decoration: none; margin-bottom: 0"><strong><%= link_to vendor.name, vendor_path(vendor) %></strong></p>
-
-      <div class="d-flex" style="margin-bottom: 0">
-        <% if Review.where(vendor_id: vendor.id).count.positive? && Review.where(vendor_id: vendor.id).each {|review| !review.rating.nil? } %>
-          <% ratings = Review.where(vendor_id: vendor.id).map {|review| review.rating } %>
-          <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
-          <p ><%= stars %></p>
-          <% (stars.to_i).times do  %>
-            <i class="fas fa-star" style="color: #ffa931" style="margin-bottom: 0"></i>
+  <div class="container-map-information">
+    <div class="container-map-card">
+      <div class="vendor-on-map-card-information">
+        <div class="name-stars-vendor">
+          <p style="text-decoration: none; margin-bottom: 8px"><strong><%= link_to vendor.name, vendor_path(vendor) %></strong></p>
+          <div class="d-flex" style="margin-bottom: 0">
+            <% if Review.where(vendor_id: vendor.id).count.positive? && Review.where(vendor_id: vendor.id).each {|review| !review.rating.nil? } %>
+              <% ratings = Review.where(vendor_id: vendor.id).map {|review| review.rating } %>
+              <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
+              <p ><%= stars %></p>
+              <% (stars.to_i).times do  %>
+                <i class="fas fa-star" style="color: #ffa931" style="margin-bottom: 0"></i>
+              <% end %>
+              <% if stars % 1 != 0 %>
+                <i class="fa fa-star-half" style="color: #ffa931" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="open-close">
+          <% opening = (vendor.opens.hour.to_s + vendor.opens.min.to_s).to_i %>
+          <% closing = (vendor.closes.hour.to_s + vendor.closes.min.to_s).to_i %>
+          <% current_time = (Time.now.hour.to_s + Time.now.min.to_s).to_i %>
+          <% if current_time >= opening && current_time < closing %>
+           <p style="margin-bottom: 0">OPEN - Closes <%= vendor.closes.hour.to_s %>:<%= vendor.closes.min.to_s %></p>
+          <% else %>
+            <p>CLOSED Open between <%= "#{vendor.opens.hour.to_s}:#{vendor.opens.min.to_s} - #{vendor.closes.hour.to_s}:#{vendor.closes.min.to_s}" %></p>
           <% end %>
-          <% if stars % 1 != 0 %>
-            <i class="fa fa-star-half" style="color: #ffa931" aria-hidden="true"></i>
-          <% end %>
-        <% end %>
+        </div>
       </div>
 
-      <% opening = (vendor.opens.hour.to_s + vendor.opens.min.to_s).to_i %>
-      <% closing = (vendor.closes.hour.to_s + vendor.closes.min.to_s).to_i %>
-      <% current_time = (Time.now.hour.to_s + Time.now.min.to_s).to_i %>
-      <% if current_time >= opening && current_time < closing %>
-       <p style="margin-bottom: 0">OPEN - Closes <%= vendor.closes.hour.to_s %>:<%= vendor.closes.min.to_s %></p>
-      <% else %>
-        <p>CLOSED Open between <%= "#{vendor.opens.hour.to_s}:#{vendor.opens.min.to_s} - #{vendor.closes.hour.to_s}:#{vendor.closes.min.to_s}" %></p>
-      <% end %>
-      <div class="btn directions-button btn-primary" id=<%= "directions-id-#{vendor.id}" %> >Directions</div>
+      <div class="photo-vendor-on-map-card">
+        <% if vendor.photo.attached?  %>
+          <%= cl_image_tag vendor.photo.key, height: 80, width: 80, crop: :fill %>
+        <% else %>
+          <%= image_tag 'restaurant-logo', height: 80, width: 80, crop: :fill %>
+         <% end %>
+      </div>
     </div>
+    <div class="btn directions-button btn-primary" id=<%= "directions-id-#{vendor.id}" %> >Directions</div>
   </div>
 </div>
 </div>
