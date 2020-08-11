@@ -11,6 +11,7 @@ class PaymentsController < ApplicationController
     authorize @bill
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
     token = params[:stripeToken]
+
     @user = User.find(@bill.user.id)
 
     if @user.stripe_id.nil? || @user.stripe_id.empty?
@@ -25,12 +26,34 @@ class PaymentsController < ApplicationController
       @user.save
     end
 
+    # TODO: create Customer account of Stripe
+    # if @customer.id
+    #   charge = Stripe::Charge.create({
+    #     amount: @bill.price,
+    #     currency: 'eur',
+    #     customer: @customer.id,
+    #   })
+    # else
+    #   customer = Stripe::Customer.create({
+    #     source: token,
+    #     email: @bill.user.email,
+    #   })
+
+    #   charge = Stripe::Charge.create({
+    #   amount: @bill.price,
+    #   currency: 'eur',
+    #   customer: customer.id,
+    # })
+    # end
+    authorize @bill
+
     begin
     @charge = Stripe::Charge.create({
         amount: @bill.price_cents,
         currency: 'eur',
         description: @bill.vendor,
         customer: @user.stripe_id,
+        metadata: { bill_id: @bill.id },
         source: token,
       })
 
@@ -40,7 +63,11 @@ class PaymentsController < ApplicationController
       # erb :error
     end
 
-    redirect_to new_vendor_review_path(@bill.vendor.id)
+    @bill.charge = @charge.id
+    @bill.status = @charge.status
+    @bill.save
+
+    redirect_to new_vendor_review_path(@bill.vendor.id, bill: { id: @bill.id, status: @charge.status})
   end
 
   private
