@@ -34,6 +34,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
 // import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSwipe } from '../components/swipe-btn';
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
@@ -45,6 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
+  initSwipe();
 
   initSweetalert('#sweet-alert', {
     title: "payment success",
