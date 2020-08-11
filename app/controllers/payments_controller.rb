@@ -9,7 +9,6 @@ class PaymentsController < ApplicationController
   def create
 
     authorize @bill
-    # Stripe.api_key = Rails.configuration.stripe[:secret_key]
     Stripe.api_key
     token = params[:stripeToken]
 
