@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
 
     @user = User.find(@bill.user.id)
 
-    if @user.stripe_id.nil? || @user.stripe_id.empty?
+    if @user.stripe_id.nil?
       @customer = Stripe::Customer.create({
         source: token,
         email: @bill.user.email,
@@ -25,27 +25,6 @@ class PaymentsController < ApplicationController
       @user.stripe_id = @customer.id
       @user.save
     end
-
-    # TODO: create Customer account of Stripe
-    # if @customer.id
-    #   charge = Stripe::Charge.create({
-    #     amount: @bill.price,
-    #     currency: 'eur',
-    #     customer: @customer.id,
-    #   })
-    # else
-    #   customer = Stripe::Customer.create({
-    #     source: token,
-    #     email: @bill.user.email,
-    #   })
-
-    #   charge = Stripe::Charge.create({
-    #   amount: @bill.price,
-    #   currency: 'eur',
-    #   customer: customer.id,
-    # })
-    # end
-    authorize @bill
 
     begin
     @charge = Stripe::Charge.create({
