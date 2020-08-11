@@ -81,5 +81,25 @@
       </button>
     </form>
 
+    <div class="submit-payment" style="width: 90%;height: 72px;">
+      <div class="spinner hidden" id="spinner"></div>
+      <div id="button-background">
+        <span class="slide-text">Swipe to pay</span>
+        <div id="slider">
+          <i id="locker" class="material-icons" style="font-size: 24px;">
+            <%= humanized_money @bill.price %>
+          </i>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<%#= javascript_pack_tag("payment") %>
+
+
+
+
+
+
