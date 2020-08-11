@@ -1,7 +1,11 @@
-<div class="dashboard-container" style="display: flex;flex-direction: column;">
+<div id='menu' class="display-menu-main-container">
+  <%= render "shared/display_menu" %>
+</div>
+
+<main class="dashboard-container slideout-panel" style="display: flex;flex-direction: column;" id="panel">
   <div>
-    <div id="dashboard-container" style="flex-grow: 1;">
-      <div class="round-grey-menu-bar nav-item dropdown" style="display: flex;justify-content: space-between;">
+    <div id="dashboard-container" style="flex-grow: 1;height: 100vh;">
+      <div class="round-grey-menu-bar nav-item dropdown toggle-button" style="display: flex;justify-content: space-between;">
         <div id="avatar" style="padding: 0 16px;">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key+".png",
@@ -20,7 +24,7 @@
         </h2>
       </div>
       <div class="cards-grid">
-        <div><p style="font-size: 16pt;margin-bottom: 4px; padding: 0 16px;">Account & cards</p></div>
+        <div><p style="font-size: 16pt;margin-bottom: 4px; padding: 0 16px;">Accounts & Cards</p></div>
         <div class="card-row">
           <% @user.cards.each do |card| %>
             <div class="card-card">
@@ -34,6 +38,7 @@
           <% end %>
           <%= link_to "#", :action => 'go' do %>
               <div class="new-card-card">
+                <i class="fas fa-credit-card"></i>
                 <p>+</p>
               </div>
           <% end %>
@@ -49,7 +54,7 @@
         </div>
         <div class="ad">
           <p style="font-weight: bold;"><%= vendor.name %></p>
-          <p>Pay with the app and get €10 off!</p>
+          <p>Pay with Cashless and get €10 off!</p>
         </div>
         <div class="ad-logo">
           <p>Ad</p>
@@ -60,9 +65,6 @@
       </div>
       <div class="slider-btns"></div>
     </div>
-    <div class="display-menu-main-container" style="position: absolute;top: 0;right: -60%;height: 100vh;width: 60%;">
-      <%= render "shared/display_menu" %>
-    </div>
   </div>
   <div>
     <div class="bottom-card-dashboard">
@@ -70,9 +72,9 @@
     </div>
   </div>
   <%= render "shared/plus_menu" %>
-</div>
+</main>
 
-
+<%= javascript_pack_tag("option-slider") %>
 
 
 

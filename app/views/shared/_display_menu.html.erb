@@ -1,4 +1,4 @@
-<div class="options-menu-container" aria-labelledby="img-btn-grey">
+<nav class="options-menu-container slideout-menu" aria-labelledby="img-btn-grey" id="menu">
   <div class="account-name">
     <%= @user.name %>
     <%= @user.last_name %>
@@ -7,16 +7,16 @@
   <div style="flex-grow: 1;">
     <ul style="list-style: none; padding-left: 30px;">
       <%= link_to dashboard_path(current_user) do %>
-        <li><i class="fas fa-user"></i><p>Dashboard</p></li>
+        <li><i class="fas fa-user" style="color: white;"></i><p>Dashboard</p></li>
       <% end %>
-      <li><i class="fas fa-history"></i><p>Your activity</p></li>
+      <li><i class="fas fa-history" style="color: white;"></i><p>Transactions</p></li>
       <%= link_to user_qrcode_path(@user) do %>
-        <li><i class="fas fa-qrcode"></i><p>Your QR code</p></li>
+        <li><i class="fas fa-qrcode" style="color: white;"></i><p>My QR code</p></li>
       <% end %>
       <%= link_to vendors_path do %>
-        <li><i class="fas fa-map-marked-alt"></i><p>Display map</p></li>
+        <li><i class="fas fa-map-marked-alt" style="color: white;"></i><p>Map</p></li>
       <% end %>
-      <li><i class="far fa-question-circle"></i><p>Help & Feedback</p></li>
+      <li><i class="far fa-question-circle" style="color: white;"></i><p>Help & Feedback</p></li>
     </ul>
   </div>
   <hr style="color:black; border: 0.01px solid rgba(0,0,0,0.2);">
@@ -24,6 +24,6 @@
     <i class="fas fa-cog"></i>
     <p><%= link_to "Log-Out", destroy_user_session_path, method: :delete%></p>
   </div>
-</div>
+</nav>
 
 
