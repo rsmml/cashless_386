@@ -9,11 +9,13 @@ class PaymentsController < ApplicationController
   def create
 
     authorize @bill
-    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    # Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    Stripe.api_key
     token = params[:stripeToken]
 
     @user = User.find(@bill.user.id)
 
+    # if user has once paid with our app
     if @user.stripe_id.nil?
       @customer = Stripe::Customer.create({
         source: token,
@@ -31,9 +33,8 @@ class PaymentsController < ApplicationController
         amount: @bill.price_cents,
         currency: 'eur',
         description: @bill.vendor,
-        customer: @user.stripe_id,
         metadata: { bill_id: @bill.id },
-        source: token,
+        customer: @user.stripe_id,
       })
 
     rescue Stripe::StripeError => e

@@ -34,7 +34,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
 // import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initSweetalert } from '../plugins/init_sweetalert';
+// import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -46,15 +46,4 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initHistorialMenuUp();
 
-  initSweetalert('#sweet-alert', {
-    title: "payment success",
-    text: "Thank you!",
-    icon: "success",
-    button: false
-  }, (value) => {
-    if (value) {
-      const link = document.querySelector('submit-payment');
-      link.click();
-    }
-  });
 });
