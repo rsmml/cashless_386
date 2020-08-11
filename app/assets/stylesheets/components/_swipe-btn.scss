@@ -50,10 +50,10 @@ body {
   position: absolute;
   left: 0px;
   background-color: $slideBallColor;
-  width: 72px;
+  width: 89px;
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 6px;
   height: 72px;
-  border-radius: 50%;
+  border-radius: 40px;
   @include center;
   &.unlocked {
     transition: all 0.3s;
@@ -85,4 +85,8 @@ body {
   a {
     color: white;
   }
+}
+.submit-payment{
+  position: fixed;
+  bottom: 5%;
 }

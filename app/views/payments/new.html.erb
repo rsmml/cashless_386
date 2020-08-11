@@ -26,39 +26,40 @@
           </div>
         </div>
 
-        <div class="card rounded mb-1 justify-content-sm-around">
-          <% current_user.cards.each do |card| %>
-            <div class="card-body p-2 d-flex">
-              <div class="d-flex justify-content-start align-items-center flex-grow-1">
-                <div class="mx-1">
-                  <% if card.card_type == 'Visa' %>
-                    <%= cl_image_tag("Screen_Shot_2020-08-04_at_12.21.33_wtstts.png", :height=>35, :width=>57, :crop=>"pad") %>
-                  <% else %>
-                    <%= cl_image_tag("Screen_Shot_2020-06-13_at_15.03.52_iy0yev.png", :width=>57, :crop=>"thumb") %>
-                  <% end %>
+        <div class="cards-btns">
+          <ul style="list-style: none; padding: 0;">
+            <% current_user.cards.each do |card| %>
+              <li>
+                <div class="card-body-btn  p-2 d-flex">
+                  <div class="d-flex justify-content-start align-items-center flex-grow-1">
+                    <div class="mx-1">
+                      <% if card.card_type == 'Visa' %>
+                        <%= cl_image_tag("Screen_Shot_2020-08-04_at_12.21.33_wtstts.png", :height=>35, :width=>57, :crop=>"pad") %>
+                      <% else %>
+                        <%= cl_image_tag("Screen_Shot_2020-06-13_at_15.03.52_iy0yev.png", :width=>57, :crop=>"thumb") %>
+                      <% end %>
+                    </div>
+                    <div class="mx-1">
+                      <p style="margin-bottom: 0px;">
+                        <%= card.bank_name %>
+                      </p>
+                    </div>
+                    <div class="mx-1" style="display: flex; justify-content: center; align-items: center;">
+                      <p style="font-size: 14px; margin-bottom: 0px;">
+                        <i style="font-size: 8px" class="fas fa-circle"></i>
+                        <i style="font-size: 8px" class="fas fa-circle"></i>
+                        <i style="font-size: 8px" class="fas fa-circle"></i>
+                        <i style="font-size: 8px" class="fas fa-circle"></i>
+                        <%= card.number.split.last.to_s %>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="mx-1">
-                  <p style="margin-bottom: 0px;">
-                    <%= card.bank_name %>
-                  </p>
-                </div>
-                <div class="mx-1" style="display: flex; justify-content: center; align-items: center;">
-                  <p style="font-size: 14px; margin-bottom: 0px;">
-                    <i style="font-size: 8px" class="fas fa-circle"></i>
-                    <i style="font-size: 8px" class="fas fa-circle"></i>
-                    <i style="font-size: 8px" class="fas fa-circle"></i>
-                    <i style="font-size: 8px" class="fas fa-circle"></i>
-                    <%= card.number.split.last.to_s %>
-                  </p>
-                </div>
-              </div>
-              <div>
-                <button type="button" class="btn btn-secondary">Select Card</button>
-              </div>
-
-            </div>
-          <% end %>
+              </li>
+            <% end %>
+          </ul>
         </div>
+
       </div>
 
     <form action= <%= bill_payments_path(@bill) %> method="post" id="payment-form">
@@ -74,7 +75,7 @@
         <div id="card-errors" role="alert"></div>
       </div>
 
-      <button id="sweet-alert" class="submit-payment btn btn-primary">
+      <button id="sweet-alert" class="submit-payment btn btn-primary" style="display: none;">
         <div class="spinner hidden" id="spinner"></div>
         <span id="button-text">Submit payment</span>
       </button>
@@ -96,10 +97,4 @@
   </div>
 </div>
 
-<%#= javascript_pack_tag("payment") %>
-
-
-
-
-
-
+<%= javascript_pack_tag("active-btns") %>

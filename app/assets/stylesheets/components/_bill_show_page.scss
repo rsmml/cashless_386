@@ -25,3 +25,17 @@
     color: white;
   }
 }
+
+.card-body-btn{
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.cards-btns{
+  ul li.active{
+    border-radius: 8px;
+    box-shadow: 0 0 4px #96bb7c;
+    background-color: #e4f2da;
+  }
+}
