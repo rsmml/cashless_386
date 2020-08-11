@@ -26,15 +26,10 @@ const initSwipe = () => {
     }
     slider.addClass('unlocked');
     $('#locker').text('Thanks');
-    // setTimeout(function(){
-    //   slider.on('click tap', function(event){
-    //     if (!slider.hasClass('unlocked'))
-    //       return;
-    //     slider.removeClass('unlocked');
-    //     $('#locker').text('lock_open');
-    //     slider.off('click tap');
-    //   });
-    // }, 0);
+    setTimeout(function(){
+      const btn = document.getElementById('sweet-alert')
+      btn.click();
+    }, 500);
   });
 
   $(document.body).on('mousemove touchmove', function(event){

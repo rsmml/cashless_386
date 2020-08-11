@@ -59,5 +59,4 @@ document.addEventListener('turbolinks:load', () => {
       link.click();
     }
   });
->>>>>>> master
 });
