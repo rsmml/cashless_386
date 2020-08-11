@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
 
     @user = User.find(@bill.user.id)
 
-    # if user has never paid with our app
+    # if user has never paid with our app, create a stripe customer account
     if @user.stripe_id.nil?
       @customer = Stripe::Customer.create({
         source: token,
