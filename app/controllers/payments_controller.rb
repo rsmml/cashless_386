@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
 
     @user = User.find(@bill.user.id)
 
-    # if user has once paid with our app
+    # if user has never paid with our app
     if @user.stripe_id.nil?
       @customer = Stripe::Customer.create({
         source: token,
@@ -27,6 +27,7 @@ class PaymentsController < ApplicationController
       @user.save
     end
 
+    # create a charge (kind of payment request) to send stripe
     begin
     @charge = Stripe::Charge.create({
         amount: @bill.price_cents,
@@ -52,7 +53,7 @@ class PaymentsController < ApplicationController
   private
 
   def set_bill
-    # @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
+    # TODO: @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
      @bill = Bill.find(params[:bill_id])
   end
 end
