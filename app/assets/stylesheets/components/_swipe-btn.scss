@@ -33,11 +33,8 @@ body {
 
 #button-background {
   position: relative;
-  top: -16px;
-  left:-56px;
-  background-color: $slideBgColor;
-  width: 355px;
-  height: 72px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 60px;
   border: white;
   border-radius: 40px;
   @include center;
@@ -49,15 +46,15 @@ body {
     height 0.3s;
   position: absolute;
   left: 0px;
-  background-color: $slideBallColor;
-  width: 89px;
-  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 6px;
-  height: 72px;
+  background-color: black;
+  width: 150px;
+  // box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 6px;
+  height: 60px;
   border-radius: 40px;
   @include center;
   &.unlocked {
     transition: all 0.3s;
-    width: inherit;
+    width: 100%;
     left: 0 !important;
     height: inherit;
     border-radius: inherit;
@@ -65,13 +62,13 @@ body {
 }
 
 .material-icons {
-  color: $black;
+  color: white;
   font-size: 24px;
   // @include nonselect;
 }
 
 .slide-text {
-  color: $slideTextColor;
+  color: rgba(255,255,255,0.7);
   font-size: 24px;
   // text-transform: uppercase;
   // @include nonselect;
@@ -87,6 +84,11 @@ body {
   }
 }
 .submit-payment{
-  position: fixed;
-  bottom: 5%;
+  // position: fixed;
+  // bottom: 5%;
+  padding: 0;
+}
+
+.amount-container{
+  margin: 0 16px;
 }
