@@ -1,0 +1,88 @@
+$bgColor: #3a3d55;
+$slideBgColor: rgba(255,255,255,0.3);
+$slideBallColor: white;
+$slideBallIconColor: black;
+$slideTextColor: #3a3d55;
+
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin nonselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  cursor: default;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: $bgColor;
+  @include center;
+}
+
+#button-background {
+  position: relative;
+  top: -16px;
+  left:-56px;
+  background-color: $slideBgColor;
+  width: 355px;
+  height: 72px;
+  border: white;
+  border-radius: 40px;
+  @include center;
+}
+
+#slider {
+  transition: width 0.3s,
+    border-radius 0.3s,
+    height 0.3s;
+  position: absolute;
+  left: 0px;
+  background-color: $slideBallColor;
+  width: 72px;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 6px;
+  height: 72px;
+  border-radius: 50%;
+  @include center;
+  &.unlocked {
+    transition: all 0.3s;
+    width: inherit;
+    left: 0 !important;
+    height: inherit;
+    border-radius: inherit;
+  }
+}
+
+.material-icons {
+  color: $black;
+  font-size: 24px;
+  // @include nonselect;
+}
+
+.slide-text {
+  color: $slideTextColor;
+  font-size: 24px;
+  // text-transform: uppercase;
+  // @include nonselect;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  font-size: 14px;
+  color: white;
+  a {
+    color: white;
+  }
+}

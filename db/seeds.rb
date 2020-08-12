@@ -11,9 +11,6 @@ Review.destroy_all
 puts 'Reviews are cleaned'
 Bill.destroy_all
 puts 'Bills are cleaned'
-Card.destroy_all
-User.destroy_all
-puts 'Users Cleaned'
 Vendor.destroy_all
 puts 'Vendors are cleaned'
 sleep(0.2)
@@ -458,5 +455,6 @@ puts "Creating a bill"
     price_cents: 2789,
     )
 puts "Bill #{bill_first.id} was created"
+
 
 puts "Seeds Done"
