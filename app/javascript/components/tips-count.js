@@ -3,25 +3,29 @@ const initTipsCount = () => {
   if (buttons){
     buttons.forEach((button) => {
       const amountString = document.querySelector('.form-control').placeholder
-      const amountInteger = parseInt(amountString,10);
+      const replace = amountString.replace(",", ".");
+      const amountInteger = parseFloat(replace);
       const tip = document.querySelector('.tips-count-text')
       const tipPlus = document.querySelector('.plus-tips-count-text')
+      const text = document.querySelector('.form-control')
       button.addEventListener('click', () => {
         tip.style.display = "flex";
         tipPlus.style.display = "flex";
         if (button.innerHTML === "5%"){
-          tip.innerHTML = (amountInteger*0.05);
-          // amountString.placeholder = (amountInteger*1.05);
+          tip.innerHTML = (amountInteger*0.05).toFixed(2);
+          text.placeholder = (amountInteger*1.05).toFixed(2);
         } else if (button.innerHTML === "10%") {
-          tip.innerHTML = (amountInteger*0.1);
-          // amountString.placeholder = (amountInteger*1.1);
+          tip.innerHTML = (amountInteger*0.1).toFixed(2);
+          text.placeholder = (amountInteger*1.1).toFixed(2);
         } else if (button.innerHTML === "15%") {
-          tip.innerHTML = (amountInteger*0.15);
-          // amountString.placeholder = (amountInteger*1.15);
+          tip.innerHTML = (amountInteger*0.15).toFixed(2);
+          text.placeholder = (amountInteger*1.15).toFixed(2);
         } else {
           const value = document.querySelector('#expand-btn').value;
           tip.innerHTML = value;
-          // amountString = (amountInteger+value);
+          const valueInteger = parseFloat(value);
+          const sum = amountInteger + valueInteger
+          text.placeholder = sum
         }
       })
     });
