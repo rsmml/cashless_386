@@ -16,26 +16,14 @@ class PaymentsController < ApplicationController
 
     # if user has never paid with our app, create a stripe customer account
     if @user.stripe_id.nil?
-      @customer = Stripe::Customer.create({
-        source: token,
-        email: @bill.user.email,
-        name: @bill.user.name,
-        description: @bill.user,
-      })
-
+      @customer = create_customer
       @user.stripe_id = @customer.id
       @user.save
     end
 
     # create a charge (kind of payment request) to send stripe
     begin
-    @charge = Stripe::Charge.create({
-        amount: @bill.price_cents,
-        currency: 'eur',
-        description: @bill.vendor,
-        metadata: { bill_id: @bill.id },
-        customer: @user.stripe_id,
-      })
+    @charge = make_payment
 
     rescue Stripe::StripeError => e
       @error = e
@@ -55,5 +43,24 @@ class PaymentsController < ApplicationController
   def set_bill
     # TODO: @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
      @bill = Bill.find(params[:bill_id])
+  end
+
+  def create_customer
+    Stripe::Customer.create({
+      source: token,
+      email: @bill.user.email,
+      name: @bill.user.name,
+      description: @bill.user,
+    })
+  end
+
+  def make_payment
+    Stripe::Charge.create({
+      amount: @bill.price_cents,
+      currency: 'eur',
+      description: @bill.vendor,
+      metadata: { bill_id: @bill.id },
+      customer: @user.stripe_id,
+    })
   end
 end
