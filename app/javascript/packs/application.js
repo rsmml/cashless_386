@@ -49,8 +49,8 @@ document.addEventListener('turbolinks:load', () => {
   initSwipe();
 
   initSweetalert('#sweet-alert', {
-    title: "payment success",
-    text: "Thank you!",
+    title: "Payment Successful",
+    text: "You are ready to go",
     icon: "success",
     button: false
   }, (value) => {
