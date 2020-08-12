@@ -62,26 +62,27 @@
       </div>
 
     <form action= <%= bill_payments_path(@bill) %> method="post" id="payment-form">
-      <div class="form-row">
-        <label for="card-element"></label>
+      <div class="form">
 
-        <div id="card-element" class="StripeElement" data-stripe-api="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
+        <% if @user.stripe_id.nil?%>
+          <label for="card-element"></label>
 
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
+          <div id="card-element" class="StripeElement" data-stripe-api="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display form errors. -->
+          <div id="card-errors" role="alert"></div>
+        <% end %>
       </div>
 
       <button id="sweet-alert" class="submit-payment btn btn-primary">
-        <div class="spinner hidden" id="spinner"></div>
         <span id="button-text">Submit payment</span>
       </button>
       <%= javascript_pack_tag("sweetalert") %>
     </form>
 
     <div class="submit-payment" style="width: 90%;height: 72px;">
-      <div class="spinner hidden" id="spinner"></div>
       <div id="button-background">
         <span class="slide-text">Swipe to pay</span>
         <div id="slider">

@@ -1,18 +1,14 @@
 class PaymentsController < ApplicationController
   protect_from_forgery
   before_action :set_bill, only: [:new, :create]
+  before_action :set_user, only: [:new, :create]
 
   def new
     authorize @bill
   end
 
   def create
-
     authorize @bill
-    Stripe.api_key
-    token = params[:stripeToken]
-
-    @user = User.find(@bill.user.id)
 
     # if user has never paid with our app, create a stripe customer account
     if @user.stripe_id.nil?
@@ -42,10 +38,17 @@ class PaymentsController < ApplicationController
 
   def set_bill
     # TODO: @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
-     @bill = Bill.find(params[:bill_id])
+    @bill = Bill.find(params[:bill_id])
+  end
+
+  def set_user
+    @user = User.find(@bill.user.id)
   end
 
   def create_customer
+    Stripe.api_key
+    token = params[:stripeToken]
+
     Stripe::Customer.create({
       source: token,
       email: @bill.user.email,
