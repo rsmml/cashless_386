@@ -26,13 +26,20 @@
     <input style="border-radius: 0 12px 12px 0;height: 60px; border: 0; background-color: black" type="text" class="form-control text-right" placeholder="<%= humanized_money @bill.price %>" aria-describedby="inputGroup-sizing-lg">
   </div>
 
-  <p style="margin: 16px 16px 8px 16px;font-size: 20px;font-weight: bold;">Add some tips</p>
+  <div class="tips-count d-flex justify-content-between align-items-center">
+    <p style="margin: 16px 16px 8px 16px;font-size: 20px;font-weight: bold;">Add some tips</p>
+    <div class="d-flex">
+      <p class="plus-tips-count-text" style="margin: 16px 16px 8px 16px;font-size: 20px;font-weight: bold;">+</p>
+      <p class="tips-count-text" style="margin: 16px 16px 8px 16px;font-size: 20px;font-weight: bold;"></p>
+    </div>
+  </div>
+
   <div class="tips-btns">
     <div class="card-body p-1" style="display: flex;justify-content: space-between;">
-      <button type="button" class="btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">5%</button>
-      <button type="button" class="btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">10%</button>
-      <button type="button" class="btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">15%</button>
-      <button type="button" class="btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">€...</button>
+      <button type="button" class="outBtn btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">5%</button>
+      <button type="button" class="outBtn btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">10%</button>
+      <button type="button" class="outBtn btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px;">15%</button>
+      <input type="text" class="btn btn-light p-2 mx-2 bd-highlight rounded" style="width: 74px; transition: 0.4s;" id="expand-btn" placeholder="€..."></input>
     </div>
   </div>
 
@@ -44,4 +51,3 @@
   </div>
 
 </div>
-<%= javascript_pack_tag("active-btns") %>

@@ -79,6 +79,24 @@ form#payment-form{
   margin: 24px;
 }
 
+.tips-count-text{
+  display: none;
+  transition: 0.4s;
+  margin: 16px 16px 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(115,218,85,0.8);
+  text-shadow: 0px 0px 12px #73DA55;
+}
+.plus-tips-count-text{
+  display: none;
+  transition: 0.4s;
+  margin: 16px 0 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(115,218,85,0.8);
+  text-shadow: 0px 0px 12px #73DA55;
+}
 
 
 
