@@ -3,4 +3,4 @@ meta_title: "Cashless 386 - Pay anywhere with your phone"
 meta_description: "Relevant description"
 meta_type: "Payment App"
 meta_url: "www.cashless-386.xyz"
-meta_image: "logo.png" # should exist in `app/assets/images/`
+meta_image: "logo-og.png" # should exist in `app/assets/images/`
