@@ -36,6 +36,8 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSwipe } from '../components/swipe-btn';
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { initExpandTipBtn } from '../components/expand-tip';
+import { initTipsCount } from '../components/tips-count';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -47,10 +49,12 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initHistorialMenuUp();
   initSwipe();
+  initExpandTipBtn();
+  initTipsCount();
 
   initSweetalert('#sweet-alert', {
-    title: "payment success",
-    text: "Thank you!",
+    title: "Payment Successful",
+    text: "You are ready to go",
     icon: "success",
     button: false
   }, (value) => {
