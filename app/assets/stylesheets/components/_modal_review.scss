@@ -6,9 +6,9 @@
 }
 .background-blur{
   height: 100vh;
-  width: 110%;
+  width: 100vw;
   background-color: rgba(0,0,0,0.7);
-  margin-left: -16px;
+  margin-left: -15px;
 }
 .review-white-card{
   background-color: white;
@@ -16,7 +16,7 @@
 }
 .white-card-review-container{
   width: 100%;
-  margin: 0 16px;
+  margin: 0 8px;
 }
 .stars-spacing{
   a{
