@@ -1,24 +1,26 @@
 <div class="review-container container">
   <div class="background-blur d-flex justify-content-center align-items-center">
     <div class="white-card-review-container row">
-      <div class="review-white-card col-sm-5 col-sm-5" style="margin: auto;">
+      <div class="review-white-card col-sm-5 col-sm-5">
 
         <%= simple_form_for [@vendor, @review] do |f| %>
-          <div class="vendor-review-name">
-            <%= @vendor.name %>
+          <div class="vendor-review-name" style="display: flex; flex-direction: column;">
+            <p style="font-size: 22px;text-align: center;padding-top: 24px;margin: 0;">How would you rate</p>
+            <p style="font-size: 22px;text-align: center;padding-top: 4px;"><strong><%= @vendor.name %></strong></p>
           </div>
-          <div class="stars-spacing" style="display: flex;justify-content: center;">
+          <div class="stars-spacing pb-3" style="display: flex;justify-content: center; width: 90%;">
             <%= f.input :rating, collection: (1..5).to_a, label: false %>
           </div>
           <div>
-            <%= f.input :set_content, as: :radio_buttons, wrapper_html: { class: "radio-buttons" }, collection: Review::SET_CONTENT, label: "" %>
+            <%= f.input :set_content, as: :radio_buttons, wrapper_html: { class: "radio-buttons review-set-content" }, collection: Review::SET_CONTENT, label: "" %>
           </div>
           <div>
             <%= f.input :content, label: false, :placeholder => 'Or write something here...' %>
           </div>
           <div class="send-btn-center">
-            <%= f.submit "Send", class: "btn btn-primary" %>
-            <button type="button" class="btn btn-link"><%= link_to 'Skip', dashboard_path(current_user) %></button>
+            <%= f.submit "Submit Review", class: "btn btn-primary" %>
+            <hr style="border: 0.1px solid rgba(0,0,0,0.15);width: 100%; margin: 20px 0 12px 0px;">
+            <button type="button" class="btn btn-link skip-btn"><%= link_to 'Skip', dashboard_path(current_user) %></button>
           </div>
         <% end %>
       </div>
