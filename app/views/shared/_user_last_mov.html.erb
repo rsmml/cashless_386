@@ -5,12 +5,13 @@
         <%= cl_image_tag transaction.vendor.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
       </div>
     </div>
-      <div class="historial-name-action">
+      <div class="historial-name-action" style="width: 180px; text-align: left">
         <p style="color:black"><strong><%= transaction.vendor.name %></strong></p>
-        <p><i class="fas fa-arrow-right"></i>You sent</p>
+        <p style="color: #808080"><i class="fas fa-arrow-right" style="color: $light-blue"></i> You sent</p>
       </div>
-      <div class="historial-amount">
-          <p><%= '%.2f' % transaction.price_cents %></p>
+      <div class="historial-amount" style="width: fit-content">
+        <% price = ((transaction.price_cents).to_i/100.0).to_s %>
+          <p style="color: white"><%= '%.2f' % price %> EUR</p>
       </div>
     </div>
   <!-- </div> -->
