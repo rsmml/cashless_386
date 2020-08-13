@@ -6,7 +6,7 @@
         <div class="name-stars-vendor">
           <p style="text-decoration: none; margin-bottom: 8px"><strong><%= link_to vendor.name, vendor_path(vendor) %></strong></p>
           <div class="d-flex" style="margin-bottom: 0">
-            <% if vendor.reviews.any? {|review| review.rating.present? } %>
+            <% if vendor.reviews.any? {|review| !review.rating.nil? } %>
               <% ratings = vendor.reviews.map {|review| review.rating } %>
               <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
               <p ><%= stars %></p>
