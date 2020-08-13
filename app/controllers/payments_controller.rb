@@ -1,45 +1,25 @@
 class PaymentsController < ApplicationController
   protect_from_forgery
   before_action :set_bill, only: [:new, :create]
+  before_action :set_user, only: [:new, :create]
 
   def new
     authorize @bill
   end
 
   def create
-
-    Stripe.api_key = Rails.configuration.stripe[:secret_key]
-    token = params[:stripeToken]
-
-    # TODO: create Customer account of Stripe
-    # if @customer.id
-    #   charge = Stripe::Charge.create({
-    #     amount: @bill.price,
-    #     currency: 'eur',
-    #     customer: @customer.id,
-    #   })
-    # else
-    #   customer = Stripe::Customer.create({
-    #     source: token,
-    #     email: @bill.user.email,
-    #   })
-
-    #   charge = Stripe::Charge.create({
-    #   amount: @bill.price,
-    #   currency: 'eur',
-    #   customer: customer.id,
-    # })
-    # end
     authorize @bill
 
+    # if user has never paid with our app, create a stripe customer account
+    if @user.stripe_id.nil?
+      @customer = create_customer
+      @user.stripe_id = @customer.id
+      @user.save
+    end
+
+    # create a charge (kind of payment request) to send stripe
     begin
-    @charge = Stripe::Charge.create({
-        amount: @bill.price_cents,
-        currency: 'eur',
-        description: @bill.vendor,
-        metadata: { bill_id: @bill.id },
-        source: token,
-      })
+    @charge = make_payment
 
     rescue Stripe::StripeError => e
       @error = e
@@ -57,7 +37,33 @@ class PaymentsController < ApplicationController
   private
 
   def set_bill
-    # @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
-     @bill = Bill.find(params[:bill_id])
+    # TODO: @bill = current_user.bills.where(status: 'pending').find(params[:bill_id])
+    @bill = Bill.find(params[:bill_id])
+  end
+
+  def set_user
+    @user = User.find(@bill.user.id)
+  end
+
+  def create_customer
+    Stripe.api_key
+    token = params[:stripeToken]
+
+    Stripe::Customer.create({
+      source: token,
+      email: @bill.user.email,
+      name: @bill.user.name,
+      description: @bill.user,
+    })
+  end
+
+  def make_payment
+    Stripe::Charge.create({
+      amount: @bill.price_cents,
+      currency: 'eur',
+      description: @bill.vendor,
+      metadata: { bill_id: @bill.id },
+      customer: @user.stripe_id,
+    })
   end
 end

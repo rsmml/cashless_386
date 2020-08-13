@@ -35,7 +35,6 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 // import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSwipe } from '../components/swipe-btn';
-import { initSweetalert } from '../plugins/init_sweetalert';
 import { initExpandTipBtn } from '../components/expand-tip';
 import { initTipsCount } from '../components/tips-count';
 
@@ -52,15 +51,4 @@ document.addEventListener('turbolinks:load', () => {
   initExpandTipBtn();
   initTipsCount();
 
-  initSweetalert('#sweet-alert', {
-    title: "Payment Successful",
-    text: "You are ready to go",
-    icon: "success",
-    button: false
-  }, (value) => {
-    if (value) {
-      const link = document.querySelector('submit-payment');
-      link.click();
-    }
-  });
 });
