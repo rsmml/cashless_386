@@ -35,6 +35,8 @@ import { initHistorialMenuUp } from '../components/historial-menu';
 // import { initOptionsMenu, initOptionsMenuClose } from '../components/options-menu';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSwipe } from '../components/swipe-btn';
+import { initExpandTipBtn } from '../components/expand-tip';
+import { initTipsCount } from '../components/tips-count';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -46,5 +48,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initHistorialMenuUp();
   initSwipe();
+  initExpandTipBtn();
+  initTipsCount();
 
 });

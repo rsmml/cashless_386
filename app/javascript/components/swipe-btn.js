@@ -25,7 +25,7 @@ const initSwipe = () => {
       return;
     }
     slider.addClass('unlocked');
-    $('#locker').text('Thanks');
+    $('#locker').text('Checking out...');
     setTimeout(function(){
       const btn = document.getElementById('sweet-alert')
       btn.click();
