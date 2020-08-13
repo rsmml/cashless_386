@@ -1,17 +1,35 @@
 .display-menu-main-container{
-  background-color: $light-blue;
   display: none;
+  background-color: #f2f6f9;
+  border-left: 1px rgba(0, 0, 0, 0.4) solid;
 }
 
 #menu {
   touch-action: pan-x pan-y;
-  background-color: $light-blue;
 
   .options-menu-container{
     display: flex;
     flex-direction: column;
     .account-name{
-      padding: 20px 30px 0 30px;
+      padding: 26px 30px 0 30px;
+      background-color: #33668a;
+      font-size: 20px;
+    .logo-menu{
+      height: 47px;
+      width: 66px;
+      top: 500px;
+      left: 67px;
+      position: relative;
+    }
+      p{
+        color: white;
+        position: relative;
+        text-align:center;
+        top: 18px;
+      }
+    }
+    .options-menu{
+      background-color: #f2f6f9;
     }
     li{
       padding: 20px 0;
@@ -29,6 +47,10 @@
       display: flex;
       align-items: center;
       margin-left: 30px;
+      background-color: white;
+      position: relative;
+      left: 89px;
+      background-color: #f2f6f9;
       i{
         margin-right: 16px;
       }
@@ -36,7 +58,7 @@
         margin: 0;
         a{
           font-decoration: none;
-          color: white;
+          color: black;
           margin: 0;
         }
       }
