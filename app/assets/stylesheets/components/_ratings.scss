@@ -58,6 +58,9 @@ textarea#review_content{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // grid-gap: 15px;
 }
 
 
