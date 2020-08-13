@@ -1,8 +1,19 @@
-<% @transactions.reverse_each do |transaction| %>
+
   <div style="color:black" class="d-flex p-2">
-  <%= transaction.vendor.name %>
-  <%= transaction.status %>
-  <%= transaction.price_cents %>
-  <% end %>
+    <% @transactions.reverse_each do |transaction| %>
+    <div class="historial-avatar-action d-flex">
+      <div class="historial-avatar">
+        <%= cl_image_tag transaction.vendor.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
+
+      </div>
+      <div class="historial-name-action">
+        <p style="color:black"><strong><%= transaction.vendor.name %></strong></p>
+        <p><i class="fas fa-arrow-right"></i>You sent</p>
+      </div>
+      <div class="historial-amount">
+          <p><%= '%.2f' % transaction.price_cents %></p>
+      </div>
+      <% end %>
+    </div>
   </div>
 
