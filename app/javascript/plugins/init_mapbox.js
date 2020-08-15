@@ -51,18 +51,19 @@ const initMapbox = () => {
 
         // markers display name of restaurant on zoom
 
-        map.on('zoom', function() {
-          if (map.getZoom() > 16) {
-          const vendorInfo = document.createElement('div');
-          vendorInfo.className = 'marker';
-          vendorInfo.innerText = marker.name;
-          vendorInfo.style.color = "#2c3e75";
-          new mapboxgl.Marker(vendorInfo)
-            .setLngLat([ marker.lng, marker.lat ])
-            // .setPopup(popup)
-            .addTo(map);
-        }
-      });
+         // CHANGE THE DISPLAY OF THE MARKERS
+      //   map.on('zoom', function() {
+      //     if (map.getZoom() > 16) {
+      //     const vendorInfo = document.createElement('div');
+      //     vendorInfo.className = 'marker';
+      //     vendorInfo.innerText = marker.name;
+      //     vendorInfo.style.color = "#2c3e75";
+      //     new mapboxgl.Marker(vendorInfo)
+      //       .setLngLat([ marker.lng, marker.lat ])
+      //       // .setPopup(popup)
+      //       .addTo(map);
+      //   }
+      // });
 
         // CREATE A POPUP
       // popup._content.querySelector('.directions-button')
@@ -86,6 +87,7 @@ const initMapbox = () => {
       let marker = markers[i];
       markerClick.addEventListener('click', e => {
         info.innerHTML = marker.infoWindow;
+        info.style.display = 'flex';
         info.querySelector('.directions-button')
           .addEventListener('click', e => {
             geolocate.trigger()
@@ -99,6 +101,15 @@ const initMapbox = () => {
       });
       });
     };
+
+    const canvas = document.querySelector(".mapboxgl-canvas");
+    // const displays = (info) => info.style.display ==='flex';
+    canvas.addEventListener('click', e => {
+      console.log('click');
+
+        console.log('hide');
+        info.style.display = "none";
+    })
 
 
     //  DECOMMENT TO HAVE search function from mapbox
