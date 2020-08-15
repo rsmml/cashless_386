@@ -1,20 +1,22 @@
 .search-bar-container{
-  height: 12%;
+  border-radius: 6px;
+  z-index: 5;
+  position: absolute;
+  height: 44px;
   background-color: white;
+  width: 96%;
+  margin: 20px 2%;
 }
 .search-bar-index{
-  form{
-    margin-top: 12%;
-    position: relative;
-    right: 10%;
-  }
   .input input{
-    border-radius: 50px;
+    border-radius: 0px;
+    border: none;
+    margin-left: 2%;
   }
 }
-.form-control::placeholder {
-  color: $black;
-  font-size: 28px;
+input#query::placeholder {
+  color: rgba(0,0,0,0.8);
+  font-size: 30px;
   color: black;
   font-size: 16px;
 }
@@ -66,4 +68,21 @@
 .directions-button{
   margin-top: 12px;
   width: 100%;
+}
+
+.form-control:focus{
+  border-color: transparent;
+  box-shadow: none;
+}
+.mapboxgl-ctrl-top-right {
+  top: 90%;
+  right: 0;
+}
+
+.mapboxgl-ctrl-group{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
