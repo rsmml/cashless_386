@@ -27,13 +27,19 @@ const initTipsCount = () => {
             break;
           default:
             const value = document.querySelector('#expand-btn').value;
-            tip.innerHTML = value;
-            const valueInteger = parseFloat(value);
-            const sum = amountInteger + valueInteger
-            text.placeholder = sum
-          }
-      })
+            if (value) {
+              tip.innerHTML = value;
+              const valueInteger = parseFloat(value);
+              const sum = amountInteger + valueInteger;
+              text.placeholder = sum;
+            } else {
+              tip.innerHTML = 0;
+              text.placeholder = amountInteger;
+            };
+          };
+      });
     });
   };
 };
+
 export { initTipsCount };
