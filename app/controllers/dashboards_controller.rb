@@ -6,6 +6,7 @@ class DashboardsController < ApplicationController
     @vendor = Vendor.all
     @users = User.all
     # @historial = Historial.all
+    @ad = select_ad
     @transactions = Bill.where(user_id: current_user.id)
   end
 
@@ -37,5 +38,12 @@ class DashboardsController < ApplicationController
       :address,
       :photo
     )
+  end
+
+    def select_ad
+    [ "Pay with Cashless and get €10 off!",
+      "Iterate through our new menu",
+      "Don't forget your flashcards ♥️ and get free coffee!"
+    ].sample
   end
 end
