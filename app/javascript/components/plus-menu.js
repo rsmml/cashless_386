@@ -6,9 +6,9 @@ const initPlusMenuDashboard = () => {
       document.querySelector('.plus-menu').style.opacity = "1";
       setTimeout(
         function() {
-          document.querySelector('.plus-menu').style.opacity = "0.5";
+          document.querySelector('.plus-menu').style.opacity = "1";
           window.location.href = '/camera';
-        }, 500);
+        }, 0);
     });
   };
 };
