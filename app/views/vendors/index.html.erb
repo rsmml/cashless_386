@@ -1,16 +1,21 @@
 <!-- <div class="container"> -->
 <div class="dashboard-container" id="#dashboard-container">
-  <div class="search-bar-container">
+  <div class="search-bar-container d-flex justify-content-around align-items-center">
     <div id="search"><%= render "search_bar" %></div>
-    <div class="round-grey-menu-bar nav-item dropdown" style="display: flex;justify-content: space-between;position: absolute;z-index: 3;top: 20px;right: 0px;">
-      <%= cl_image_tag "menu-btn_kz7gls.png", class: "avatar dropdown-toggle", id: "navbar-Dropside", data: { toggle: "dropdown" } %>
-    </div>
-    <div class="display-menu-main-container" style="position: absolute;top: 0;right: -60%;height: 100vh;width: 60%;">
-      <%= render "shared/display_menu" %>
-    </div>
+    <%= link_to dashboard_path(current_user), :action => '' do %>
+      <div>
+        <p style="margin: 0; color: rgba(0,0,0,0.8);"><i class="fas fa-user"></i></p>
+      </div>
+    <% end %>
+    <!-- <div class="round-grey-menu-bar nav-item dropdown" style="display: flex;justify-content: space-between;position: absolute;z-index: 3;top: 20px;right: 0px;"> -->
+      <%#= cl_image_tag "menu-btn_kz7gls.png", class: "avatar dropdown-toggle", id: "navbar-Dropside", data: { toggle: "dropdown" } %>
+    <!-- </div> -->
+    <!-- <div class="display-menu-main-container" style="position: absolute;top: 0;right: -60%;height: 100vh;width: 60%;"> -->
+      <%#= render "shared/display_menu" %>
+    <!-- </div> -->
   </div>
   <div id="map"
-     style="width: 100%; height:731px;"
+     style="width: 100%; height:100vh;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
@@ -18,6 +23,6 @@
   <!-- <div id="instructions"></div> -->
 <!-- </div> -->
 
-  <div class="vendors-container-on-map">
-  </div>
+  <div class="vendors-container-on-map"></div>
+</div>
 
