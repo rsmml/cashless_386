@@ -437,7 +437,7 @@ comments = [
 100.times do
   review = Review.create(
     content: comments.sample,
-    rating: rand(2..5),
+    rating: rand(3..5),
     user_id: User.all.sample.id,
     vendor_id: Vendor.all.sample.id,
     )
