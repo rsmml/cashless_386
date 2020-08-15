@@ -3,7 +3,7 @@ const initExpandTipBtn = () => {
   if (btn) {
     btn.addEventListener('click', () => {
       btn.style.width = "170px";
-      btn.placeholder = "Add some coins";
+      btn.placeholder = "Other amount";
     })
   };
 
