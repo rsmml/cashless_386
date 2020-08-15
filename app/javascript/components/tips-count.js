@@ -11,22 +11,27 @@ const initTipsCount = () => {
       button.addEventListener('click', () => {
         tip.style.display = "flex";
         tipPlus.style.display = "flex";
-        if (button.innerHTML === "5%"){
-          tip.innerHTML = (amountInteger*0.05).toFixed(2);
-          text.placeholder = (amountInteger*1.05).toFixed(2);
-        } else if (button.innerHTML === "10%") {
-          tip.innerHTML = (amountInteger*0.1).toFixed(2);
-          text.placeholder = (amountInteger*1.1).toFixed(2);
-        } else if (button.innerHTML === "15%") {
-          tip.innerHTML = (amountInteger*0.15).toFixed(2);
-          text.placeholder = (amountInteger*1.15).toFixed(2);
-        } else {
-          const value = document.querySelector('#expand-btn').value;
-          tip.innerHTML = value;
-          const valueInteger = parseFloat(value);
-          const sum = amountInteger + valueInteger
-          text.placeholder = sum
-        }
+
+          switch (button.innerHTML) {
+          case "5%":
+            tip.innerHTML = (amountInteger * 0.05).toFixed(2);
+            text.placeholder = (amountInteger * 1.05).toFixed(2);
+            break;
+          case "10%":
+            tip.innerHTML = (amountInteger * 0.1).toFixed(2);
+            text.placeholder = (amountInteger * 1.1).toFixed(2);
+            break;
+          case "15%":
+            tip.innerHTML = (amountInteger * 0.15).toFixed(2);
+            text.placeholder  = (amountInteger * 1.15).toFixed(2);
+            break;
+          default:
+            const value = document.querySelector('#expand-btn').value;
+            tip.innerHTML = value;
+            const valueInteger = parseFloat(value);
+            const sum = amountInteger + valueInteger
+            text.placeholder = sum
+          }
       })
     });
   };
