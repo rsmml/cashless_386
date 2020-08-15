@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
 
   def new
     authorize @bill
+    @user = current_user
   end
 
   def create

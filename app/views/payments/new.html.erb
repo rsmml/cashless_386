@@ -1,10 +1,12 @@
 <div class="bill-show-container">
   <div class="white-top-card-bill">
     <div class="d-flex justify-content-between align-items-center pt-3">
-      <div class="back-gray-btn">
-        <i class="fas fa-chevron-left"></i>
-        <i class="fas fa-camera"></i>
-      </div>
+      <%= link_to camera_path, :action => '' do %>
+        <div class="back-gray-btn">
+          <i class="fas fa-chevron-left"></i>
+          <i class="fas fa-camera"></i>
+        </div>
+      <% end %>
       <div class="image-vendor-bill">
         <%= cl_image_tag @bill.vendor.photo.key+".png", :width => 120, :height => 120,
           :crop => :fill, :radius => 200, alt: "alttext" %>
@@ -43,6 +45,32 @@
     </div>
   </div>
 
+  <div class="dummy-card-select">
+    <ul style="list-style: none; padding: 0;">
+      <% @user.cards.each do |card| %>
+        <li>
+          <div id="dummy-card" class="d-flex justify-content-start align-items-center" style="padding: 8px 16px; margin: 12px 16px;background-color: white;border-radius: 6px;">
+            <div class="d-flex justify-content-start align-items-center" style="flex-grow: 1;">
+              <% if card.card_type == 'Visa' %>
+                <%= cl_image_tag("Screen_Shot_2020-08-04_at_12.21.33_wtstts.png", :height=>30, :width=>49, :crop=>"pad") %>
+              <% else %>
+                <%= cl_image_tag("Screen_Shot_2020-06-13_at_15.03.52_iy0yev.png", :width=>30, :crop=>"thumb", :background_removal => 'pixelz') %>
+              <% end %>
+              <p style="margin: 0 0 0 16px;"><%= card.bank_name %></p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <i class="fas fa-circle" style="font-size: 10px; margin-right: 4px"></i>
+              <i class="fas fa-circle" style="font-size: 10px; margin-right: 4px"></i>
+              <i class="fas fa-circle" style="font-size: 10px; margin-right: 4px"></i>
+              <i class="fas fa-circle" style="font-size: 10px; margin-right: 4px"></i>
+              <p style="margin: 0;"><%= card.number %></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
   <div class="d-flex justify-content-center align-items-center">
     <%= render "form-stripe" %>
   </div>
@@ -51,4 +79,5 @@
   </div>
 
   <%= javascript_pack_tag("sweetalert") %>
+  <%= javascript_pack_tag("dummy-card") %>
 </div>
