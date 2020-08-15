@@ -3,14 +3,18 @@ const initPlusMenuDashboard = () => {
   if (plusMenu) {
     plusMenu.addEventListener('click',
     function(){
-      document.querySelector('.plus-menu-big').style.display = "flex";
-    });
-
-    document.querySelector('#dashboard-container').addEventListener('click',
-    function() {
-      document.querySelector('.plus-menu-big').style.display = "none";
+      document.querySelector('.plus-menu').style.opacity = "1";
+      setTimeout(
+        function() {
+          document.querySelector('.plus-menu').style.opacity = "0.5";
+          window.location.href = '/camera';
+        }, 500);
     });
   };
 };
 
 export { initPlusMenuDashboard };
+
+
+
+
