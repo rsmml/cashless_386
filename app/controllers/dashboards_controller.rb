@@ -40,7 +40,7 @@ class DashboardsController < ApplicationController
     )
   end
 
-    def select_ad
+  def select_ad
     [ "Pay with Cashless and get €10 off!",
       "Iterate through our new menu",
       "Don't forget your flashcards ♥️ and get free coffee!"
