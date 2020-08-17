@@ -5,7 +5,8 @@ class DashboardsController < ApplicationController
   def show
     @vendor = Vendor.all
     @users = User.all
-    @historial = Historial.all
+    # @historial = Historial.all
+    @transactions = Bill.where(user_id: current_user.id)
   end
 
   def camera

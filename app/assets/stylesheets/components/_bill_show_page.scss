@@ -1,8 +1,9 @@
 .bill-show-container {
-  background: image-url('background-bill') no-repeat center;
+  background: image-url('background-bill') repeat;
   background-color: white;
   height: 100vh;
   background-size: 100%;
+  width: 100%;
 }
 .input-blue{
   background-color: $light-blue;
@@ -14,14 +15,103 @@
   font-size: 28px;
 }
 .submit-payment{
-  background: $light-blue;
+  // background: $light-blue;
   border: none;
   padding: 16px 56px;
   border-radius: 100px;
-  margin-top: 20%;
+  margin-top: 5%;
   color: white;
   font-size: 24px;
   a {
     color: white;
   }
 }
+
+.card-body-btn{
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.cards-btns{
+  ul li.active{
+    border-radius: 8px;
+    box-shadow: 0 0 4px #96bb7c;
+    background-color: #e4f2da;
+  }
+}
+.white-top-card-bill{
+  height: max-content;
+  width: 100%;
+  border-radius: 0 0 24px 24px;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 1px 0px 12px rgba(0,0,0,0.2);
+  padding-top: 24px;
+}
+.image-vendor-bill{
+  img{
+    border-radius: 50%;
+    border: 1px solid;
+  }
+}
+
+.back-gray-btn{
+  background-color: #b1b1b1;
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
+  color: rgba(0,0,0,0.6);
+}
+
+span.currency_symbol{
+  font-size: 28px;
+}
+
+input.form-control::placeholder{
+  font-size: 28px;
+  color: white;
+  margin: 0;
+}
+
+form#payment-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px;
+}
+
+.tips-count-text{
+  display: none;
+  transition: 0.4s;
+  margin: 16px 16px 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #7e5faa;
+  text-shadow: 0px 0px 12px #7e5faa;
+}
+.plus-tips-count-text{
+  display: none;
+  transition: 0.4s;
+  margin: 16px 0 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #7e5faa;
+  text-shadow: 0px 0px 12px #7e5faa;
+}
+
+
+ul li div.active {
+  border: 1px solid #7e5fab;
+  box-shadow: 0 0 12px #7e5fab;
+}
+
+
+
+
+
+
+
+
+
+
+
+

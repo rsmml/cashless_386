@@ -14,7 +14,7 @@
     display: inline-block;
     border-radius: 10px;
     margin-bottom: 10px;
-    box-shadow: 1px 3px #dedede;
+    box-shadow: 1px 1px 6px #dedede;
   }
 
   label:hover {
@@ -30,3 +30,44 @@
 .btn {
   border-radius: 50px;
 }
+
+.skip-btn{
+  padding: 4px 0 18px;
+  text-decoration: none;
+  a{
+    color: rgba(0,0,0,0.5);
+  }
+}
+textarea.form-control::placeholder{
+  color: rgba(0,0,0,0.5);
+}
+textarea#review_content{
+  height: 100px;
+}
+.form-check-label{
+  font-size: 15px;
+}
+.form-check{
+  padding: 0;
+}
+.radio-buttons label{
+  padding: 8px;
+  color: #939393;
+}
+
+.review-set-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // grid-gap: 15px;
+}
+
+
+
+
+
+
+
+

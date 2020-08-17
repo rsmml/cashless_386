@@ -1,51 +1,18 @@
-<% @historial.reverse_each do |historial| %>
+<% @transactions.reverse_each do |transaction| %>
   <div style="color:black" class="d-flex p-2">
-
-    <% if historial.sender_type == 'vendor' %>
-      <% if historial.recipient_id = current_user.id %>
-
-        <div class="historial-avatar-action d-flex">
-          <div class="historial-avatar">
-            <% sender_id = Vendor.find(historial.sender_id) %>
-            <%= cl_image_tag sender_id.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
-          </div>
-          <div class="historial-name-action">
-            <p style="color:black"><strong><%= sender_id.name %></strong></p>
-            <% if historial.action == "sent" %>
-              <p><i class="fas fa-arrow-right"></i>You sent</p>
-            <% else %>
-              <p><i class="fas fa-arrow-left"></i>You received</p>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="historial-amount">
-          <p><%= '%.2f' % historial.amount %></p>
-        </div>
-
-      <% end %>
-
-    <% else %>
-
-      <div class="historial-avatar-action d-flex">
-        <div class="historial-avatar">
-          <% sender_id = User.find(historial.sender_id) %>
-          <%= cl_image_tag sender_id.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
-        </div>
-        <div class="historial-name-action">
-          <p style="color:black"><strong><%= sender_id.name %></strong></p>
-          <% if historial.action == "sent" %>
-            <p><i class="fas fa-arrow-right"></i>You sent</p>
-          <% else %>
-            <p><i class="fas fa-arrow-left"></i>You received</p>
-          <% end %>
-        </div>
+    <div class="historial-avatar-action d-flex">
+      <div class="historial-avatar">
+        <%= cl_image_tag transaction.vendor.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>45, :crop=>"fill", alt: "alttext" %>
       </div>
-
-      <div class="historial-amount">
-        <p><%= '%.2f' % historial.amount %></p>
+    </div>
+      <div class="historial-name-action" style="width: 180px; text-align: left">
+        <p style="color:black"><strong><%= transaction.vendor.name %></strong></p>
+        <p style="color: #808080"><i class="fas fa-arrow-right" style="color: $light-blue"></i> Sent</p>
       </div>
-
-    <% end %>
-  </div>
+      <div class="historial-amount" style="width: fit-content">
+          <p style="color: white; font-weight: 900"><%= humanized_money(transaction.price) %> EUR</p>
+      </div>
+    </div>
+  <!-- </div> -->
 <% end %>
+
