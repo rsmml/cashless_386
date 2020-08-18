@@ -46,16 +46,15 @@
         </div>
       </div>
       <div id="ad" class="ad-container">
-        <% vendor = @vendor.sample %>
         <div class="vendor-avatar">
-          <%= cl_image_tag vendor.photo.key+".png",
+          <%= cl_image_tag @vendor_ad.photo.key+".png",
             :aspect_ratio=>"1:1", :border=>"0px_solid_rgb:ffffff",
             :gravity=>"auto", :radius=>"max", :width=>50,
             :crop=>"fill", alt: "vendor-avatar" %>
         </div>
         <div class="ad">
-          <p style="font-weight: bold;"><%= vendor.name %></p>
-          <p>Pay with Cashless and get €10 off!</p>
+          <p style="font-weight: bold;"><%= @vendor_ad.name %></p>
+          <p><%= @ad %></p>
         </div>
         <div class="ad-logo">
           <p>Ad</p>

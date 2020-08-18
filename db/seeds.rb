@@ -25,7 +25,7 @@ puts " "
 vendor_a = Vendor.create(
   name: "Spätkauf Kiosk",
   address: "Rudi-Dutschke-Straße 15, 10969 Berlin",
-  business: "" ,
+  business: "shop",
   phone: "" ,
   city: "Berlin" ,
   description: "Spätkauf Spetti" ,
@@ -39,7 +39,7 @@ puts "Vendor #{vendor_a.id} was created"
 vendor_b = Vendor.create(
   name: "Apotheke Axel-Springer-Passage",
   address: "Rudi-Dutschke-Straße 8, 10969 Berlin",
-  business: "" ,
+  business: "pharmacy",
   phone: "" ,
   city: "Berlin" ,
   description: "Pharmacy Pills" ,
@@ -53,7 +53,7 @@ puts "Vendor #{vendor_b.id} was created"
 vendor_c = Vendor.create(
   name: "Ishin",
   address: "Charlottenstraße 16, 10117 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Asian Restaurant Japanese" ,
@@ -67,7 +67,7 @@ puts "Vendor #{vendor_c.id} was created"
 vendor_d = Vendor.create(
   name: "Q Burger",
   address: "Markgrafen Str 58, Zimmerstraße 68, 10117 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Fast Food, Burger, Fries" ,
@@ -81,7 +81,7 @@ puts "Vendor #{vendor_d.id} was created"
 vendor_e = Vendor.create(
   name: "Bäckerei Steinecke",
   address: "Charlottenstraße 16-17, 10117 Berlin",
-  business: "" ,
+  business: "cafe",
   phone: "" ,
   city: "Berlin" ,
   description: "Bread Fresh" ,
@@ -95,7 +95,7 @@ puts "Vendor #{vendor_e.id} was created"
 vendor_f = Vendor.create(
   name: "Restaurant Babami",
   address: "Zimmerstraße 23, 10969 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Vegetarian Casual Late Night" ,
@@ -109,7 +109,7 @@ puts "Vendor #{vendor_f.id} was created"
 vendor_g = Vendor.create(
   name: "Back-Factory",
   address: "Friedrichstraße 207/208, 10969 Berlin",
-  business: "" ,
+  business: "cafe",
   phone: "" ,
   city: "Berlin" ,
   description: "Frech Restaurant" ,
@@ -123,7 +123,7 @@ puts "Vendor #{vendor_g.id} was created"
 vendor_h = Vendor.create(
   name: "Lotto Shop at Checkpoint",
   address: "Friedrichstraße 209, 10969 Berlin",
-  business: "" ,
+  business: "shop",
   phone: "" ,
   city: "Berlin" ,
   description: "Money Lotto Games" ,
@@ -137,7 +137,7 @@ puts "Vendor #{vendor_h.id} was created"
 vendor_i = Vendor.create(
   name: "Kori & Fay",
   address: "Rudi-Dutschke-Straße 28, 10969 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Asian Thai" ,
@@ -151,7 +151,7 @@ puts "Vendor #{vendor_i.id} was created"
 vendor_j = Vendor.create(
   name: "Thai Sushi",
   address: "Rudi-Dutschke-Straße 27, 10969 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Asian Thai" ,
@@ -165,7 +165,7 @@ puts "Vendor #{vendor_j.id} was created"
 vendor_k = Vendor.create(
   name: "Barcelona Tapas Bar Restaurant",
   address: "Friedrichstraße 211, 10969 Berlin",
-  business: "" ,
+  business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
   description: "Spanish Spain Casual" ,
@@ -179,7 +179,7 @@ puts "Vendor #{vendor_k.id} was created"
 vendor_l = Vendor.create(
   name: "Morning Drug",
   address: "Friedrichstraße 38, 10969 Berlin",
-  business: "" ,
+  business: "pharmacy" ,
   phone: "" ,
   city: "Berlin" ,
   description: "Spätkauf Spetti Kiosk" ,
@@ -193,7 +193,7 @@ puts "Vendor #{vendor_l.id} was created"
 vendor_m = Vendor.create(
   name: "Einstein Kaffee",
   address: "Friedrichstraße 206, 10117 Berlin",
-  business: "" ,
+  business: "cafe" ,
   phone: "" ,
   city: "Berlin" ,
   description: "Cosy Coffee Tea Muffins" ,
@@ -207,7 +207,7 @@ puts "Vendor #{vendor_m.id} was created"
 vendor_n = Vendor.create(
   name: "Murphy’s Irish Pub at Checkpoint Charlie",
   address: "Zimmerstraße 19, 10969 Berlin",
-  business: "" ,
+  business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
   description: "Irish Beer Pub Cocktails Cozy" ,
@@ -221,7 +221,7 @@ puts "Vendor #{vendor_n.id} was created"
 vendor_o = Vendor.create(
   name: "Coffee Fellows",
   address: "Friedrichstraße 204, 10117 Berlin",
-  business: "" ,
+  business: "cafe" ,
   phone: "" ,
   city: "Berlin" ,
   description: "Cosy Coffee Tea Muffins" ,
@@ -235,7 +235,7 @@ puts "Vendor #{vendor_o.id} was created"
 vendor_p = Vendor.create(
   name: "Army Food",
   address: "Mauerstraße 1, 10117 Berlin",
-  business: "" ,
+  business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
   description: "Russian Salads" ,
@@ -249,7 +249,7 @@ puts "Vendor #{vendor_p.id} was created"
 vendor_q = Vendor.create(
   name: "Barbecue Grill",
   address: "Mauerstraße 93, 10117 Berlin",
-  business: "" ,
+  business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
   description: "BBQ Sauce Grill" ,
@@ -263,7 +263,7 @@ puts "Vendor #{vendor_q.id} was created"
 vendor_r = Vendor.create(
   name: "BlackBox Café ",
   address: "Friedrichstraße 47, 10117 Berlin",
-  business: "" ,
+  business: "cafe",
   phone: "" ,
   city: "Berlin" ,
   description: "Cosy Coffee Tea Muffins" ,
@@ -277,7 +277,7 @@ puts "Vendor #{vendor_r.id} was created"
 vendor_s = Vendor.create(
   name: "Vapiano",
   address: "Friedrichstraße 50-55, 10117 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Italian Restaurant Food Casual" ,
@@ -291,7 +291,7 @@ puts "Vendor #{vendor_s.id} was created"
 vendor_t = Vendor.create(
   name: "Little Green Rabbit",
   address: "Friedrichstraße 200, 10117 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Fresh Food Vegetarian Salads" ,
@@ -305,7 +305,7 @@ puts "Vendor #{vendor_t.id} was created"
 vendor_u = Vendor.create(
   name: "La Via del Muro",
   address: "Mauerstraße 83-84, 10117 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Cosy Casual Spanish" ,
@@ -319,7 +319,7 @@ puts "Vendor #{vendor_u.id} was created"
 vendor_v = Vendor.create(
   name: "Otito Vietnamese Food",
   address: "Leipziger Str. 30, 10117 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Asian Pho" ,
@@ -333,7 +333,7 @@ puts "Vendor #{vendor_v.id} was created"
 vendor_w = Vendor.create(
   name: "Restaurant Tim Raue",
   address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Retro Asian" ,
@@ -347,7 +347,7 @@ puts "Vendor #{vendor_w.id} was created"
 vendor_x = Vendor.create(
   name: "Westberlin",
   address: "Friedrichstraße 215, 10969 Berlin",
-  business: "" ,
+  business: "cafe",
   phone: "" ,
   city: "Berlin" ,
   description: "Cosy Coffee Tea Muffins" ,
@@ -361,7 +361,7 @@ puts "Vendor #{vendor_x.id} was created"
 vendor_y = Vendor.create(
   name: "Nobelhart & Schmutzig",
   address: "Friedrichstraße 218, 10969 Berlin",
-  business: "" ,
+  business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
   description: "Restaurant Cosy Beer" ,
@@ -375,7 +375,7 @@ puts "Vendor #{vendor_y.id} was created"
 vendor_z = Vendor.create(
   name: "Eck Imbiss",
   address: "Puttkamerstraße 13, 10969 Berlin",
-  business: "" ,
+  business: "cafe",
   phone: "" ,
   city: "Berlin" ,
   description: "Fast Food" ,
@@ -386,6 +386,19 @@ file = URI.open('https://res.cloudinary.com/dm9csvoft/image/upload/ar_1:1,b_rgb:
 vendor_z.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Vendor #{vendor_z.id} was created"
 
+vendor_aa = Vendor.create(
+  name: "Le Wagon Berlin",
+  address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
+  business: "education",
+  phone: "" ,
+  city: "Berlin" ,
+  description: "Change your life, learn to code" ,
+  opens: "09:00:00 UTC +00:00",
+  closes: "19:00:00 UTC +00:00"
+  )
+file = URI.open('https://res.cloudinary.com/dm9csvoft/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1597501870/lewagon-logo-square-fe76916e1b923ade71e253ae6dc031d936e5e8eebac4e26b0fbac650ea6ee360_lxa3qx.png')
+vendor_aa.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+puts "Vendor #{vendor_aa.id} was created"
 
 
 puts "Vendors Created"
