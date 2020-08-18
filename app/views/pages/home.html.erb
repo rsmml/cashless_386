@@ -13,11 +13,11 @@
       <% if current_user %>
         <%= link_to "Get Started", dashboard_path(current_user) %>
       <% else %>
-        <%= link_to "Get Started", '#' %>
+        <%= link_to "Get Started", new_user_registration_path %>
       <% end %>
     </div>
     <div class="homepage-log-ing">
-      <p>Already an account?
+      <p>Already have an account?
       <%= link_to "Log-in", new_user_session_path %>
       </p>
     </div>
