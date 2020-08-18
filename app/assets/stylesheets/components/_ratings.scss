@@ -55,19 +55,18 @@ textarea#review_content{
   color: #939393;
 }
 
-.review-set-content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // grid-gap: 15px;
+.collection_radio_buttons{
+  width: 100%;
 }
 
 
+.placeholder-reviews .review_content textarea::placeholder{
+  font-size: 14px;
+}
 
-
-
+textarea.form-control:focus {
+  border-color: rgba(0,0,0,0.5);
+}
 
 
 

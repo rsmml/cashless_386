@@ -14,7 +14,7 @@
           <div>
             <%= f.input :set_content, as: :radio_buttons, wrapper_html: { class: "radio-buttons review-set-content" }, collection: Review::SET_CONTENT, label: "" %>
           </div>
-          <div>
+          <div class="placeholder-reviews">
             <%= f.input :content, label: false, :placeholder => 'Or write something...' %>
           </div>
           <div class="send-btn-center">
