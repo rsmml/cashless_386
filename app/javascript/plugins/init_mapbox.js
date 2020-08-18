@@ -44,26 +44,27 @@ const initMapbox = () => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        // .setPopup(popup)
-        .addTo(map);
+      // DEACTIVATE DEFAULT MAPBOX MARKER
+
+      // new mapboxgl.Marker()
+      //   .setLngLat([ marker.lng, marker.lat ])
+      //   // .setPopup(popup)
+      //   .addTo(map);
 
         // markers display name of restaurant on zoom
 
-         // CHANGE THE DISPLAY OF THE MARKERS
-      //   map.on('zoom', function() {
-      //     if (map.getZoom() > 16) {
-      //     const vendorInfo = document.createElement('div');
-      //     vendorInfo.className = 'marker';
-      //     vendorInfo.innerText = marker.name;
-      //     vendorInfo.style.color = "#2c3e75";
-      //     new mapboxgl.Marker(vendorInfo)
-      //       .setLngLat([ marker.lng, marker.lat ])
-      //       // .setPopup(popup)
-      //       .addTo(map);
-      //   }
-      // });
+         // CUSTOM MARKERS
+
+          const customMarker = document.createElement('div');
+          customMarker.className = 'marker';
+          customMarker.style.backgroundcolor = '#33658A';
+          customMarker.innerHTML = '<i class="fas fa-map-marker-alt" style="font-size: 25px"></i>'
+          customMarker.style.color = "#33658A";
+          new mapboxgl.Marker(customMarker)
+            .setLngLat([ marker.lng, marker.lat ])
+            // .setPopup(popup)
+            .addTo(map);
+
 
         // CREATE A POPUP
       // popup._content.querySelector('.directions-button')
@@ -105,9 +106,6 @@ const initMapbox = () => {
     const canvas = document.querySelector(".mapboxgl-canvas");
     // const displays = (info) => info.style.display ==='flex';
     canvas.addEventListener('click', e => {
-      console.log('click');
-
-        console.log('hide');
         info.style.display = "none";
     })
 
