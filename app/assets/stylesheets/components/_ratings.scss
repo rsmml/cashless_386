@@ -62,6 +62,7 @@ textarea#review_content{
 
 .placeholder-reviews .review_content textarea::placeholder{
   font-size: 14px;
+  color: rgba(0,0,0,0.8);
 }
 
 textarea.form-control:focus {
