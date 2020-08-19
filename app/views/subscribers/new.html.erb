@@ -1,0 +1,10 @@
+<div class="subscriber-main-container">
+  <div class="subscriber-form">
+    <h3>THANK YOU FOR WATCHING US</h3>
+    <p>Subscribe to our proptotype and get news when the app is released! Let’s move forward! Let's pay CASHLESS</p>
+    <%= simple_form_for @subscriber do |f| %>
+       <%= f.input :email, label: false, class: "subscriber-input", placeholder: "jacobwilliams@gmail.com" %>
+       <%= f.submit "Subscribe", class: "btn btn-primary subscribe-btn" %>
+    <% end %>
+  </div>
+</div>
