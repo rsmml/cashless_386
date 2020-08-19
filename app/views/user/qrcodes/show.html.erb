@@ -1,15 +1,20 @@
-<div class="container-sm p-5 align-items-center">
-  <div class="row justify-content-center">
-    <div class="col-12 text-center">
-
-<div class="qr-box">
-  <%= link_to @svg.html_safe , dashboard_path(@user), class: "my-qr qrcode" %>
+<div class="invite-friends-main-container">
+  <div>
+    <%= link_to dashboard_path(current_user), :action => '' do %>
+      <div class="back-gray-btn" style="width: 60px;margin-top: 10%;">
+        <i class="fas fa-chevron-left"></i>
+        <i class="fas fa-user"></i>
+      </div>
+    <% end %>
+  </div>
+  <div class="invite-friends-card d-flex justify-content-center align-items-center" style="height: 80vh;">
     <div>
-      <%= image_tag("logo.png", class: "qr-icon") %>
-    </div>
-</div>
-
+      <h3 style="margin: 0 0 24px 0;text-align: center;">SPREAD THE WORD</h3>
+      <div class="my-qr-box" style="display: flex;justify-content: center;align-items: center;">
+        <%= cl_image_tag("my-qr-code_oxrkda.png", :width=>250, :crop=>"scale") %>
+      </div>
+      <p style="margin: 0;margin: 24px 0 12px 0;">Or go to our URL:</p>
+      <div class="our-url">cashless-386.xyz/subscribers/new</div>
     </div>
   </div>
 </div>
-
