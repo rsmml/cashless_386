@@ -11,6 +11,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
     authorize @subscriber
     if @subscriber.save
+      sleep(1)
       redirect_to new_subscriber_path
     end
   end
