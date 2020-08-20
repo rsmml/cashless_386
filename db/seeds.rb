@@ -38,7 +38,7 @@ puts "Vendor #{vendor_a.id} was created"
 
 vendor_b = Vendor.create(
   name: "Apotheke Axel-Springer-Passage",
-  address: "Rudi-Dutschke-Straße 8, 10969 Berlin",
+  address: "Krausentraße 25, 10969 Berlin",
   business: "pharmacy",
   phone: "" ,
   city: "Berlin" ,
@@ -94,7 +94,7 @@ puts "Vendor #{vendor_e.id} was created"
 
 vendor_f = Vendor.create(
   name: "Restaurant Babami",
-  address: "Zimmerstraße 23, 10969 Berlin",
+  address: "Jerusalemer Str. 16, 10117 Berlin",
   business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
@@ -122,7 +122,7 @@ puts "Vendor #{vendor_g.id} was created"
 
 vendor_h = Vendor.create(
   name: "Lotto Shop at Checkpoint",
-  address: "Friedrichstraße 209, 10969 Berlin",
+  address: "Taubenstraße 20, 10117 Berlin",
   business: "shop",
   phone: "" ,
   city: "Berlin" ,
@@ -136,7 +136,7 @@ puts "Vendor #{vendor_h.id} was created"
 
 vendor_i = Vendor.create(
   name: "Kori & Fay",
-  address: "Rudi-Dutschke-Straße 28, 10969 Berlin",
+  address: "Schützenstraße 40, 10117 Berlin",
   business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
@@ -150,7 +150,7 @@ puts "Vendor #{vendor_i.id} was created"
 
 vendor_j = Vendor.create(
   name: "Thai Sushi",
-  address: "Rudi-Dutschke-Straße 27, 10969 Berlin",
+  address: "Bauhofstraße 5, 10117 Berlin",
   business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
@@ -164,7 +164,7 @@ puts "Vendor #{vendor_j.id} was created"
 
 vendor_k = Vendor.create(
   name: "Barcelona Tapas Bar Restaurant",
-  address: "Friedrichstraße 211, 10969 Berlin",
+  address: "Jägerstraße 70, 10117 Berlin",
   business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
@@ -178,7 +178,7 @@ puts "Vendor #{vendor_k.id} was created"
 
 vendor_l = Vendor.create(
   name: "Morning Drug",
-  address: "Friedrichstraße 38, 10969 Berlin",
+  address: "Markgrafenstraße 9A, 10969 Berlin",
   business: "pharmacy" ,
   phone: "" ,
   city: "Berlin" ,
@@ -206,7 +206,7 @@ puts "Vendor #{vendor_m.id} was created"
 
 vendor_n = Vendor.create(
   name: "Murphy’s Irish Pub at Checkpoint Charlie",
-  address: "Zimmerstraße 19, 10969 Berlin",
+  address: "Zimmerstraße 93, 10117 Berlin",
   business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
@@ -220,7 +220,7 @@ puts "Vendor #{vendor_n.id} was created"
 
 vendor_o = Vendor.create(
   name: "Coffee Fellows",
-  address: "Friedrichstraße 204, 10117 Berlin",
+  address: "Charlottenstraße 55, 10117 Berlin",
   business: "cafe" ,
   phone: "" ,
   city: "Berlin" ,
@@ -234,7 +234,7 @@ puts "Vendor #{vendor_o.id} was created"
 
 vendor_p = Vendor.create(
   name: "Army Food",
-  address: "Mauerstraße 1, 10117 Berlin",
+  address: "Behrenstraße 18, 10117 Berlin",
   business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
@@ -248,7 +248,7 @@ puts "Vendor #{vendor_p.id} was created"
 
 vendor_q = Vendor.create(
   name: "Barbecue Grill",
-  address: "Mauerstraße 93, 10117 Berlin",
+  address: "Charlottenstraße 43, 10117 Berlin",
   business: "restaurant" ,
   phone: "" ,
   city: "Berlin" ,
@@ -262,7 +262,7 @@ puts "Vendor #{vendor_q.id} was created"
 
 vendor_r = Vendor.create(
   name: "BlackBox Café ",
-  address: "Friedrichstraße 47, 10117 Berlin",
+  address: "Jerusalemer Str. 10117 Berlin",
   business: "cafe",
   phone: "" ,
   city: "Berlin" ,
@@ -276,7 +276,7 @@ puts "Vendor #{vendor_r.id} was created"
 
 vendor_s = Vendor.create(
   name: "Vapiano",
-  address: "Friedrichstraße 50-55, 10117 Berlin",
+  address: "Hedwigskirchgasse 3, 10117 Berlin",
   business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
@@ -304,7 +304,7 @@ puts "Vendor #{vendor_t.id} was created"
 
 vendor_u = Vendor.create(
   name: "La Via del Muro",
-  address: "Mauerstraße 83-84, 10117 Berlin",
+  address: "Kronenstraße 66, 10117 Berlin",
   business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
@@ -346,7 +346,7 @@ puts "Vendor #{vendor_w.id} was created"
 
 vendor_x = Vendor.create(
   name: "Westberlin",
-  address: "Friedrichstraße 215, 10969 Berlin",
+  address: "Charlottenstraße 29, 10117 Berlin",
   business: "cafe",
   phone: "" ,
   city: "Berlin" ,
@@ -360,7 +360,7 @@ puts "Vendor #{vendor_x.id} was created"
 
 vendor_y = Vendor.create(
   name: "Nobelhart & Schmutzig",
-  address: "Friedrichstraße 218, 10969 Berlin",
+  address: "Wilhemstraße 24, 10963 Berlin",
   business: "restaurant",
   phone: "" ,
   city: "Berlin" ,
