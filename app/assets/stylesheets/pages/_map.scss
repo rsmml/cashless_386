@@ -2,10 +2,11 @@
   border-radius: 6px;
   z-index: 5;
   position: absolute;
-  height: 44px;
+  height: 48px;
   background-color: white;
   width: 96%;
   margin: 20px 2%;
+  box-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
 .search-bar-index{
   .input input{
@@ -38,7 +39,7 @@ input#query::placeholder {
     height: 228px;
     width: 95%;
     background-color: white;
-    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
     margin: 0 auto;
   }
 }
@@ -51,6 +52,8 @@ input#query::placeholder {
   img {
     height: 120px;
     width: 120px;
+    border: 1px solid $black;
+    border-radius: 50%;
   }
 }
 .vendor-on-map-card-information{
@@ -86,3 +89,5 @@ input#query::placeholder {
   justify-content: center;
   align-items: center;
 }
+
+
