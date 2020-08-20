@@ -58,7 +58,7 @@ const initMapbox = () => {
           const customMarker = document.createElement('div');
           customMarker.className = 'marker';
           customMarker.style.backgroundcolor = '#33658A';
-          customMarker.innerHTML = '<i class="fas fa-map-marker-alt" style="font-size: 25px"></i>'
+          customMarker.innerHTML = '<i class="fas fa-map-marker-alt" style="font-size: 36px"></i>'
           customMarker.style.color = "#33658A";
           new mapboxgl.Marker(customMarker)
             .setLngLat([ marker.lng, marker.lat ])
