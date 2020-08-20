@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.vendor = Vendor.find(params[:vendor_id])
     if @review.save
+      sleep(1)
       redirect_to dashboard_path(current_user)
     else
       render :new
