@@ -18,7 +18,7 @@
             <%= f.input :content, label: false, :placeholder => 'Or write something...' %>
           </div>
           <div class="send-btn-center">
-            <%= f.submit "Share", class: "btn btn-primary" %>
+            <%= f.submit "Share", class: "btn btn-primary", id: "share-review" %>
             <hr style="border: 0.1px solid rgba(0,0,0,0.15);width: 100%; margin: 20px 0 12px 0px;">
             <button type="button" class="btn btn-link skip-btn"><%= link_to 'Skip', dashboard_path(current_user) %></button>
           </div>
@@ -27,3 +27,4 @@
     </div>
   </div>
 </div>
+<%= javascript_pack_tag("reviewsalert") %>
