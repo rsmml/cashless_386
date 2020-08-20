@@ -10,7 +10,9 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(subscriber_params)
     authorize @subscriber
-    @subscriber.save
+    if @subscriber.save
+      redirect_to new_subscriber_path
+    end
   end
 
   private
