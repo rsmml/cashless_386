@@ -11,13 +11,15 @@
               <% ratings = [] %>
               <% vendor.reviews.each {|review| ratings << review.rating unless review.rating.nil?} %>
               <% stars = (ratings.reduce(:+).to_f / ratings.size).round(1) %>
-              <p ><%= stars %></p>
-              <% (stars.round(0)).times do  %>
-                <i class="fas fa-star" style="color: #ffa931" style="margin-bottom: 0"></i>
-              <% end %>
-              <% if stars % 1 != 0 %>
-                <i class="fa fa-star-half" style="color: #ffa931" aria-hidden="true"></i>
-              <% end %>
+              <p style="margin-right: 14px"><%= stars %></p>
+              <div>
+                <% (stars.round(0)).times do  %>
+                  <i class="fas fa-star" style="color: #ffa931" style="margin-bottom: 0"></i>
+                <% end %>
+                <% if stars % 1 != 0 %>
+                  <i class="fa fa-star-half" style="color: #ffa931" aria-hidden="true"></i>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -26,7 +28,10 @@
           <% closing = (vendor.closes.hour.to_s + vendor.closes.min.to_s).to_i %>
           <% current_time = (Time.now.hour.to_s + Time.now.min.to_s).to_i %>
           <% if current_time >= opening && current_time < closing %>
-           <p style="margin-bottom: 0">OPEN - Closes <%= vendor.closes.hour.to_s %>:<%= vendor.closes.min.to_s %></p>
+          <div class="d-flex">
+           <p style="margin-bottom: 0"><strong style="color: #7e5faa;margin-right: 6px;">OPEN</strong></p>
+           <p style="margin-bottom: 0"> - Closes <%= vendor.closes.hour.to_s %>:<%= vendor.closes.min.to_s %></p>
+          </div>
           <% else %>
             <p>CLOSED Open between <%= "#{vendor.opens.hour.to_s}:#{vendor.opens.min.to_s} - #{vendor.closes.hour.to_s}:#{vendor.closes.min.to_s}" %></p>
           <% end %>
@@ -35,7 +40,8 @@
 
       <div class="photo-vendor-on-map-card">
         <% if vendor.photo.attached?  %>
-          <%= cl_image_tag vendor.photo.key, height: 80, width: 80, crop: :fill %>
+          <%= cl_image_tag vendor.photo.key+".png", :width => 120, :height => 120,
+            :crop => :fill, :radius => 200, alt: "alttext" %>
         <% else %>
           <%= image_tag 'restaurant-logo', height: 80, width: 80, crop: :fill %>
          <% end %>
