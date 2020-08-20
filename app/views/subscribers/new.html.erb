@@ -4,7 +4,8 @@
     <p>Subscribe to our proptotype and get news when the app is released! Let’s move forward! Let's pay CASHLESS</p>
     <%= simple_form_for @subscriber do |f| %>
        <%= f.input :email, label: false, class: "subscriber-input", placeholder: "jacobwilliams@gmail.com" %>
-       <%= f.submit "Subscribe", class: "btn btn-primary subscribe-btn" %>
+       <%= f.submit "Subscribe", class: "btn btn-primary subscribe-btn", id: "subscribe-alert" %>
     <% end %>
   </div>
+  <%= javascript_pack_tag("subscribe_alert") %>
 </div>

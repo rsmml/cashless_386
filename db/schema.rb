@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_115302) do
     t.float "longitude"
     t.time "opens"
     t.time "closes"
+    t.string "ad"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
