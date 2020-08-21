@@ -17,5 +17,13 @@
       </div>
     </div>
   <% end %>
+<% else %>
+  <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+    <div class="d-flex align-items-center">
+      <i class="fas fa-exclamation-circle" style="color: rgba(0,0,0,0.7);margin-right: 12px;"></i>
+      <p style="margin: 0; color: rgba(0,0,0,0.7)">You haven’t paid with Cashless yet</p>
+    </div>
+    <p style="color: rgba(0,0,0,0.7);">Here you will see your transactions' history</p>
+  </div>
 <% end %>
 
