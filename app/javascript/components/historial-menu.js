@@ -9,7 +9,7 @@ const initHistorialMenuUp = () => {
     });
 
     document.querySelector('.fa-times').addEventListener('click',function(){
-      document.querySelector('.last-movements-container').style.height = "30vh";
+      document.querySelector('.last-movements-container').style.height = "37.8vh";
       document.querySelector('.btn-up-card').style.display = "flex";
       document.querySelector('.btn-down-card').style.display = "none";
     });
