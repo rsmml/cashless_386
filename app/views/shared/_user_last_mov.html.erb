@@ -1,4 +1,4 @@
-<% unless @transactions == [] %>
+<% if @transactions != [] %>
   <% @transactions.reverse_each do |transaction| %>
     <% if transaction.status != "pending" %>
       <div style="color:black;padding: 8px 16px;" class="d-flex">
