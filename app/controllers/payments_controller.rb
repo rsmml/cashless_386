@@ -46,17 +46,17 @@ class PaymentsController < ApplicationController
     @user = User.find(@bill.user.id)
   end
 
-  def create_customer
-    Stripe.api_key
-    token = params[:stripeToken]
+  # def create_customer
+  #   Stripe.api_key
+  #   token = params[:stripeToken]
 
-    Stripe::Customer.create({
-      source: token,
-      email: @bill.user.email,
-      name: @bill.user.name,
-      description: @bill.user,
-    })
-  end
+  #   Stripe::Customer.create({
+  #     source: token,
+  #     email: @bill.user.email,
+  #     name: @bill.user.name,
+  #     description: @bill.user,
+  #   })
+  # end
 
   def create_paymentintent
     Stripe.api_key
@@ -70,13 +70,18 @@ class PaymentsController < ApplicationController
     })
   end
 
-  def make_payment
-    Stripe::Charge.create({
-      amount: @bill.price_cents,
-      currency: 'eur',
-      description: @bill.vendor,
-      metadata: { bill_id: @bill.id },
-      customer: @user.stripe_id,
-    })
+  # def make_payment
+  #   Stripe::Charge.create({
+  #     amount: @bill.price_cents,
+  #     currency: 'eur',
+  #     description: @bill.vendor,
+  #     metadata: { bill_id: @bill.id },
+  #     customer: @user.stripe_id,
+  #   })
+  # end
+
+  def calculate_order_amount(_items)
+  # Replace this constant with a calculation of the order's amount
+    @bill.price_cents
   end
 end

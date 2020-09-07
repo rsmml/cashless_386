@@ -28,7 +28,7 @@ require("channels")
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { setupStripe } from '../plugins/init_checkout';
+// import { setupStripe } from '../plugins/init_checkout';
 import { initPlusMenuDashboard } from '../components/plus-menu';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initHistorialMenuUp } from '../components/historial-menu';
@@ -37,18 +37,19 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initSwipe } from '../components/swipe-btn';
 import { initExpandTipBtn } from '../components/expand-tip';
 import { initTipsCount } from '../components/tips-count';
+import { createPaymentIntents } from '../components/stripe-client';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initOptionsMenu();
   // initOptionsMenuClose();
   initMapbox();
-  setupStripe();
+  // setupStripe();
   initPlusMenuDashboard();
   initStarRating();
   initHistorialMenuUp();
   initSwipe();
   initExpandTipBtn();
   initTipsCount();
-
+  createPaymentIntents();
 });
