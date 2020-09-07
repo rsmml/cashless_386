@@ -58,6 +58,18 @@ class PaymentsController < ApplicationController
     })
   end
 
+  def create_paymentintent
+    Stripe.api_key
+
+    intent = Stripe::PaymentIntent.create({
+      amount: @bill.price_cents,
+      currency: 'eur',
+      payment_method_types: ['card'],
+      description: @bill.vendor,
+      metadata: { bill_id: @bill.id },
+    })
+  end
+
   def make_payment
     Stripe::Charge.create({
       amount: @bill.price_cents,
