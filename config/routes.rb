@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:sessions => 'sessions'}
 
   resources :user, only: :show do
-    resources :cards, only: %i[index new]
+    resources :cards, only: %i[index new create]
     resource :qrcode, only: [:show], module: 'user'
   end
 
