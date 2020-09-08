@@ -19,18 +19,18 @@ class PaymentsController < ApplicationController
     end
 
     # create a charge (kind of payment request) to send stripe
-    begin
-    @charge = make_payment
+    # begin
+    # @charge = make_payment
 
-    rescue Stripe::StripeError => e
-      @error = e
-      puts e
-      # erb :error
-    end
-
-    @bill.charge = @charge.id
-    @bill.status = @charge.status
-    @bill.save
+    # rescue Stripe::StripeError => e
+    #   @error = e
+    #   puts e
+    #   # erb :error
+    # end
+    create_paymentintent
+    # @bill.charge = @charge.id
+    # @bill.status = @charge.status
+    # @bill.save
 
     redirect_to new_vendor_review_path(@bill.vendor.id, bill: { id: @bill.id, status: @charge.status})
   end
@@ -46,6 +46,32 @@ class PaymentsController < ApplicationController
     @user = User.find(@bill.user.id)
   end
 
+  def create_paymentintent
+    Stripe.api_key
+
+    # an endpoint to start the payment process
+    post  bill_payments _path(@bill) do
+      content_type 'application/json'
+      data = JSON.parse(request.body.read)
+
+      # create a paymentIntent with amount and currency
+      payment_intent = Stripe::PaymentIntent.create(
+        amount: calculate_order_amount(data['items']),
+        currency: 'eur',
+        payment_method_types: ['card'],
+        description: @bill.vendor,
+        metadata: { bill_id: @bill.id },
+      )
+      {
+        clientSecret: payment_intent['client_sercret'],
+      }.to_json
+    end
+  end
+
+  def calculate_order_amount(_items)
+    @bill.price_cents
+  end
+
   # def create_customer
   #   Stripe.api_key
   #   token = params[:stripeToken]
@@ -58,18 +84,6 @@ class PaymentsController < ApplicationController
   #   })
   # end
 
-  def create_paymentintent
-    Stripe.api_key
-
-    intent = Stripe::PaymentIntent.create({
-      amount: @bill.price_cents,
-      currency: 'eur',
-      payment_method_types: ['card'],
-      description: @bill.vendor,
-      metadata: { bill_id: @bill.id },
-    })
-  end
-
   # def make_payment
   #   Stripe::Charge.create({
   #     amount: @bill.price_cents,
@@ -80,8 +94,4 @@ class PaymentsController < ApplicationController
   #   })
   # end
 
-  def calculate_order_amount(_items)
-  # Replace this constant with a calculation of the order's amount
-    @bill.price_cents
-  end
 end

@@ -37,7 +37,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initSwipe } from '../components/swipe-btn';
 import { initExpandTipBtn } from '../components/expand-tip';
 import { initTipsCount } from '../components/tips-count';
-import { createPaymentIntents } from '../components/stripe-client';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -51,5 +50,5 @@ document.addEventListener('turbolinks:load', () => {
   initSwipe();
   initExpandTipBtn();
   initTipsCount();
-  createPaymentIntents();
+
 });

@@ -1,5 +1,3 @@
-const createPaymentIntents = () => {
-
 var cardElement = document.getElementById('card-element');
 var stripeApi = cardElement.dataset.stripeApi;
 var stripe = Stripe(stripeApi);
@@ -13,7 +11,8 @@ var purchase = {
 
 // Disable the button until we have Stripe set up on the page
 document.querySelector("button").disabled = true;
-fetch(`/bills/${itemId}/payments`, {
+// fetch(`/bills/${itemId}/payments`, {
+fetch("/create-payment-intent", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -121,6 +120,3 @@ var loading = function(isLoading) {
     document.querySelector("#button-text").classList.remove("hidden");
   }
 };
-};
-
-export { createPaymentIntents };
